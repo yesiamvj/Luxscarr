@@ -2,21 +2,20 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/content_main"
+    android:id="@+id/activity_add_new_car"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.ulgebra.luxscar.MainActivity"
-    tools:showIn="@layout/app_bar_main">
-
-    <ScrollView style="@style/mama" >
+    tools:context="com.ulgebra.luxscarr.Cameara">
+    <ScrollView style="@style/mama">
         <LinearLayout style="@style/mpwc"
             android:orientation="vertical">
-            <LinearLayout style="@style/topTitleBar">
+            <LinearLayout style="@style/topTitleBar"
+                android:layout_marginTop="0dp">
 
                 <TextView
                     style="@style/topTitleText"
-                    android:text="Registration"
+                    android:text="Add a new Car"
                     />
                 <Button style="@style/topTitleShadow" />
 
@@ -29,7 +28,7 @@
 
                 <TextView
                     style="@style/mpwc"
-                    android:text="Welcome to LuxsCar"
+                    android:text="Car Details"
                     android:paddingTop="16dp"
                     android:paddingLeft="18dp"
                     android:layout_marginLeft="2dp"
@@ -55,8 +54,8 @@
 
                     <AutoCompleteTextView
                         style="@style/mpwc"
-                        android:id="@+id/reg_username"
-                        android:hint="Username"
+                        android:id="@+id/addCar_modelName"
+                        android:hint="Car Model name"
                         android:paddingLeft="10dp"
                         android:inputType="textEmailAddress"
                         android:maxLines="1"
@@ -69,10 +68,10 @@
 
                     <AutoCompleteTextView
                         style="@style/mpwc"
-                        android:id="@+id/reg_email"
-                        android:hint="Email"
+                        android:id="@+id/addCar_brandName"
+                        android:hint="Car Brand name"
                         android:paddingLeft="10dp"
-                        android:inputType="textEmailAddress"
+                        android:inputType="text"
                         android:maxLines="1"
                         android:singleLine="true" />
 
@@ -83,25 +82,10 @@
 
                     <AutoCompleteTextView
                         style="@style/mpwc"
-                        android:id="@+id/reg_mobile"
-                        android:hint="Mobile No"
+                        android:id="@+id/car_no"
+                        android:hint="Car number"
                         android:paddingLeft="10dp"
-                        android:inputType="number"
-                        android:maxLines="1"
-
-                        android:singleLine="true" />
-
-                </android.support.design.widget.TextInputLayout>
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <AutoCompleteTextView
-                        style="@style/mpwc"
-                        android:id="@+id/reg_licence_no"
-                        android:hint="Licence No"
-                        android:paddingLeft="10dp"
-                        android:inputType="textEmailAddress"
+                        android:inputType="text"
                         android:maxLines="1"
                         android:singleLine="true" />
 
@@ -112,53 +96,92 @@
 
                     <AutoCompleteTextView
                         style="@style/mpwc"
-                        android:id="@+id/reg_password"
-                        android:hint="Password"
+                        android:id="@+id/cost_per_day"
+                        android:hint="Rent Cost per day"
                         android:paddingLeft="10dp"
-                        android:inputType="textPassword"
+                        android:inputType="text"
                         android:maxLines="1"
                         android:singleLine="true" />
 
                 </android.support.design.widget.TextInputLayout>
-                <Button
-                    android:id="@+id/signup_btn"
+                <TextView
+                    style="@style/mpwc"
+                    android:text="Car Images"
+                    android:paddingTop="16dp"
+                    android:paddingLeft="20dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp"
+                    android:textSize="16dp"
+                    android:layout_marginBottom="10dp"
+                    android:textColor="@android:color/darker_gray"
+                    android:background="#ffffff"/>
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Sign Up"
+                    android:id="@+id/ji"
+                    android:orientation="vertical"
+                    android:background="#eeeeee"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    >
+                    <ImageView
+                        android:layout_width="250dp"
+                        android:layout_weight="1"
+                        android:layout_height="150dp"
+                        android:layout_marginLeft="2dp"
+                        android:id="@+id/dc"/>
+                </LinearLayout>
+                <Button
+                    android:id="@+id/hu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="+ Add Images"
+                    android:padding="10dp"
+                    android:background="#ffb515"
+                    android:textColor="#ffffff"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="20dp"
+
+                    />
+
+                <Switch
+                    android:id="@+id/visible_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="Show in List"
+                    android:textSize="16dp"
+                    android:paddingLeft="10dp"
+                    android:switchPadding="30dp"
+                    android:checked="true"
+                    android:textOn="Shown in the list"
+                    android:textOff="Hidden from the list"
+                    />
+
+                <Button
+                    android:id="@+id/upload_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Upload"
                     android:layout_marginBottom="10dp"
                     android:background="#FF00ACC1"
                     android:textColor="#ffffff"
                     android:textSize="17dp"
                     android:layout_marginTop="20dp"
                     android:onClick="goToOTP"
+
                     />
-                <TextView
-                   style="@style/mpwc"
-                    android:text="Or"
-                    android:gravity="center"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="5dp"
-                    android:layout_marginTop="25dp"
-                    android:layout_marginBottom="10dp"/>
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Login"
-                    android:layout_marginBottom="10dp"
-                    android:background="#00ffffff"
-                    android:textColor="#0d95cf"
-                    android:textSize="17dp"
-                    android:layout_marginTop="15dp"
-                    android:onClick="goToLogin"
-                    />
+
+
+
+
+
+
 
             </LinearLayout>
 
         </LinearLayout>
+
     </ScrollView>
-
-
-
-
-
 </LinearLayout>

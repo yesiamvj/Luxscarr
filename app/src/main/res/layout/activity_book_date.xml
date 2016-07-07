@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_book_date"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.ulgebra.luxscarr.BookDate"
+    android:orientation="vertical">
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+       style="@style/mpwc"
+        android:orientation="vertical"
+        android:background="#ffffff"
+        android:layout_margin="10dp">
+        <LinearLayout
+            style="@style/mpwc"
+            android:paddingTop="10dp">
+            <TextView
+                style="@style/mpwc"
+                android:text="Book Your Ride"
+                android:textSize="21dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_marginLeft="17dp"
+                android:layout_marginBottom="15dp"
+                android:layout_marginTop="10dp"/>
+        </LinearLayout>
+        <LinearLayout
+            style="@style/mpwc"
+            android:orientation="vertical"
+            android:background="#ffffff"
+            android:paddingTop="10dp"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            android:paddingBottom="20dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="From"
+                android:textSize="20dp"
+                android:layout_marginLeft="15dp"
+                android:textColor="@color/colorAccent"/>
+
+           <DatePicker
+               android:id="@+id/from_date"
+               android:layout_width="match_parent"
+               android:layout_height="150dp"
+               android:calendarViewShown="false"
+               android:calendarTextColor="@color/colorPrimaryDark"
+               android:clipToPadding="true"
+
+               android:datePickerMode="spinner"></DatePicker>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="To"
+                android:textSize="20dp"
+                android:layout_marginLeft="15dp"
+                android:textColor="@color/colorAccent"/>
+
+            <DatePicker
+                android:id="@+id/to_date"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:calendarViewShown="false"
+                android:datePickerMode="spinner"></DatePicker>
+
+            <Button
+                android:id="@+id/prcd_btn"
+                style="@style/mpwc"
+                android:text="PROCEED"
+                android:background="#00b8d4"
+                android:textColor="#ffffff"
+                android:layout_marginTop="15dp"
+                android:textSize="18dp"
+                android:layout_marginBottom="5dp"/>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</ScrollView>
+</LinearLayout>

@@ -1,0 +1,17 @@
+<LinearLayout style="@style/singleCar_container"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
+        android:orientation="vertical"
+        android:background="#ffffffff"
+        android:onClick="goToSingleCarDetail" style="@style/mpwc">
+        <TextView android:text="Audi VB Tuning"
+            style="@style/browse_car_name"
+            />
+        <TextView android:text="Rs.1000 / day"
+            style="@style/browse_car_price"
+            />
+        <ImageView android:src="@drawable/sample_car"
+            style="@style/browse_car_image" />
+    </LinearLayout>
+    <Button android:text="Select Car" android:onClick="goToConfirmBooking" style="@style/browse_car_selectBtn" />
+</LinearLayout>

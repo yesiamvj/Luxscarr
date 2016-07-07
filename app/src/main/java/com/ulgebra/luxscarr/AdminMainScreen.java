@@ -21,5 +21,9 @@ public class AdminMainScreen extends AppCompatActivity {
         Intent intent=new Intent(getApplicationContext(),Cars.class);
         startActivity(intent);
     }
+    public void goToAdminSearchBooking(View view){
+        Intent intent=new Intent(getApplicationContext(),SearchBooking.class);
+        startActivity(intent);
+    }
 
 }

@@ -2,21 +2,19 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/content_main"
+    android:id="@+id/activity_login_user"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.ulgebra.luxscar.MainActivity"
-    tools:showIn="@layout/app_bar_main">
-
+    tools:context="com.ulgebra.luxscarr.Login_user">
     <ScrollView style="@style/mama" >
         <LinearLayout style="@style/mpwc"
             android:orientation="vertical">
-            <LinearLayout style="@style/topTitleBar">
+            <LinearLayout style="@style/topTitleBar"
+                android:layout_marginTop="0dp">
 
                 <TextView
                     style="@style/topTitleText"
-                    android:text="Registration"
+                    android:text="Sign In"
                     />
                 <Button style="@style/topTitleShadow" />
 
@@ -41,7 +39,7 @@
             <LinearLayout
                 style="@style/mpwc"
                 android:orientation="vertical"
-                android:paddingTop="15dp"
+                android:paddingTop="25dp"
                 android:paddingLeft="15dp"
                 android:paddingRight="15dp"
                 android:background="#ffffff"
@@ -55,64 +53,24 @@
 
                     <AutoCompleteTextView
                         style="@style/mpwc"
-                        android:id="@+id/reg_username"
-                        android:hint="Username"
+                        android:id="@+id/login_username"
+                        android:hint="Email / Mobile No"
                         android:paddingLeft="10dp"
                         android:inputType="textEmailAddress"
                         android:maxLines="1"
                         android:singleLine="true" />
 
                 </android.support.design.widget.TextInputLayout>
+
+
+
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <AutoCompleteTextView
                         style="@style/mpwc"
-                        android:id="@+id/reg_email"
-                        android:hint="Email"
-                        android:paddingLeft="10dp"
-                        android:inputType="textEmailAddress"
-                        android:maxLines="1"
-                        android:singleLine="true" />
-
-                </android.support.design.widget.TextInputLayout>
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <AutoCompleteTextView
-                        style="@style/mpwc"
-                        android:id="@+id/reg_mobile"
-                        android:hint="Mobile No"
-                        android:paddingLeft="10dp"
-                        android:inputType="number"
-                        android:maxLines="1"
-
-                        android:singleLine="true" />
-
-                </android.support.design.widget.TextInputLayout>
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <AutoCompleteTextView
-                        style="@style/mpwc"
-                        android:id="@+id/reg_licence_no"
-                        android:hint="Licence No"
-                        android:paddingLeft="10dp"
-                        android:inputType="textEmailAddress"
-                        android:maxLines="1"
-                        android:singleLine="true" />
-
-                </android.support.design.widget.TextInputLayout>
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <AutoCompleteTextView
-                        style="@style/mpwc"
-                        android:id="@+id/reg_password"
+                        android:id="@+id/login_password"
                         android:hint="Password"
                         android:paddingLeft="10dp"
                         android:inputType="textPassword"
@@ -121,44 +79,55 @@
 
                 </android.support.design.widget.TextInputLayout>
                 <Button
-                    android:id="@+id/signup_btn"
+                    android:id="@+id/login_btn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Sign Up"
+                    android:text="Sign In"
                     android:layout_marginBottom="10dp"
                     android:background="#FF00ACC1"
                     android:textColor="#ffffff"
                     android:textSize="17dp"
                     android:layout_marginTop="20dp"
-                    android:onClick="goToOTP"
+                    />
+                <Button
+
+                    android:id="@+id/frgt_pass_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Forgot Password ?     "
+                    android:layout_marginBottom="10dp"
+                    android:background="#00ffffff"
+                    android:textColor="#bf360c"
+                    android:textSize="17dp"
+                    android:layout_marginTop="15dp"
+                    android:gravity="end|center"
+                    android:textAllCaps="false"
                     />
                 <TextView
-                   style="@style/mpwc"
+                    style="@style/mpwc"
                     android:text="Or"
                     android:gravity="center"
                     android:paddingTop="5dp"
                     android:paddingBottom="5dp"
                     android:layout_marginTop="25dp"
                     android:layout_marginBottom="10dp"/>
+
                 <Button
+                    android:id="@+id/sign_up_btn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Login"
+                    android:text="Sign Up"
                     android:layout_marginBottom="10dp"
                     android:background="#00ffffff"
                     android:textColor="#0d95cf"
                     android:textSize="17dp"
                     android:layout_marginTop="15dp"
-                    android:onClick="goToLogin"
+                    android:onClick="goToSignUp"
                     />
 
             </LinearLayout>
 
         </LinearLayout>
     </ScrollView>
-
-
-
-
 
 </LinearLayout>

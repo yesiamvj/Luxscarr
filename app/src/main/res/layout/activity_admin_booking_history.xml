@@ -7,15 +7,24 @@
     android:layout_height="match_parent"
     tools:context="com.ulgebra.luxscarr.AdminBookingHistory">
     <ScrollView style="@style/mama">
-        <LinearLayout android:orientation="vertical" android:padding="7.0dip" style="@style/mpwc">
-            <LinearLayout android:orientation="vertical" android:onClick="goToBookingDetails" style="@style/mpwc">
+        <LinearLayout  style="@style/mpwc" android:orientation="vertical">
+        <LinearLayout android:orientation="vertical" android:layout_marginTop="0.0dip" style="@style/topTitleBar">
+            <TextView android:textSize="20.0dip" android:textColor="@color/colorPrimary" android:text="Booking Timeline" style="@style/topTitleText" />
+            <Button style="@style/topTitleShadow" />
+        </LinearLayout>
+            <LinearLayout style="@style/mpwc">
+                <TextView android:paddingLeft="18.0dip" android:paddingTop="5.0dip" android:paddingBottom="10.0dip" android:text="Click to View / Edit" style="@style/mpwc" />
+            </LinearLayout>
+        <LinearLayout android:orientation="vertical" style="@style/mpwc" android:padding="10dp"  >
+
+            <LinearLayout android:orientation="vertical" android:onClick="goToBookingDetails" android:layout_marginBottom="5dp" style="@style/mpwc">
                 <LinearLayout style="@style/mpwcvw">
                     <TextView style="@style/bookingHistory_ID"
                         android:text="Booking No : #2789"
                         android:background="#65009f"
                         android:textColor="#ffffff"
                         />
-                    <Button style="@style/topTitleShadow" />
+                    <Button style="@style/topTitleShadow" android:background="#65009f" />
 
                     <TextView style="@style/bookingHistory_carDate"
                         android:text="RaviKumar"
@@ -42,14 +51,14 @@
                 <Button style="@style/topTitleShadow" />
             </LinearLayout>
 
-            <LinearLayout android:orientation="vertical" android:onClick="goToBookingDetails" style="@style/mpwc">
+            <LinearLayout android:orientation="vertical" android:onClick="goToBookingDetails" style="@style/mpwc" android:layout_marginBottom="5dp">
                 <LinearLayout style="@style/mpwcvw">
                     <TextView style="@style/bookingHistory_ID"
                         android:text="Cancellation Booking No : #2789"
                         android:background="#b71c1c"
                         android:textColor="#ffffff"
                         />
-                    <Button style="@style/topTitleShadow" />
+                    <Button style="@style/topTitleShadow" android:background="#b71c1c" />
 
                     <TextView style="@style/bookingHistory_carDate"
                         android:text="RaviKumar"
@@ -74,14 +83,14 @@
                 <Button style="@style/topTitleShadow" />
             </LinearLayout>
 
-            <LinearLayout android:orientation="vertical" android:onClick="goToBookingDetails" style="@style/mpwc">
+            <LinearLayout android:orientation="vertical" android:onClick="goToBookingDetails" style="@style/mpwc" android:layout_marginBottom="5dp">
                 <LinearLayout style="@style/mpwcvw">
                     <TextView style="@style/bookingHistory_ID"
                         android:text="Edited Booking No : #2789"
                         android:background="#00838f"
                         android:textColor="#ffffff"
                         />
-                    <Button style="@style/topTitleShadow" />
+                    <Button style="@style/topTitleShadow" android:background="#00838f"/>
 
                     <TextView style="@style/bookingHistory_carDate"
                         android:text="RaviKumar"
@@ -108,7 +117,7 @@
                 <Button style="@style/topTitleShadow" />
             </LinearLayout>
 
-
+        </LinearLayout>
         </LinearLayout>
     </ScrollView>
 </android.support.constraint.ConstraintLayout>

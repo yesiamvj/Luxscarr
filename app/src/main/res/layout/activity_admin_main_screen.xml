@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.ulgebra.luxscarr.AdminMainScreen">
-    <?xml version='1.0' encoding='utf-8' ?>
+
        <ScrollView style="@style/mama">
             <LinearLayout android:orientation="vertical" android:paddingBottom="10.0dip" style="@style/mpwc">
                 <LinearLayout android:orientation="vertical" android:layout_marginTop="0.0dip" style="@style/topTitleBar">
@@ -14,7 +14,7 @@
                     <Button style="@style/topTitleShadow" />
                 </LinearLayout>
                 <LinearLayout style="@style/mpwc">
-                    <TextView android:paddingLeft="18.0dip" android:paddingTop="5.0dip" android:paddingBottom="5dip" android:text="Welcome to LuxsCar" style="@style/mpwc" />
+                    <TextView android:paddingLeft="18.0dip" android:paddingTop="5.0dip" android:paddingBottom="8dip" android:text="Welcome to LuxsCar" style="@style/mpwc" />
                 </LinearLayout>
                 <LinearLayout style="@style/mpwc"
                     android:orientation="vertical"
@@ -39,7 +39,7 @@
                                 android:paddingLeft="10dp"
                                 android:paddingRight="10dp"
                                 android:paddingBottom="5dp"
-                                android:paddingTop="10dp"
+                                android:paddingTop="20dp"
                                 />
                             <Button
                                 android:layout_width="match_parent"
@@ -55,6 +55,7 @@
                             android:orientation="vertical"
                             android:layout_marginRight="0dp"
                             android:layout_marginLeft="5dp"
+                            android:onClick="goToAdminBrowseCars"
                             >
                             <ImageView
                                 android:layout_width="match_parent"
@@ -94,7 +95,7 @@
                                 android:paddingLeft="20dp"
                                 android:paddingRight="20dp"
                                 android:paddingBottom="15dp"
-                                android:paddingTop="30dp"
+                                android:paddingTop="40dp"
                                 />
                             <Button
                                 android:layout_width="match_parent"
@@ -111,6 +112,7 @@
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
                             android:layout_marginLeft="5dp"
+                            android:onClick="goToAdminSearchBooking"
                             >
                             <ImageView
                                 android:layout_width="match_parent"

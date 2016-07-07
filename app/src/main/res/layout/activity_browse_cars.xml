@@ -12,22 +12,13 @@
             <LinearLayout style="@style/mpwc">
                 <TextView android:paddingLeft="18.0dip" android:paddingTop="10.0dip" android:text="Select a Car from the List" style="@style/mpwc" />
             </LinearLayout>
-            <LinearLayout style="@style/singleCar_container">
-                <LinearLayout android:orientation="vertical" android:background="#ffffffff" android:onClick="goToSingleCarDetail" style="@style/mpwc">
-                    <TextView android:text="Audi VB Tuning" style="@style/browse_car_name" />
-                    <TextView android:text="Rs.1000 / day" style="@style/browse_car_price" />
-                    <ImageView android:src="@drawable/sample_car" style="@style/browse_car_image" />
-                </LinearLayout>
-                <Button android:text="Select Car" android:onClick="goToConfirmBooking" style="@style/browse_car_selectBtn" />
-            </LinearLayout>
-            <LinearLayout style="@style/singleCar_container">
-                <LinearLayout android:orientation="vertical" android:background="#ffffffff" style="@style/mpwc">
-                    <TextView android:text="Audi VB Tuning" style="@style/browse_car_name" />
-                    <TextView android:text="Rs.1000 / day" style="@style/browse_car_price" />
-                    <ImageView android:src="@drawable/sample_car" style="@style/browse_car_image" />
-                </LinearLayout>
-                <Button android:text="Select Car" style="@style/browse_car_selectBtn" />
-            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/all_car_list"
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="wrap_content"></LinearLayout>
+
         </LinearLayout>
     </ScrollView>
 </android.support.constraint.ConstraintLayout>

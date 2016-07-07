@@ -110,7 +110,7 @@ public class Cars extends AppCompatActivity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            if(getArguments().getInt(ARG_SECTION_NUMBER)==0){
+            if(getArguments().getInt(ARG_SECTION_NUMBER)==1){
                 return inflater.inflate(R.layout.activity_admin_shown_cars, container, false);
             }
             else{

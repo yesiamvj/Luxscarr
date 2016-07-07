@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.ulgebra.luxscarr.AdminHiddenCars">
-    <ScrollView style="@style/mama">
+    <ScrollView style="@style/mama" android:paddingBottom="100dp">
         <LinearLayout android:orientation="vertical" android:paddingBottom="10.0dip" style="@style/mpwc">
 
             <LinearLayout style="@style/mpwc">

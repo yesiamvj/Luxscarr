@@ -1,22 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/content_main"
+    android:id="@+id/activity_forgot_pass_step1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.ulgebra.luxscar.MainActivity"
-    tools:showIn="@layout/app_bar_main">
-
+    tools:context="com.ulgebra.luxscarr.ForgotPassStep1">
     <ScrollView style="@style/mama" >
         <LinearLayout style="@style/mpwc"
             android:orientation="vertical">
-            <LinearLayout style="@style/topTitleBar">
+            <LinearLayout style="@style/topTitleBar"
+                android:layout_marginTop="0dp">
 
                 <TextView
                     style="@style/topTitleText"
-                    android:text="Registration"
+                    android:text="Forgot Password"
                     />
                 <Button style="@style/topTitleShadow" />
 
@@ -41,7 +39,7 @@
             <LinearLayout
                 style="@style/mpwc"
                 android:orientation="vertical"
-                android:paddingTop="15dp"
+                android:paddingTop="25dp"
                 android:paddingLeft="15dp"
                 android:paddingRight="15dp"
                 android:background="#ffffff"
@@ -55,101 +53,49 @@
 
                     <AutoCompleteTextView
                         style="@style/mpwc"
-                        android:id="@+id/reg_username"
-                        android:hint="Username"
+                        android:id="@+id/frgt_email"
+                        android:hint="Email / Mobile No"
                         android:paddingLeft="10dp"
                         android:inputType="textEmailAddress"
                         android:maxLines="1"
                         android:singleLine="true" />
 
                 </android.support.design.widget.TextInputLayout>
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
 
-                    <AutoCompleteTextView
-                        style="@style/mpwc"
-                        android:id="@+id/reg_email"
-                        android:hint="Email"
-                        android:paddingLeft="10dp"
-                        android:inputType="textEmailAddress"
-                        android:maxLines="1"
-                        android:singleLine="true" />
 
-                </android.support.design.widget.TextInputLayout>
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
 
-                    <AutoCompleteTextView
-                        style="@style/mpwc"
-                        android:id="@+id/reg_mobile"
-                        android:hint="Mobile No"
-                        android:paddingLeft="10dp"
-                        android:inputType="number"
-                        android:maxLines="1"
 
-                        android:singleLine="true" />
-
-                </android.support.design.widget.TextInputLayout>
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <AutoCompleteTextView
-                        style="@style/mpwc"
-                        android:id="@+id/reg_licence_no"
-                        android:hint="Licence No"
-                        android:paddingLeft="10dp"
-                        android:inputType="textEmailAddress"
-                        android:maxLines="1"
-                        android:singleLine="true" />
-
-                </android.support.design.widget.TextInputLayout>
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <AutoCompleteTextView
-                        style="@style/mpwc"
-                        android:id="@+id/reg_password"
-                        android:hint="Password"
-                        android:paddingLeft="10dp"
-                        android:inputType="textPassword"
-                        android:maxLines="1"
-                        android:singleLine="true" />
-
-                </android.support.design.widget.TextInputLayout>
                 <Button
-                    android:id="@+id/signup_btn"
+                    android:id="@+id/subt_email_btn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Sign Up"
+                    android:text="Proceed"
                     android:layout_marginBottom="10dp"
                     android:background="#FF00ACC1"
                     android:textColor="#ffffff"
                     android:textSize="17dp"
                     android:layout_marginTop="20dp"
-                    android:onClick="goToOTP"
                     />
+
                 <TextView
-                   style="@style/mpwc"
+                    style="@style/mpwc"
                     android:text="Or"
                     android:gravity="center"
                     android:paddingTop="5dp"
                     android:paddingBottom="5dp"
                     android:layout_marginTop="25dp"
                     android:layout_marginBottom="10dp"/>
+
                 <Button
+                    android:id="@+id/goto_signin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Login"
+                    android:text="Sign In"
                     android:layout_marginBottom="10dp"
                     android:background="#00ffffff"
                     android:textColor="#0d95cf"
                     android:textSize="17dp"
                     android:layout_marginTop="15dp"
-                    android:onClick="goToLogin"
                     />
 
             </LinearLayout>
@@ -157,8 +103,4 @@
         </LinearLayout>
     </ScrollView>
 
-
-
-
-
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>
