@@ -12,4 +12,6 @@
         <item>Cancelled Trip</item>
         <item>Other</item>
     </string-array>
+    <string name="title_activity_cars">Cars</string>
+    <string name="section_format">Hello World from section: %1$d</string>
 </resources>

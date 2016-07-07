@@ -30,7 +30,16 @@
         <activity android:name=".AdminShownCars" />
         <activity android:name=".AdminHiddenCars" />
         <activity android:name=".AdminBookingHistory" />
-        <activity android:name=".AdminMainScreen"></activity>
+        <activity android:name=".AdminMainScreen" />
+        <activity
+            android:name=".Cars"
+            android:label="@string/title_activity_cars"
+            android:parentActivityName=".AdminMainScreen"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.ulgebra.luxscarr.AdminMainScreen" />
+        </activity>
     </application>
 
 </manifest>

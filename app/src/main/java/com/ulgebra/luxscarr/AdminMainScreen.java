@@ -1,7 +1,9 @@
 package com.ulgebra.luxscarr;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 
 public class AdminMainScreen extends AppCompatActivity {
 
@@ -10,4 +12,14 @@ public class AdminMainScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_main_screen);
     }
+    public void goToAdminBooking(View view){
+        Intent intent=new Intent(getApplicationContext(),AdminBookingHistory.class);
+        startActivity(intent);
+    }
+
+    public void goToAdminBrowseCars(View view){
+        Intent intent=new Intent(getApplicationContext(),Cars.class);
+        startActivity(intent);
+    }
+
 }
