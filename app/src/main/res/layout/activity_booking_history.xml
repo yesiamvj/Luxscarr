@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/activity_booking_history" android:layout_width="fill_parent" android:layout_height="fill_parent">
+    <ScrollView style="@style/mama">
+        <LinearLayout android:orientation="vertical" android:padding="7.0dip" style="@style/mpwc">
+            <LinearLayout android:orientation="vertical" android:onClick="goToBookingDetails" style="@style/mpwc">
+                <LinearLayout style="@style/mpwcvw">
+                    <TextView android:text="Booking No : #2789" style="@style/bookingHistory_ID" />
+                    <Button style="@style/topTitleShadow" />
+                    <TextView android:text="10.6.17 to 12.6.17" style="@style/bookingHistory_carDate" />
+                    <TextView android:text="Toyoto Innova" style="@style/bookingHistory_carName" />
+                    <TextView android:text="Click to View / Edit  " style="@style/bookingHistory_edit" />
+                </LinearLayout>
+                <Button style="@style/topTitleShadow" />
+            </LinearLayout>
+            <LinearLayout android:orientation="vertical" android:onClick="goToBookingDetails" style="@style/mpwc">
+                <LinearLayout style="@style/mpwcvw">
+                    <TextView android:text="Booking No : #2789" style="@style/bookingHistory_ID" />
+                    <Button style="@style/topTitleShadow" />
+                    <TextView android:text="10.6.17 to 12.6.17" style="@style/bookingHistory_carDate" />
+                    <TextView android:text="Toyoto Innova" style="@style/bookingHistory_carName" />
+                    <TextView android:text="Click to View / Edit  " style="@style/bookingHistory_edit" />
+                </LinearLayout>
+                <Button style="@style/topTitleShadow" />
+            </LinearLayout>
+            <LinearLayout android:orientation="vertical" android:onClick="goToBookingDetails" style="@style/mpwc">
+                <LinearLayout style="@style/mpwcvw">
+                    <TextView android:text="Booking No : #2789" style="@style/bookingHistory_ID" />
+                    <Button style="@style/topTitleShadow" />
+                    <TextView android:text="10.6.17 to 12.6.17" style="@style/bookingHistory_carDate" />
+                    <TextView android:text="Toyoto Innova" style="@style/bookingHistory_carName" />
+                    <TextView android:text="Click to View / Edit  " style="@style/bookingHistory_edit" />
+                </LinearLayout>
+                <Button style="@style/topTitleShadow" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</android.support.constraint.ConstraintLayout>

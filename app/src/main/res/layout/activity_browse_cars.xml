@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/activity_browse_cars" android:layout_width="fill_parent" android:layout_height="fill_parent">
+    <ScrollView style="@style/mama">
+        <LinearLayout android:orientation="vertical" android:paddingBottom="10.0dip" style="@style/mpwc">
+            <LinearLayout android:orientation="vertical" android:layout_marginTop="0.0dip" style="@style/topTitleBar">
+                <TextView android:textSize="20.0dip" android:textColor="@color/colorPrimary" android:text="List of Cars Available" style="@style/topTitleText" />
+                <Button style="@style/topTitleShadow" />
+            </LinearLayout>
+            <LinearLayout style="@style/mpwc">
+                <TextView android:id="@+id/BrowseCarsDateText" android:text="On 10.5.15 to 11.10.15" style="@style/browse_car_dateText" />
+            </LinearLayout>
+            <LinearLayout style="@style/mpwc">
+                <TextView android:paddingLeft="18.0dip" android:paddingTop="10.0dip" android:text="Select a Car from the List" style="@style/mpwc" />
+            </LinearLayout>
+            <LinearLayout style="@style/singleCar_container">
+                <LinearLayout android:orientation="vertical" android:background="#ffffffff" android:onClick="goToSingleCarDetail" style="@style/mpwc">
+                    <TextView android:text="Audi VB Tuning" style="@style/browse_car_name" />
+                    <TextView android:text="Rs.1000 / day" style="@style/browse_car_price" />
+                    <ImageView android:src="@drawable/sample_car" style="@style/browse_car_image" />
+                </LinearLayout>
+                <Button android:text="Select Car" android:onClick="goToConfirmBooking" style="@style/browse_car_selectBtn" />
+            </LinearLayout>
+            <LinearLayout style="@style/singleCar_container">
+                <LinearLayout android:orientation="vertical" android:background="#ffffffff" style="@style/mpwc">
+                    <TextView android:text="Audi VB Tuning" style="@style/browse_car_name" />
+                    <TextView android:text="Rs.1000 / day" style="@style/browse_car_price" />
+                    <ImageView android:src="@drawable/sample_car" style="@style/browse_car_image" />
+                </LinearLayout>
+                <Button android:text="Select Car" style="@style/browse_car_selectBtn" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</android.support.constraint.ConstraintLayout>
