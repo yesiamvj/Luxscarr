@@ -29,7 +29,8 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".AdminShownCars" />
         <activity android:name=".AdminHiddenCars" />
-        <activity android:name=".AdminBookingHistory"></activity>
+        <activity android:name=".AdminBookingHistory" />
+        <activity android:name=".AdminMainScreen"></activity>
     </application>
 
 </manifest>
