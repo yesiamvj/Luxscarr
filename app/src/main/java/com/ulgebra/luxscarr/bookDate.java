@@ -35,13 +35,13 @@ public class BookDate extends AppCompatActivity {
                 int to_day = to_date_pic.getDayOfMonth();
                 int tomonth = to_date_pic.getMonth() + 1;
                 int to_year = to_date_pic.getYear();
-                Bundle bunsz=new Bundle();
-                bunsz.putInt("frm_day",frm_day);
-                bunsz.putInt("frm_mnth",frm_month);
-                bunsz.putInt("frm_year",frm_year);
-                bunsz.putInt("to_day",to_day);
-                bunsz.putInt("to_mnth",tomonth);
-                bunsz.putInt("to_year",to_year);
+                Intent intsz=new Intent(getApplicationContext(),Check_listview.class);
+                intsz.putExtra("frm_day",frm_day);
+                intsz.putExtra("frm_mnth",frm_month);
+                intsz.putExtra("frm_year",frm_year);
+                intsz.putExtra("to_day",to_day);
+                intsz.putExtra("to_mnth",tomonth);
+                intsz.putExtra("to_year",to_year);
 
 
                 int grt=0;
@@ -79,8 +79,7 @@ if(grt==1){
 
     Snackbar.make(v,"Please Select valid dates",Snackbar.LENGTH_LONG).show();
 }else {
-    Intent intsz=new Intent(getApplicationContext(),BrowseCars.class);
-    intsz.putExtras(bunsz);
+
     startActivity(intsz);
 }
 

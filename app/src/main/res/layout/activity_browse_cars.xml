@@ -1,5 +1,12 @@
 <?xml version='1.0' encoding='utf-8' ?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/activity_browse_cars" android:layout_width="fill_parent" android:layout_height="fill_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_book_date"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.ulgebra.luxscarr.BrowseCars"
+    android:orientation="vertical">
     <ScrollView style="@style/mama">
         <LinearLayout android:orientation="vertical" android:paddingBottom="10.0dip" style="@style/mpwc">
             <LinearLayout android:orientation="vertical" android:layout_marginTop="0.0dip" style="@style/topTitleBar">
@@ -7,18 +14,19 @@
                 <Button style="@style/topTitleShadow" />
             </LinearLayout>
             <LinearLayout style="@style/mpwc">
-                <TextView android:id="@+id/BrowseCarsDateText" android:text="On 10.5.15 to 11.10.15" style="@style/browse_car_dateText" />
+                <TextView android:id="@+id/BrowseCarsDateText" android:text="On x Date to y Date" style="@style/browse_car_dateText" />
             </LinearLayout>
             <LinearLayout style="@style/mpwc">
                 <TextView android:paddingLeft="18.0dip" android:paddingTop="10.0dip" android:text="Select a Car from the List" style="@style/mpwc" />
             </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/all_car_list"
+            <ListView
+                android:id="@+id/list_hold"
                 android:layout_width="match_parent"
-                android:orientation="vertical"
-                android:layout_height="wrap_content"></LinearLayout>
+                android:layout_height="match_parent">
+
+            </ListView>
 
         </LinearLayout>
     </ScrollView>
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>
