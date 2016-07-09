@@ -1,6 +1,9 @@
 package com.ulgebra.luxscarr;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
@@ -29,6 +32,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
+import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
@@ -40,13 +44,14 @@ public class BrowseCars extends AppCompatActivity {
 
     TextView from_to_inp;
     ListView lin;
-
+    LinearLayout linearLayout;
     public ArrayList<Car_lists> parents;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_browse_cars);
 
+        linearLayout=(LinearLayout)findViewById(R.id.list_hold);
         Bundle buns=getIntent().getExtras();
        int frm_day= buns.getInt("frm_day");
        int frm_month= buns.getInt("frm_mnth");
@@ -63,12 +68,6 @@ public class BrowseCars extends AppCompatActivity {
         final String sel_url="http://luxscar.com/luxscar_app/view_avl_cars.php";
 
         new LongOperation().execute(sel_url);
-
-
-
-
-
-
 
 
 
@@ -170,31 +169,7 @@ public class BrowseCars extends AppCompatActivity {
             return null;
         }
 
-        private void loadHosts(final ArrayList<Car_lists> newParents)
-        {
-            if (newParents == null){
-                Log.i("net_err", "lh returned");
-                return;
-            }else{
-                Log.i("net_err","lh ok");
-            }
 
-
-
-            parents = newParents;
-            Log.i("net_err","lv");
-            // Check for ExpandableListAdapter object
-             lin=(ListView) findViewById(R.id.list_hold);
-
-            Log.i("net_err","fea");
-            final MyExpandableListAdapter mAdapter = new MyExpandableListAdapter();
-            Log.i("net_err","seta");
-            // Set Adapter to ExpandableList Adapter
-
-            lin.setAdapter(mAdapter);
-
-            Log.i("net_err", "seta ok");
-        }
         protected void onPostExecute(Void unused) {
             // NOTE: You can call UI Element here.
 
@@ -244,9 +219,11 @@ public class BrowseCars extends AppCompatActivity {
                         String name       = jsonChildNode.optString("car_name").toString();
                         String cost_car     = jsonChildNode.optString("cost").toString();
                         String car_images = jsonChildNode.optString("car_image").toString();
+                        int car_id =jsonChildNode.optInt("car_id");
                         mp.set_carname(name);
                         mp.setCar_cost(cost_car);
                         mp.setCar_image(car_images);
+                        mp.setCar_id(car_id);
 
                         lists.add(mp);
 
@@ -276,69 +253,116 @@ public class BrowseCars extends AppCompatActivity {
 
     }
 
-    private class MyExpandableListAdapter extends BaseAdapter {
 
-
-        @Override
-        public int getCount() {
-            return parents.size();
+    public void loadHosts(final ArrayList<Car_lists> newParents)
+    {
+        if (newParents == null){
+            Log.i("net_err", "lh returned");
+            return;
+        }else{
+            Log.i("net_err","lh ok");
         }
 
-        @Override
-        public Object getItem(int position) {
-            return parents.get(position);
-        }
-
-        @Override
-        public long getItemId(int position) {
-            //***** When Child row clicked then this function call ******
-
-            //Log.i("Noise", "parent == "+groupPosition+"=  child : =="+childPosition);
-
-            return position;
-        }
-
-        @Override
-
-        public View getView(int groupPosition, View conView, ViewGroup parent) {
-
-            final Car_lists my_parent = parents.get(groupPosition);
-
-            LayoutInflater inflater = LayoutInflater.from(getApplicationContext());
-            conView = inflater.inflate(R.layout.sigle_car_container, parent,false);
-            Holder h = new Holder();
-            conView.setTag(h);
-            h.car_name_inp = (TextView) conView.findViewById(R.id.car_name);
-            h.cost_inp = (TextView) conView.findViewById(R.id.car_cost);
-            h.selc_car=(Button)conView.findViewById(R.id.selc_car);
 
 
-            //h.car_name_inp.setText(my_parent.getCar_name());
-           // h.cost_inp.setText(my_parent.getCar_cost());
-            URL myUrl = null;
-            try {
-                myUrl = new URL("http://luxscar.com/luxscar_app/"+my_parent.getCar_image());
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
+        parents = newParents;
+
+
+            for(int i=0;i<parents.size();i++){
+                final Car_lists my_parent=parents.get(i);
+                View vi=LayoutInflater.from(this).inflate(R.layout.sigle_car_container,null);
+
+                TextView car_name=(TextView)vi.findViewById(R.id.car_name);
+                TextView car_cost=(TextView)vi.findViewById(R.id.car_cost);
+                ImageView car_image=(ImageView)vi.findViewById(R.id.car_image);
+                LinearLayout ln=(LinearLayout)vi.findViewById(R.id.single_car);
+                Button selt_car=(Button)vi.findViewById(R.id.selc_car);
+
+                selt_car.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent=new Intent(getApplicationContext(),BookingDetails.class);
+
+                        Bundle buns=getIntent().getExtras();
+                        int frm_day= buns.getInt("frm_day");
+                        int frm_month= buns.getInt("frm_mnth");
+                        int frm_year= buns.getInt("frm_year");
+                        int to_day= buns.getInt("to_day");
+                        int tomonth=buns.getInt("to_mnth");
+                        int to_year=buns.getInt("to_year");
+
+
+                        intent.putExtra("frm_day",frm_day);
+                        intent.putExtra("frm_mnth",frm_month);
+                        intent.putExtra("frm_year",frm_year);
+                        intent.putExtra("to_day",to_day);
+                        intent.putExtra("to_mnth",tomonth);
+                        intent.putExtra("to_year",to_year);
+                        intent.putExtra("car_id",my_parent.getCar_id());
+
+                        startActivity(intent);
+                    }
+                });
+
+                ln.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent=new Intent(getApplicationContext(),SingleCarDetail.class);
+                        intent.putExtra("car_id",my_parent.getCar_id());
+
+                        startActivity(intent);
+
+
+                    }
+                });
+
+                car_name.setText(my_parent.getCar_name());
+                car_cost.setText("RS. "+my_parent.getCar_cost()+" / per day");
+
+
+                new ImageLoadTask("http://luxscar.com/luxscar_app/"+my_parent.getCar_image(), car_image).execute();
+
+        linearLayout.addView(vi);
+
             }
-            InputStream inputStream = null;
-            try {
-                inputStream = (InputStream)myUrl.getContent();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            Drawable drawable = Drawable.createFromStream(inputStream, null);
-          //  h.car_image_inp.setImageDrawable(drawable);
 
-            return conView;
 
-        }
-
-        public class Holder {
-            TextView car_name_inp,cost_inp,image_inp;
-            Button selc_car;
-            ImageView car_image_inp;
-
-        }
     }
+
+    public class ImageLoadTask extends AsyncTask<Void, Void, Bitmap> {
+
+        private String url;
+        private ImageView imageView;
+
+        public ImageLoadTask(String url, ImageView imageView) {
+            this.url = url;
+            this.imageView = imageView;
+        }
+
+        @Override
+        protected Bitmap doInBackground(Void... params) {
+            try {
+                URL urlConnection = new URL(url);
+                HttpURLConnection connection = (HttpURLConnection) urlConnection
+                        .openConnection();
+                connection.setDoInput(true);
+                connection.connect();
+                InputStream input = connection.getInputStream();
+                Bitmap myBitmap = BitmapFactory.decodeStream(input);
+                return myBitmap;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Bitmap result) {
+            super.onPostExecute(result);
+            imageView.setImageBitmap(result);
+        }
+
+    }
+
+
 }

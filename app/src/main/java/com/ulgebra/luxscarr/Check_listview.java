@@ -234,7 +234,7 @@ public class Check_listview extends Activity
                         String name       = jsonChildNode.optString("car_name").toString();
                         String cost     = jsonChildNode.optString("cost").toString();
                         String c_image = jsonChildNode.optString("car_image").toString();
-                        String car_id=jsonChildNode.optString("car_id").toString();
+                        int car_id=jsonChildNode.optInt("car_id");
                         mp.set_carname(name);
                         mp.setCar_cost(cost);
                         mp.setCar_id(car_id);
@@ -312,16 +312,7 @@ public class Check_listview extends Activity
             h.selc_car_inp=(Button)conView.findViewById(R.id.selc_car);
             h.car_image_inp=(ImageView)conView.findViewById(R.id.car_image);
 
-          h.selc_car_inp.setOnClickListener(new View.OnClickListener() {
-              @Override
-              public void onClick(View v) {
-                  Bundle bunm=new Bundle();
-                  bunm.putString("car_id",my_parent.getCar_id());
-                  Intent ints=new Intent(getApplicationContext(),BookingDetails.class);
-                  ints.putExtras(bunm);
-                  startActivity(ints);
-              }
-          });
+
 
             h.car_name_inp.setText(my_parent.getCar_name());
              h.cost_inp.setText(my_parent.getCar_cost());

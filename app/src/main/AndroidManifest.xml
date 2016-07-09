@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ulgebra.luxscarr">
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
@@ -36,16 +37,18 @@
         <activity android:name=".Activate_Account" />
         <activity android:name=".File_Upload" />
         <activity android:name=".AddNewCar" />
-        <activity android:name=".Cameara"></activity>
+        <activity android:name=".Cameara" />
         <activity android:name=".BookingDetails" />
         <activity android:name=".BookingHistory" />
-        <activity android:name=".BrowseCars" android:parentActivityName=".BookDate" />
+        <activity
+            android:name=".BrowseCars"
+            android:parentActivityName=".BookDate" />
         <activity android:name=".CancelBooking" />
         <activity android:name=".ConfirmBooking" />
         <activity
             android:name=".SingleCarDetail"
             android:label="@string/title_activity_single_car_detail"
-            android:theme="@style/AppTheme.NoActionBar" />
+            />
         <activity android:name=".AdminShownCars" />
         <activity android:name=".AdminHiddenCars" />
         <activity android:name=".AdminBookingHistory" />
@@ -59,8 +62,19 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.ulgebra.luxscarr.AdminMainScreen" />
         </activity>
-        <activity android:name=".SearchBooking"></activity>
-        <activity android:name=".Check_listview" android:parentActivityName=".BookDate"></activity>
+        <activity android:name=".SearchBooking" />
+        <activity
+            android:name=".Check_listview"
+            android:parentActivityName=".BookDate" />
+        <activity
+            android:name=".Welcome"
+            android:label="@string/title_activity_welcome"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Main3Activity"
+            android:label="@string/title_activity_main3"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+
     </application>
 
 </manifest>

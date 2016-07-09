@@ -1,17 +1,16 @@
 <LinearLayout style="@style/singleCar_container"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <LinearLayout
+        android:id="@+id/single_car"
         android:orientation="vertical"
         android:background="#ffffffff"
         android:onClick="goToSingleCarDetail" style="@style/mpwc">
         <TextView
             android:id="@+id/car_name"
-            android:text="Audi VB Tuning"
             style="@style/browse_car_name"
             />
         <TextView
             android:id="@+id/car_cost"
-            android:text="Rs.1000 / day"
             style="@style/browse_car_price"
             />
         <ImageView

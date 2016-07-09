@@ -11,7 +11,7 @@ public class Car_lists {
     private String car_cost;
     private String car_image;
     private String car_no;
-    private String Car_id;
+    private int Car_id;
 
 
     public void set_carname(String its_nm){
@@ -23,7 +23,7 @@ public class Car_lists {
     public void setCar_image(String its_nm){
         this.car_image=its_nm;
     }
-    public void setCar_id(String its_nm){
+    public void setCar_id(int its_nm){
         this.Car_id=its_nm;
     }
 
@@ -39,7 +39,7 @@ public class Car_lists {
         return car_name;
     }
 
-    public String getCar_id() {
+    public int getCar_id() {
         return Car_id;
     }
 }

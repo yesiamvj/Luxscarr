@@ -1,34 +1,52 @@
-<?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    tools:context="com.ulgebra.luxscarr.SingleCarDetail">
+    android:id="@+id/activity_single_car_detail"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <ScrollView style="@style/mama">
+        <LinearLayout android:orientation="vertical" android:paddingBottom="10.0dip" style="@style/mpwc">
+            <LinearLayout android:orientation="vertical" android:layout_marginTop="0.0dip" style="@style/topTitleBar">
+                <TextView
+                    android:id="@+id/car_brand_name"
+                    android:textSize="20.0dip" android:textColor="@color/colorPrimary" android:text="Audi VB Tuning" style="@style/topTitleText" />
+                <Button style="@style/topTitleShadow" />
+            </LinearLayout>
 
-    <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+            <LinearLayout android:orientation="vertical" android:background="#ffffffff" style="@style/mpwc">
+                <LinearLayout style="@style/singleCar_container">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:background="#ffffffff"
+                        style="@style/mpwc">
+                        <TextView
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+                            android:text="Car Number"
+                            style="@style/confirmBooking_QueText" />
+                        <TextView
+                            android:id="@+id/car_number"
+                            android:text="Rs.1,000" style="@style/confirmBooking_AnsText" />
+                        <TextView
 
-    </android.support.design.widget.AppBarLayout>
+                            android:text="Cost per Day"
+                            style="@style/confirmBooking_QueText" />
+                        <TextView
+                            android:id="@+id/car_cost"
+                            android:text="Rs.1,000" style="@style/confirmBooking_AnsText" />
+                        <TextView android:text="Car Photos" style="@style/confirmBooking_QueText" />
 
-    <include layout="@layout/content_single_car_detail" />
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:id="@+id/img_lin_cont"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"></LinearLayout>
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
 
-</android.support.design.widget.CoordinatorLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -1,30 +1,35 @@
 package com.ulgebra.luxscarr;
 
+import android.content.Context;
 import android.content.Intent;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.Toast;
 
-import java.util.Date;
+/**
+ * Created by Vijayakumar on 08/07/2016.
+ */
 
-public class BookDate extends AppCompatActivity {
-
-
+public class FragmentBookingDate extends Fragment {
     DatePicker frm_dat_pic,to_date_pic;
     Button prcd_btn;
-
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_book_date);
-        frm_dat_pic=(DatePicker)findViewById(R.id.from_date);
+
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+
+        View rootView = inflater.inflate(R.layout.activity_book_date, container, false);
+
+
+        frm_dat_pic=(DatePicker)rootView.findViewById(R.id.from_date);
         frm_dat_pic.setMinDate(System.currentTimeMillis() - 1000);
-        to_date_pic=(DatePicker)findViewById(R.id.to_date);
-        prcd_btn=(Button)findViewById(R.id.prcd_btn);
+        to_date_pic=(DatePicker) rootView.findViewById(R.id.to_date);
+        prcd_btn=(Button) rootView.findViewById(R.id.prcd_btn);
         prcd_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -35,7 +40,7 @@ public class BookDate extends AppCompatActivity {
                 int to_day = to_date_pic.getDayOfMonth();
                 int tomonth = to_date_pic.getMonth() + 1;
                 int to_year = to_date_pic.getYear();
-                Intent intsz=new Intent(getApplicationContext(),BrowseCars.class);
+                Intent intsz=new Intent(getActivity().getApplicationContext(),Check_listview.class);
                 intsz.putExtra("frm_day",frm_day);
                 intsz.putExtra("frm_mnth",frm_month);
                 intsz.putExtra("frm_year",frm_year);
@@ -75,21 +80,19 @@ public class BookDate extends AppCompatActivity {
 
                     }
                 }
-if(grt==1){
+                if(grt==1){
 
-    Snackbar.make(v,"Please Select valid dates",Snackbar.LENGTH_LONG).show();
-}else {
+                    Snackbar.make(v,"Please Select valid dates",Snackbar.LENGTH_LONG).show();
+                }else {
 
-    startActivity(intsz);
-}
+                    startActivity(intsz);
+                }
+
 
 
 
             }
         });
-
-
-
-
+        return rootView;
     }
 }
