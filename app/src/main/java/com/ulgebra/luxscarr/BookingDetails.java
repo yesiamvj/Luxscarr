@@ -1,7 +1,9 @@
 package com.ulgebra.luxscarr;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
@@ -25,9 +27,11 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 
 public class BookingDetails extends AppCompatActivity {
@@ -35,7 +39,8 @@ public class BookingDetails extends AppCompatActivity {
 
     String car_image,cars_name,car_number;
 
-    int car_id,cost;
+    int car_id,cost,total_cost;
+    double adv_amt;
 
     public ArrayList<Car_lists> parents;
 
@@ -264,20 +269,49 @@ Dialog.setMessage("please wait");
             TextView car_cost=(TextView)findViewById(R.id.car_cost);
             ImageView car_image_inp=(ImageView)findViewById(R.id.car_image_inps);
             Button selt_car=(Button)findViewById(R.id.cnfrm_booking);
-            TextView adv_amont=(TextView)findViewById(R.id.adv_amount);
-            TextView tot_cost=(TextView)findViewById(R.id.tot_cost);
+            final TextView adv_amont=(TextView)findViewById(R.id.adv_amount);
+            final TextView tot_cost=(TextView)findViewById(R.id.tot_cost);
 
 
 
             selt_car.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent=new Intent(getApplicationContext(),ConfirmBooking.class);
-                    intent.putExtra("car_id",car_id);
+
+                    Bundle buns=getIntent().getExtras();
+                    int frm_day= buns.getInt("frm_day");
+                    int frm_month= buns.getInt("frm_mnth");
+                    int frm_year= buns.getInt("frm_year");
+                    int to_day= buns.getInt("to_day");
+                    int tomonth=buns.getInt("to_mnth");
+                    int to_year=buns.getInt("to_year");
+                    SharedPreferences myPrefs = getSharedPreferences("myPrefs", MODE_WORLD_READABLE);
+                    String user_id = myPrefs.getString("MEM1","");
+
+                    String booking_url = "http://luxscar.com/luxscar_app/bookin_carss.php?";
+
+                    String bookf_date=frm_day+"-"+frm_month+"-"+frm_year;
+                    String bookt_date=to_day+"-"+tomonth+"-"+to_year;
 
 
 
-                    startActivity(intent);
+                    String my_data="";
+                    try {
+                        my_data+= URLEncoder.encode("user_idnnn", "UTF-8") + "="+user_id;
+                        my_data+="&"+URLEncoder.encode("car_idss","UTF-8")+"="+car_id;
+                        my_data+="&"+URLEncoder.encode("bookf_date","UTF-8")+"="+bookf_date;
+                        my_data+="&"+URLEncoder.encode("bookt_date","UTF-8")+"="+bookt_date;
+                        my_data+="&"+URLEncoder.encode("ride_price","UTF-8")+"="+total_cost;
+                        my_data+="&"+URLEncoder.encode("ride_advance","UTF-8")+"="+adv_amt;
+                        my_data+="&"+URLEncoder.encode("JSK","UTF-8")+"="+"skjdkskdskjhkjn";
+                    } catch (UnsupportedEncodingException e) {
+                        e.printStackTrace();
+                    }
+
+                     booking_url+=my_data;
+
+                    Toast.makeText(getApplicationContext(),booking_url,Toast.LENGTH_LONG).show();
+                    new Booking().execute(booking_url);
                 }
             });
 
@@ -291,11 +325,12 @@ Dialog.setMessage("please wait");
             int tomonth=buns.getInt("to_mnth");
             int to_year=buns.getInt("to_year");
             int diff_day=calc_diff(frm_day,frm_month,frm_year,to_day,tomonth,to_year);
-            int total_cost=diff_day*cost;
-            tot_cost.setText("RS. "+total_cost);
-            int adv_amt=(25/100)*cost;
-            adv_amont.setText("RS "+adv_amt+" /per day");
-            car_cost.setText("RS. "+cost+" / per day");
+             total_cost=(diff_day+1)*cost;
+            tot_cost.setText("Rs. "+total_cost);
+
+            adv_amt=(0.25)*total_cost;
+            adv_amont.setText("Rs "+adv_amt);
+            car_cost.setText("Rs. "+cost+" / per day");
 
 
             new ImageLoadTask("http://luxscar.com/luxscar_app/"+car_image, car_image_inp).execute();
@@ -493,5 +528,134 @@ Dialog.setMessage("please wait");
 
 
     }
+
+    public class Booking  extends AsyncTask<String, Void, Void> {
+
+        // Required initialization
+
+        // private final HttpClient Client = new DefaultHttpClient();
+        private String Content;
+        private String Error = null;
+        private ProgressDialog Dialog = new ProgressDialog(BookingDetails.this);
+        String data ="";
+        String otpt="";
+
+
+
+        protected void onPreExecute() {
+            // NOTE: You can call UI Element here.
+
+            //Start Progress Dialog (Message)
+
+            Dialog.setMessage("Please wait..");
+            Dialog.show();
+
+
+
+        }
+
+        // Call after onPreExecute method
+        protected Void doInBackground(String... urls) {
+
+            /************ Make Post Call To Web Server ***********/
+            BufferedReader reader=null;
+
+            // Send data
+            try
+            {
+                // Defined URL  where to send data
+                URL url = new URL(urls[0]);
+
+                // Send POST data request
+
+                URLConnection conn = url.openConnection();
+                conn.setDoOutput(true);
+                OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
+                wr.write( "" );
+                wr.flush();
+                // Get the server response
+                try{
+                    reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                    // StringBuilder sb = new StringBuilder();
+                    String line = null;
+
+
+                    // Read Server Response
+                    while((line = reader.readLine()) != null)
+                    {
+                        // Append server response in string
+                        // sb.append(line + "\n");
+                        otpt+=line;
+
+                    }
+
+                    // Append Server Response To Content String
+                    Content = otpt;
+                    Log.i("my_err","output="+otpt);
+                }catch (Exception e){
+
+                }
+
+
+
+            }
+            catch(Exception ex)
+            {
+                Error = ex.getMessage();
+            }
+            finally
+            {
+                try
+                {
+
+                    reader.close();
+                }
+
+                catch(Exception ex) {}
+            }
+
+            /*****************************************************/
+            return null;
+        }
+
+
+        protected void onPostExecute(Void unused) {
+            // NOTE: You can call UI Element here.
+
+            // Close progress dialog
+            Dialog.dismiss();
+
+
+            if(otpt.hashCode()==0){
+                Toast.makeText(getApplicationContext(),"Check your Internet Connection",Toast.LENGTH_LONG).show();
+
+            }else{
+                Toast.makeText(getApplicationContext(),otpt,Toast.LENGTH_LONG).show();
+
+            }
+
+            if (Error != null) {
+
+                // uiUpdate.setText("Output : "+Error);
+                //Log.i("my_err",Content);
+            } else {
+
+                // Show Response Json On Screen (activity)
+                // uiUpdate.setText( Content );
+
+                /****************** Start Parse Response JSON Data *************/
+
+                String OutputData = "";
+                JSONObject jsonResponse;
+
+
+
+
+
+            }
+        }
+
+    }
+
 
 }

@@ -1,7 +1,9 @@
 package com.ulgebra.luxscarr;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -48,6 +50,20 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        //no user =>
+
+        SharedPreferences myPrefs = this.getSharedPreferences("myPrefs", MODE_WORLD_READABLE);
+        String user_idd = myPrefs.getString("MEM1","");
+        //String user_id = sharedPref.getString(getString(R.string.user_id),null);
+        Toast.makeText(getApplicationContext()," user id "+user_idd,Toast.LENGTH_LONG).show();
+
+        if(user_idd!=null){
+
+            Toast.makeText(getApplicationContext()," user id "+user_idd,Toast.LENGTH_LONG).show();
+           Intent intent=new Intent(this,Welcome.class);
+           startActivity(intent);
+        }
 
         username=(AutoCompleteTextView)findViewById(R.id.reg_username);
         email=(AutoCompleteTextView)findViewById(R.id.reg_email);
@@ -194,7 +210,7 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
     public void goToLogin(View view){
-        Intent intent=new Intent(this,Welcome.class);
+        Intent intent=new Intent(this,Login_user.class);
         startActivity(intent);
 
     }
@@ -349,4 +365,5 @@ try{
         }
 
     }
+
 }

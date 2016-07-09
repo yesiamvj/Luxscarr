@@ -7,7 +7,7 @@
                 <Button style="@style/topTitleShadow" />
             </LinearLayout>
             <LinearLayout style="@style/mpwc">
-                <TextView android:paddingLeft="18.0dip" android:paddingTop="5.0dip" android:paddingBottom="10.0dip" android:text="Booking No : #2789  On  5.7.16" style="@style/mpwc" />
+                <TextView android:paddingLeft="18.0dip" android:paddingTop="5.0dip" android:paddingBottom="10.0dip" android:text="Review your Order" style="@style/mpwc" />
             </LinearLayout>
             <LinearLayout style="@style/mpwcvw">
                 <LinearLayout style="@style/mpwcvw">

@@ -28,8 +28,8 @@ public class FragmentBookingDate extends Fragment {
 
         frm_dat_pic=(DatePicker)rootView.findViewById(R.id.from_date);
         frm_dat_pic.setMinDate(System.currentTimeMillis() - 1000);
-        to_date_pic=(DatePicker) rootView.findViewById(R.id.to_date);
-        prcd_btn=(Button) rootView.findViewById(R.id.prcd_btn);
+        to_date_pic=(DatePicker)rootView.findViewById(R.id.to_date);
+        prcd_btn=(Button)rootView.findViewById(R.id.prcd_btn);
         prcd_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -40,7 +40,7 @@ public class FragmentBookingDate extends Fragment {
                 int to_day = to_date_pic.getDayOfMonth();
                 int tomonth = to_date_pic.getMonth() + 1;
                 int to_year = to_date_pic.getYear();
-                Intent intsz=new Intent(getActivity().getApplicationContext(),Check_listview.class);
+                Intent intsz=new Intent(getActivity().getApplicationContext(),BrowseCars.class);
                 intsz.putExtra("frm_day",frm_day);
                 intsz.putExtra("frm_mnth",frm_month);
                 intsz.putExtra("frm_year",frm_year);
@@ -90,9 +90,10 @@ public class FragmentBookingDate extends Fragment {
 
 
 
-
             }
         });
+
+
         return rootView;
     }
 }

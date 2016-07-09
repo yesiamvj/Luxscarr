@@ -1,7 +1,9 @@
 package com.ulgebra.luxscarr;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -198,9 +200,16 @@ public class Login_user extends AppCompatActivity {
             // Close progress dialog
             Dialog.dismiss();
 
-            if(otpt.hashCode()==("Login Successfull").hashCode()){
+            if(otpt.contains("Login Successfull.")){
 
-                Toast.makeText(getApplicationContext(), "Login Successful", Toast.LENGTH_LONG).show();
+                SharedPreferences myPrefs = getSharedPreferences("myPrefs", MODE_WORLD_READABLE);
+                SharedPreferences.Editor editor = myPrefs.edit();
+                editor.putString("MEM1", otpt.substring(18,otpt.length()));
+                editor.commit();
+
+
+                String user_idd = myPrefs.getString("MEM1","");
+                Toast.makeText(getApplicationContext(), "Login Successful "+user_idd, Toast.LENGTH_LONG).show();
 
             }else if(otpt.hashCode()==("Activate your Account by OTP").hashCode()) {
                 Bundle bun=new Bundle();
