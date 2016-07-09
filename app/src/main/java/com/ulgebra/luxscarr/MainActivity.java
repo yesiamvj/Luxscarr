@@ -62,8 +62,8 @@ public class MainActivity extends AppCompatActivity
 
             Toast.makeText(getApplicationContext()," user id "+user_idd,Toast.LENGTH_LONG).show();
            Intent intent=new Intent(this,Welcome.class);
-           startActivity(intent);
-        }
+            startActivity(intent);
+       }
 
         username=(AutoCompleteTextView)findViewById(R.id.reg_username);
         email=(AutoCompleteTextView)findViewById(R.id.reg_email);

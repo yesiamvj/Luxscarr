@@ -309,8 +309,6 @@ Dialog.setMessage("please wait");
                     }
 
                      booking_url+=my_data;
-
-                    Toast.makeText(getApplicationContext(),booking_url,Toast.LENGTH_LONG).show();
                     new Booking().execute(booking_url);
                 }
             });
@@ -630,6 +628,11 @@ Dialog.setMessage("please wait");
                 Toast.makeText(getApplicationContext(),"Check your Internet Connection",Toast.LENGTH_LONG).show();
 
             }else{
+
+
+                finish();
+                Intent intent=new Intent(getApplicationContext(),Welcome.class);
+                startActivity(intent);
                 Toast.makeText(getApplicationContext(),otpt,Toast.LENGTH_LONG).show();
 
             }

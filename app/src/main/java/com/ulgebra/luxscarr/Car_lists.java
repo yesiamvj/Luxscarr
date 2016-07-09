@@ -12,7 +12,18 @@ public class Car_lists {
     private String car_image;
     private String car_no;
     private int Car_id;
+    private  String booking_id;
+    private String ride_dure;
+    private String booked_on;
 
+
+    public void setBooked_on(String booked_on) {
+        this.booked_on = booked_on;
+    }
+
+    public String getBooked_on() {
+        return booked_on;
+    }
 
     public void set_carname(String its_nm){
         this.car_name=its_nm;
@@ -25,6 +36,18 @@ public class Car_lists {
     }
     public void setCar_id(int its_nm){
         this.Car_id=its_nm;
+    }
+
+    public void setBooking_id(String booking_id) {
+        this.booking_id = booking_id;
+    }
+
+    public void setRide_dure(String ride_dure) {
+        this.ride_dure = ride_dure;
+    }
+
+    public String getRide_dure() {
+        return ride_dure;
     }
 
     public String getCar_cost() {
@@ -42,4 +65,9 @@ public class Car_lists {
     public int getCar_id() {
         return Car_id;
     }
+
+    public String getBooking_id() {
+        return booking_id;
+    }
+
 }
