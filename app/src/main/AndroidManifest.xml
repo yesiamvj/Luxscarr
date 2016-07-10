@@ -38,18 +38,19 @@
         <activity android:name=".File_Upload" />
         <activity android:name=".AddNewCar" />
         <activity android:name=".Cameara" />
-        <activity android:name=".BookingDetails"
-            android:parentActivityName=".BrowseCars"/>
+        <activity
+            android:name=".BookingDetails"
+            android:parentActivityName=".BrowseCars" />
         <activity android:name=".BookingHistory" />
         <activity
             android:name=".BrowseCars"
             android:parentActivityName=".BookDate" />
-        <activity android:name=".CancelBooking" />
+        <activity android:name=".CancelBooking"
+            android:parentActivityName=".SingleBookingDetails"/>
         <activity android:name=".ConfirmBooking" />
         <activity
             android:name=".SingleCarDetail"
-            android:label="@string/title_activity_single_car_detail"
-            />
+            android:label="@string/title_activity_single_car_detail" />
         <activity android:name=".AdminShownCars" />
         <activity android:name=".AdminHiddenCars" />
         <activity android:name=".AdminBookingHistory" />
@@ -74,8 +75,9 @@
         <activity
             android:name=".Main3Activity"
             android:label="@string/title_activity_main3"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".SingleBookingDetails"
+            android:parentActivityName=".BookingHistory"></activity>
     </application>
 
 </manifest>

@@ -261,7 +261,7 @@ public class BookingHistory extends AppCompatActivity {
 
 
 
-                    intent.putExtra("car_id",my_parent.getCar_id());
+                    intent.putExtra("booking_idd",my_parent.getBooking_id());
 
                     startActivity(intent);
                 }

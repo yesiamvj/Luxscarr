@@ -292,8 +292,8 @@ public class FragmentBookingHistory extends Fragment {
             holder_inp.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent=new Intent(getActivity().getApplicationContext(),BookingDetails.class);
-                    intent.putExtra("car_id",my_parent.getCar_id());
+                    Intent intent=new Intent(getActivity().getApplicationContext(),SingleBookingDetails.class);
+                    intent.putExtra("booking_idd",my_parent.getBooking_id());
                     startActivity(intent);
                 }
             });
