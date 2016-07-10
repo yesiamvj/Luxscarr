@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8' ?>
-<android.support.constraint.ConstraintLayout tools:context=".SingleBookingDetails"
+<android.support.constraint.ConstraintLayout tools:context=".UpdateExtendBooking"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_booking_details"
@@ -59,12 +59,8 @@
                 <TextView
                     android:gravity="end" android:layout_marginRight="15.0dip" android:layout_marginBottom="5.0dip" android:text="* 25% of Total Amount as advance" style="@style/mpwc" />
                 <Button
-                    android:id="@+id/edit_booking"
-                    android:text="Extend Booking" style="@style/carDetilEndBtn" />
-                <Button
-                    android:id="@+id/cancel_booking"
-                    android:background="#880202"
-                    android:text="Cancel Booking" style="@style/carDetilEndBtn" />
+                    android:id="@+id/extnd_booking"
+                    android:text="Update Booking" style="@style/carDetilEndBtn" />
 
             </LinearLayout>
         </LinearLayout>

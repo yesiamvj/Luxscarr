@@ -45,8 +45,9 @@
         <activity
             android:name=".BrowseCars"
             android:parentActivityName=".BookDate" />
-        <activity android:name=".CancelBooking"
-            android:parentActivityName=".SingleBookingDetails"/>
+        <activity
+            android:name=".CancelBooking"
+            android:parentActivityName=".SingleBookingDetails" />
         <activity android:name=".ConfirmBooking" />
         <activity
             android:name=".SingleCarDetail"
@@ -76,8 +77,11 @@
             android:name=".Main3Activity"
             android:label="@string/title_activity_main3"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".SingleBookingDetails"
-            android:parentActivityName=".BookingHistory"></activity>
+        <activity
+            android:name=".SingleBookingDetails"
+            android:parentActivityName=".BookingHistory" />
+        <activity android:name=".ExtendBooking" />
+        <activity android:name=".UpdateExtendBooking"></activity>
     </application>
 
 </manifest>

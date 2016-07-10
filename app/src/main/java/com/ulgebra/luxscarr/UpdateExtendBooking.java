@@ -34,10 +34,10 @@ import java.net.URLConnection;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 
-public class SingleBookingDetails extends AppCompatActivity {
+public class UpdateExtendBooking extends AppCompatActivity {
 
 
-    String booking_iddd,car_image,cars_name,car_number,ride_form,ride_to,ride_advance,booked_on,ride_total_cost,car_reg_no;
+    String book_date,bookFroom,bookTo,booking_iddd,car_image,cars_name,car_number,ride_form,ride_to,ride_advance,booked_on,ride_total_cost,car_reg_no;
 
     int car_id,cost,total_cost;
     double adv_amt;
@@ -49,13 +49,24 @@ public class SingleBookingDetails extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Intent intentzc = getIntent();
+        Bundle buns=getIntent().getExtras();
+        String booking_idd= intentzc.getStringExtra("booking_idd");
+       ////  bookFroom=intentzc.getIntExtra("frm_day",0)+"-"+intentzc.getIntExtra("frm_month",0)+"-"+intentzc.getIntExtra("frm_year",0);
+         bookTo=intentzc.getIntExtra("to_day",0)+"-"+intentzc.getIntExtra("to_month",0)+"-"+intentzc.getIntExtra("to_year",0);
+        int frm_day= buns.getInt("frm_day");
+        int frm_month= buns.getInt("frm_mnth");
+        int frm_year= buns.getInt("frm_year");
+        int to_day= buns.getInt("to_day");
+        int tomonth=buns.getInt("to_mnth");
+        int to_year=buns.getInt("to_year");
+        String froom=buns.getString("froom");
+        book_date=froom+" to "+to_day+"-"+tomonth+"-"+to_year;
+
+        setContentView(R.layout.activity_update_extend_booking);
+        //TextView from_to_inp=(TextView)findViewById(R.id.ride_dure);
 
 
-        String booking_idd= intentzc.getStringExtra("booking_idd").substring(1);
-
-        setContentView(R.layout.activity_single_booking_details);
-
-        Dialog= new ProgressDialog(SingleBookingDetails.this);
+        Dialog= new ProgressDialog(UpdateExtendBooking.this);
         Dialog.setMessage("please wait");
         Dialog.show();
 
@@ -183,7 +194,7 @@ public class SingleBookingDetails extends AppCompatActivity {
 
                     jsonMainNode1=jsonResponse.optJSONArray("Car_images");
 
-                  //  int car_img_len=jsonMainNode1.length();
+                    //  int car_img_len=jsonMainNode1.length();
 
 
 
@@ -211,10 +222,10 @@ public class SingleBookingDetails extends AppCompatActivity {
                         /******* Fetch node values **********/
 
 
-                         ride_form=jsonChildNode.optString("ride_from").toString();
-                         ride_to=jsonChildNode.optString("ride_to").toString();
-                         ride_advance=jsonChildNode.optString("ride_advance").toString();
-                         booked_on=jsonChildNode.optString("booked_on").toString();
+                        ride_form=jsonChildNode.optString("ride_from").toString();
+                        ride_to=jsonChildNode.optString("ride_to").toString();
+                        ride_advance=jsonChildNode.optString("ride_advance").toString();
+                        booked_on=jsonChildNode.optString("booked_on").toString();
                         booking_iddd=jsonChildNode.optString("booking_id").toString();
                         ride_total_cost=jsonChildNode.optString("ride_price").toString();
                         cars_name       = jsonChildNode.optString("car_name").toString();;
@@ -258,7 +269,7 @@ public class SingleBookingDetails extends AppCompatActivity {
 
 
 
-      //  Log.v("car_name",car_image);
+        //  Log.v("car_name",car_image);
 
 
         for(int i=0;i<1;i++){
@@ -268,41 +279,57 @@ public class SingleBookingDetails extends AppCompatActivity {
             TextView car_regNo=(TextView)findViewById(R.id.ride_carNo);
             TextView bookingHeaderDets=(TextView)findViewById(R.id.bookingHeaderDets);
             ImageView car_image_inp=(ImageView)findViewById(R.id.car_image_inps);
-            Button cancel_bookBtn=(Button)findViewById(R.id.cancel_booking);
-            Button edit_bookingBtn=(Button)findViewById(R.id.edit_booking);
+           // Button cancel_bookBtn=(Button)findViewById(R.id.cancel_booking);
+            Button extnd_bookingBtn=(Button)findViewById(R.id.extnd_booking);
             final TextView adv_amont=(TextView)findViewById(R.id.adv_amount);
             final TextView tot_cost=(TextView)findViewById(R.id.tot_cost);
 
 
 
-            cancel_bookBtn.setOnClickListener(new View.OnClickListener() {
+
+            extnd_bookingBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
+                    Bundle buns=getIntent().getExtras();
+                    int frm_day= buns.getInt("frm_day");
+                    int frm_month= buns.getInt("frm_mnth");
+                    String frm_year= buns.getString("frm_year");
 
-                  Intent intentcn=new Intent(getApplicationContext(),CancelBooking.class);
-                    intentcn.putExtra("booking_idd",booking_iddd);
-                    startActivity(intentcn);
+                    Log.v("book from detils","day"+frm_day+"mon"+frm_month+"yr"+frm_year);
+                    int to_day= buns.getInt("to_day");
+                    int tomonth=buns.getInt("to_mnth");
+                    int to_year=buns.getInt("to_year");
+
+                    String booking_url = "http://luxscar.com/luxscar_app/extendBooking.php?";
+
+                    String bookt_date=to_day+"-"+tomonth+"-"+to_year;
 
 
-                }
-            });
-            edit_bookingBtn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intentcn=new Intent(getApplicationContext(),ExtendBooking.class);
-                    intentcn.putExtra("booking_idd",booking_iddd);
-                    intentcn.putExtra("booking_from_date",ride_form);
-                    intentcn.putExtra("booking_to_date",ride_to);
-                    startActivity(intentcn);
+
+                    String my_data="";
+                    try {
+                        my_data+="&"+URLEncoder.encode("booking_id","UTF-8")+"="+booking_iddd;
+                        my_data+="&"+URLEncoder.encode("bookt_date","UTF-8")+"="+bookt_date;
+                        my_data+="&"+URLEncoder.encode("ride_price","UTF-8")+"="+total_cost;
+                        my_data+="&"+URLEncoder.encode("ride_advance","UTF-8")+"="+adv_amt;
+                        my_data+="&"+URLEncoder.encode("JSK","UTF-8")+"="+"skjdkskdskjhkjn";
+                    } catch (UnsupportedEncodingException e) {
+                        e.printStackTrace();
+                    }
+
+                    booking_url+=my_data;
+                    Log.v("booking_url",booking_url);
+                  //  new Booking().execute(booking_url);
                 }
             });
 
             bookingHeaderDets.setText("Booking ID : #"+booking_iddd+" On "+booked_on+"");
-            from_to_inp.setText("From "+ride_form+" to "+ride_to+"");
+            from_to_inp.setText(book_date);
+           // from_to_inp.setText("From "+ride_form+" to "+ride_to+"");
             car_name_inp.setText(cars_name);
             car_regNo.setText(car_reg_no);
-             tot_cost.setText("Rs. "+ride_total_cost);
+            tot_cost.setText("Rs. "+ride_total_cost);
 
             adv_amont.setText("Rs "+ride_advance);
             car_cost.setText("Rs. "+cost+" / per day");
@@ -361,7 +388,7 @@ public class SingleBookingDetails extends AppCompatActivity {
         // private final HttpClient Client = new DefaultHttpClient();
         private String Content;
         private String Error = null;
-        private ProgressDialog Dialog = new ProgressDialog(SingleBookingDetails.this);
+        private ProgressDialog Dialog = new ProgressDialog(UpdateExtendBooking.this);
         String data ="";
         String otpt="";
 
