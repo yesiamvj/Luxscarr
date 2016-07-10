@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity
         //String user_id = sharedPref.getString(getString(R.string.user_id),null);
         Toast.makeText(getApplicationContext()," user id "+user_idd,Toast.LENGTH_LONG).show();
 
-        if(user_idd!=null){
+        if(user_idd.length()>1){
 
             Toast.makeText(getApplicationContext()," user id "+user_idd,Toast.LENGTH_LONG).show();
            Intent intent=new Intent(this,Welcome.class);

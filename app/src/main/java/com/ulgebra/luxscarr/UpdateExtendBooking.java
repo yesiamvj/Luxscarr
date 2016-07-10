@@ -39,8 +39,8 @@ public class UpdateExtendBooking extends AppCompatActivity {
 
     String book_date,bookFroom,bookTo,booking_iddd,car_image,cars_name,car_number,ride_form,ride_to,ride_advance,booked_on,ride_total_cost,car_reg_no;
 
-    int car_id,cost,total_cost;
-    double adv_amt;
+    int car_id,cost,total_cost,already_paid_adv,total_amnt;
+    double adv_amt,new_adv_amt,extra_adv;
 
     public ArrayList<Car_lists> parents;
 
@@ -283,7 +283,39 @@ public class UpdateExtendBooking extends AppCompatActivity {
             Button extnd_bookingBtn=(Button)findViewById(R.id.extnd_booking);
             final TextView adv_amont=(TextView)findViewById(R.id.adv_amount);
             final TextView tot_cost=(TextView)findViewById(R.id.tot_cost);
+            final TextView ok_adv_amont=(TextView)findViewById(R.id.ok_adv_amount);
+            final TextView extra_adv_cost=(TextView)findViewById(R.id.extra_adv_amount);
 
+            Bundle buns=getIntent().getExtras();
+            int frm_day= buns.getInt("frm_day");
+            int frm_month= buns.getInt("frm_mnth");
+            String frm_year= buns.getString("frm_year");
+
+            Log.v("book from detils","day"+frm_day+"mon"+frm_month+"yr"+frm_year);
+            int to_day= buns.getInt("to_day");
+            int tomonth=buns.getInt("to_mnth");
+            int to_year=buns.getInt("to_year");
+            final int diff_day=calc_diff(frm_day,frm_month,Integer.parseInt(frm_year),to_day,tomonth,to_year);
+
+            total_cost=(diff_day+1)*cost;
+
+
+            //already paid advance
+
+            adv_amt=Integer.parseInt(ride_advance);
+
+            //new advance amount
+
+            new_adv_amt=(0.25)*total_cost;
+
+            //amount to pay extra
+
+            extra_adv=new_adv_amt-adv_amt;
+            tot_cost.setText("Rs. "+total_cost);
+            adv_amont.setText("Rs "+new_adv_amt);
+            ok_adv_amont.setText(adv_amt+"");
+            extra_adv_cost.setText(extra_adv+"");
+            car_cost.setText("Rs. "+cost+" / per day");
 
 
 
@@ -305,22 +337,49 @@ public class UpdateExtendBooking extends AppCompatActivity {
 
                     String bookt_date=to_day+"-"+tomonth+"-"+to_year;
 
+                    Log.v("car_cost",cost+"");
+                    //total cost for the car
+                    total_cost=(diff_day+1)*cost;
+
+
+                    //already paid advance
+
+                    adv_amt=Integer.parseInt(ride_advance);
+
+                    //new advance amount
+
+                    new_adv_amt=(0.25)*total_cost;
+
+                    //amount to pay extra
+
+                    extra_adv=new_adv_amt-adv_amt;
+
+                    Log.v("diffodate",diff_day+"");
+
 
 
                     String my_data="";
+                    SharedPreferences myPrefs = getSharedPreferences("myPrefs", MODE_WORLD_READABLE);
+                    String user_id = myPrefs.getString("MEM1","");
+
                     try {
                         my_data+="&"+URLEncoder.encode("booking_id","UTF-8")+"="+booking_iddd;
+                        my_data+="&"+URLEncoder.encode("user_id","UTF-8")+"="+user_id;
                         my_data+="&"+URLEncoder.encode("bookt_date","UTF-8")+"="+bookt_date;
                         my_data+="&"+URLEncoder.encode("ride_price","UTF-8")+"="+total_cost;
-                        my_data+="&"+URLEncoder.encode("ride_advance","UTF-8")+"="+adv_amt;
+                        my_data+="&"+URLEncoder.encode("ride_advance","UTF-8")+"="+new_adv_amt;
+                        my_data+="&"+URLEncoder.encode("extra_to_pay","UTF-8")+"="+extra_adv;
+
+                        my_data+="&"+URLEncoder.encode("editings","UTF-8");
+                        my_data+="="+URLEncoder.encode("Extended for "+diff_day+" days ."+" Total = "+total_cost+" , new Advance ="+new_adv_amt+"" +
+                                " Already Paid ="+adv_amt+", Amount to Pay Extra ="+extra_adv+"","UTF-8");
                         my_data+="&"+URLEncoder.encode("JSK","UTF-8")+"="+"skjdkskdskjhkjn";
                     } catch (UnsupportedEncodingException e) {
                         e.printStackTrace();
                     }
-
                     booking_url+=my_data;
                     Log.v("booking_url",booking_url);
-                  //  new Booking().execute(booking_url);
+                    new Booking().execute(booking_url);
                 }
             });
 
@@ -329,10 +388,12 @@ public class UpdateExtendBooking extends AppCompatActivity {
            // from_to_inp.setText("From "+ride_form+" to "+ride_to+"");
             car_name_inp.setText(cars_name);
             car_regNo.setText(car_reg_no);
-            tot_cost.setText("Rs. "+ride_total_cost);
 
-            adv_amont.setText("Rs "+ride_advance);
-            car_cost.setText("Rs. "+cost+" / per day");
+
+            //tot_cost.setText("Rs. "+ride_total_cost);
+
+
+
 
 
             new ImageLoadTask("http://luxscar.com/luxscar_app/"+car_image, car_image_inp).execute();
@@ -343,6 +404,158 @@ public class UpdateExtendBooking extends AppCompatActivity {
 
 
     }
+    public int calc_diff(int f_d,int f_m,int f_y,int to_d,int to_m,int to_y){
+
+
+
+
+        int cur_yr=f_y;
+        int  cur_mnth=f_m;
+        int  cur_date=f_d;
+
+
+
+        int alm_yr=to_y;
+        int alm_mnth=to_m;
+        int alm_date=to_d;
+
+
+        int y,m,d,tot_day=0,diff_mnt,frm_mnth,to_mnth,from_day,to_day,from_yr,en=0;
+
+        int fin_yr=alm_yr;
+        int fin_mnth=alm_mnth;
+        int fin_day=alm_date;
+
+        from_yr=cur_yr;
+
+        for(y=from_yr;y<=fin_yr;y++){
+//alert(y);
+            en=en+1;
+            //  alert(en);
+            if(en==1){
+                frm_mnth=cur_mnth;
+                from_day=cur_date;
+                if(y==fin_yr){
+                    to_mnth=fin_mnth;
+                }else{
+                    to_mnth=12;
+                }
+
+            }else{
+
+                if(y==fin_yr){
+
+                    to_mnth=fin_mnth;
+                    to_day=fin_day;
+
+                    if(en==1){
+                        frm_mnth=f_m;
+                    }else{
+                        frm_mnth=1;
+                    }
+                    //alert(to_mnth+ " ti "+to_day +" "+frm_mnth);
+                }else{
+                    to_mnth=12;
+                    frm_mnth=1;
+                }
+
+            }
+
+
+            for(m=frm_mnth;m<=to_mnth;m++){
+                //  alert(frm_mnth+" "+to_mnth);
+                switch(m){
+                    case 1:
+                        diff_mnt=31;
+                        break;
+                    case 2:
+                        if(y%4==0){
+
+                            diff_mnt=29;
+                        }else
+                        {
+                            diff_mnt=28;
+                        }
+
+                        break;
+                    case 3:
+                        diff_mnt=31;
+                        break;
+                    case 4:
+                        diff_mnt=30;
+                        break;
+                    case 5:
+                        diff_mnt=31;
+                        break;
+                    case 6:
+                        diff_mnt=30;
+                        break;
+                    case 7:
+                        diff_mnt=31;
+                        break;
+                    case 8:
+                        diff_mnt=31;
+                        break;
+                    case 9:
+                        diff_mnt=30;
+                        break;
+                    case 10:
+                        diff_mnt=31;
+                        break;
+                    case 11:
+                        diff_mnt=30;
+                        break;
+                    case 12:
+                        diff_mnt=31;
+                        break;
+
+                    default:
+                        diff_mnt=30;
+                        break;
+
+                }
+
+
+                if(y==fin_yr && m==fin_mnth){
+                    to_day=fin_day;
+
+                }else{
+                    to_day=diff_mnt;
+
+                }
+
+                if(en==1 && m==frm_mnth){
+
+                    if(frm_mnth!=to_mnth){
+                        to_day=diff_mnt - f_d;
+                    }else{
+
+
+                        to_day=(fin_day-f_d);
+                    }
+                }else{
+                    from_day=1;
+                }
+
+
+                if(y==fin_yr && m==fin_mnth){
+                    tot_day+=to_day;
+                }else{
+                    tot_day+=to_day;
+
+                }
+
+
+
+            }
+            // console.log("year day="+tot_day);
+        }
+        // tot_day=tot_day-1;
+        return tot_day;
+
+
+    }
+
 
     public class ImageLoadTask extends AsyncTask<Void, Void, Bitmap> {
 
@@ -484,10 +697,15 @@ public class UpdateExtendBooking extends AppCompatActivity {
             }else{
 
 
-                finish();
-                Intent intent=new Intent(getApplicationContext(),Welcome.class);
-                startActivity(intent);
+                Intent intent=new Intent(getApplicationContext(),SingleBookingDetails.class);
+                intent.putExtra("booking_idd","#"+booking_iddd);
+
+
                 Toast.makeText(getApplicationContext(),otpt,Toast.LENGTH_LONG).show();
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                //finish();
+
 
             }
 

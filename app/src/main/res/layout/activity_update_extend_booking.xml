@@ -17,7 +17,7 @@
             </LinearLayout>
             <LinearLayout style="@style/mpwcvw">
                 <LinearLayout style="@style/mpwcvw">
-                    <TextView android:text="Ride Date" style="@style/confirmBooking_QueText" />
+                    <TextView android:text="New Ride Date" style="@style/confirmBooking_QueText" />
                     <TextView
                         android:id="@+id/ride_dure"
                         android:text="6.7.16 to 30.7.16" style="@style/confirmBooking_AnsText" />
@@ -52,10 +52,24 @@
                     android:text="Rs.24,0000" style="@style/confirmBooking_AnsText" />
                 <TextView
 
-                    android:layout_marginTop="-5.0dip" android:text="Advance amount Paid" style="@style/confirmBooking_QueText" />
+                    android:layout_marginTop="-5.0dip" android:text="New advance Amount" style="@style/confirmBooking_QueText" />
                 <TextView
                     android:id="@+id/adv_amount"
                     android:text="Rs.6,0000" style="@style/confirmBooking_AnsText" />
+                <TextView
+
+                    android:layout_marginTop="-5.0dip" android:text="Already paid " style="@style/confirmBooking_QueText" />
+                <TextView
+                    android:id="@+id/ok_adv_amount"
+                    android:text="Rs.6,0000" style="@style/confirmBooking_AnsText" />
+
+                <TextView
+
+                    android:layout_marginTop="-5.0dip" android:text="Extra advance amount to Pay Now" style="@style/confirmBooking_QueText" />
+                <TextView
+                    android:id="@+id/extra_adv_amount"
+                    android:text="Rs.6,0000" style="@style/confirmBooking_AnsText" />
+
                 <TextView
                     android:gravity="end" android:layout_marginRight="15.0dip" android:layout_marginBottom="5.0dip" android:text="* 25% of Total Amount as advance" style="@style/mpwc" />
                 <Button

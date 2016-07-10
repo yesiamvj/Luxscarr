@@ -217,6 +217,7 @@ public class Login_user extends AppCompatActivity {
 
                 Intent intent=new Intent(getApplicationContext(),Activate_Account.class);
                 intent.putExtras(bun);
+               // intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 Toast.makeText(getApplicationContext(),"Activate your Account by OTP", Toast.LENGTH_LONG).show();
             }else{
