@@ -187,6 +187,7 @@ Spinner spinner;
                 }else{
 
                     Intent intent=new Intent(getApplicationContext(),Welcome.class);
+                    intent.putExtra("needTab",1);
                     startActivity(intent);
 
                     Toast.makeText(getApplicationContext(),otpt,Toast.LENGTH_LONG).show();
