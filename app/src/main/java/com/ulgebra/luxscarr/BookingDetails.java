@@ -631,8 +631,9 @@ Dialog.setMessage("please wait");
 
 
                 finish();
-                Intent intent=new Intent(getApplicationContext(),Welcome.class);
-                startActivity(intent);
+                Intent intentCC=new Intent(getApplicationContext(),PaymentBooking.class);
+
+                startActivity(intentCC);
                 Toast.makeText(getApplicationContext(),otpt,Toast.LENGTH_LONG).show();
 
             }

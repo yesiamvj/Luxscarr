@@ -59,9 +59,6 @@
                 <TextView
                     android:gravity="end" android:layout_marginRight="15.0dip" android:layout_marginBottom="5.0dip" android:text="* 25% of Total Amount as advance" style="@style/mpwc" />
                 <Button
-                    android:id="@+id/edit_booking"
-                    android:text="Extend Booking" style="@style/carDetilEndBtn" />
-                <Button
                     android:id="@+id/cancel_booking"
                     android:background="#880202"
                     android:text="Cancel Booking" style="@style/carDetilEndBtn" />

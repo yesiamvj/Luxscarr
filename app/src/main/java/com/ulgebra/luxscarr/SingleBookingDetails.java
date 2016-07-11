@@ -269,7 +269,7 @@ public class SingleBookingDetails extends AppCompatActivity {
             TextView bookingHeaderDets=(TextView)findViewById(R.id.bookingHeaderDets);
             ImageView car_image_inp=(ImageView)findViewById(R.id.car_image_inps);
             Button cancel_bookBtn=(Button)findViewById(R.id.cancel_booking);
-            Button edit_bookingBtn=(Button)findViewById(R.id.edit_booking);
+          //  Button edit_bookingBtn=(Button)findViewById(R.id.edit_booking);
             final TextView adv_amont=(TextView)findViewById(R.id.adv_amount);
             final TextView tot_cost=(TextView)findViewById(R.id.tot_cost);
 
@@ -287,16 +287,16 @@ public class SingleBookingDetails extends AppCompatActivity {
 
                 }
             });
-            edit_bookingBtn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intentcn=new Intent(getApplicationContext(),ExtendBooking.class);
-                    intentcn.putExtra("booking_idd",booking_iddd);
-                    intentcn.putExtra("booking_from_date",ride_form);
-                    intentcn.putExtra("booking_to_date",ride_to);
-                    startActivity(intentcn);
-                }
-            });
+//            edit_bookingBtn.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    Intent intentcn=new Intent(getApplicationContext(),ExtendBooking.class);
+//                    intentcn.putExtra("booking_idd",booking_iddd);
+//                    intentcn.putExtra("booking_from_date",ride_form);
+//                    intentcn.putExtra("booking_to_date",ride_to);
+//                    startActivity(intentcn);
+//                }
+//            });
 
             bookingHeaderDets.setText("Booking ID : #"+booking_iddd+" On "+booked_on+"");
             from_to_inp.setText("From "+ride_form+" to "+ride_to+"");

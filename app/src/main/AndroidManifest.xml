@@ -81,7 +81,9 @@
             android:name=".SingleBookingDetails"
             android:parentActivityName=".BookingHistory" />
         <activity android:name=".ExtendBooking" />
-        <activity android:name=".UpdateExtendBooking"></activity>
+        <activity android:name=".UpdateExtendBooking" />
+        <activity android:name=".PaymentBooking"
+            android:parentActivityName=".BookingDetails"></activity>
     </application>
 
 </manifest>
