@@ -39,8 +39,6 @@ import static android.os.ParcelFileDescriptor.MODE_WORLD_READABLE;
 public class FragmentBookingHistory extends Fragment {
 
 
-
-
     public ArrayList<Car_lists> parents;
     ListView listView;
     View rootView;

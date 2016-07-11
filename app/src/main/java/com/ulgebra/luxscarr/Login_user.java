@@ -211,13 +211,19 @@ public class Login_user extends AppCompatActivity {
                 String user_idd = myPrefs.getString("MEM1","");
                 Toast.makeText(getApplicationContext(), "Login Successful "+user_idd, Toast.LENGTH_LONG).show();
 
+                Intent intent=new Intent(getApplicationContext(),Welcome.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                finish();
+                startActivity(intent);
+
             }else if(otpt.hashCode()==("Activate your Account by OTP").hashCode()) {
                 Bundle bun=new Bundle();
                 bun.putString("email_ids",user_inp.getText().toString());
 
                 Intent intent=new Intent(getApplicationContext(),Activate_Account.class);
                 intent.putExtras(bun);
-               // intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                finish();
                 startActivity(intent);
                 Toast.makeText(getApplicationContext(),"Activate your Account by OTP", Toast.LENGTH_LONG).show();
             }else{

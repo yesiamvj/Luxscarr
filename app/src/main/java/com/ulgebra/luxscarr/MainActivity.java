@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity
             Toast.makeText(getApplicationContext()," user id "+user_idd,Toast.LENGTH_LONG).show();
            Intent intent=new Intent(this,Welcome.class);
             intent.putExtra("needTab",0);
-            this.finish();
+            finish();
             startActivity(intent);
        }
 

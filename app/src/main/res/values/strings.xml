@@ -5,7 +5,7 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="user_id">Empt</string>
     <string name="saved_high_score_default">Empti</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Log Out</string>
     <string name="title_activity_single_car_detail">SingleCarDetail</string>
     <string-array name="cancel_reasons">
         <item>-- Select a Reason --</item>

@@ -31,6 +31,7 @@ public class Activate_Account extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_activate__account);
         reg_otp_inp=(AutoCompleteTextView)findViewById(R.id.reg_otp);
+        Button otp_confirmBtn=(Button)findViewById(R.id.otp_confirmBtn);
         resen_otp_inp=(Button)findViewById(R.id.resend_otp_btn);
         Bundle buns=getIntent().getExtras();
         final String email_ids=buns.getString("email_ids");
@@ -52,7 +53,7 @@ public class Activate_Account extends AppCompatActivity {
 
             }
         });
-        reg_otp_inp.setOnClickListener(new View.OnClickListener() {
+        otp_confirmBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 boolean check_all=false;
@@ -188,7 +189,8 @@ public class Activate_Account extends AppCompatActivity {
 
             if(otpt.hashCode()==("Successfully Activated").hashCode()){
                 Intent in=new Intent(getApplicationContext(),Login_user.class);
-
+                in.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                finish();
                 startActivity(in);
                 Toast.makeText(getApplicationContext(),"Successfully Activated",Toast.LENGTH_LONG).show();
 

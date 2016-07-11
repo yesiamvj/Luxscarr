@@ -1,9 +1,13 @@
 package com.ulgebra.luxscarr;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.provider.Settings;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
    
@@ -19,6 +23,7 @@ import android.view.View;
 import android.view.ViewGroup;
   
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Welcome extends AppCompatActivity {
 
@@ -62,6 +67,15 @@ public class Welcome extends AppCompatActivity {
       
     }
 
+    @Override
+    public void onBackPressed() {
+
+        Intent a = new Intent(Intent.ACTION_MAIN);
+        a.addCategory(Intent.CATEGORY_HOME);
+        a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(a);
+
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -79,7 +93,19 @@ public class Welcome extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            return true;
+
+            SharedPreferences myPrefs = getSharedPreferences("myPrefs", MODE_WORLD_READABLE);
+            SharedPreferences.Editor editor = myPrefs.edit();
+            editor.remove("MEM1");
+
+            editor.commit();
+
+            Intent intentq=new Intent(getApplicationContext(),Login_user.class);
+            intentq.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            finish();
+            startActivity(intentq);
+
+
         }
 
         return super.onOptionsItemSelected(item);
