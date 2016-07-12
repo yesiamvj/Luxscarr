@@ -64,8 +64,9 @@ public class BrowseCars extends AppCompatActivity {
 
         String book_date=frm_day+"-"+frm_month+"-"+frm_year+" to "+to_day+"-"+tomonth+"-"+to_year;
         from_to_inp.setText(book_date);
-
-        final String sel_url="http://luxscar.com/luxscar_app/view_avl_cars.php";
+        String ride_froom=frm_day+"-"+frm_month+"-"+frm_year;
+        String too_date=to_day+"-"+tomonth+"-"+to_year;
+        final String sel_url="http://luxscar.com/luxscar_app/view_avl_cars.php?ride_from="+ride_froom+"&ride_to"+too_date+"&chk=vf";
 
         new LongOperation().execute(sel_url);
 
