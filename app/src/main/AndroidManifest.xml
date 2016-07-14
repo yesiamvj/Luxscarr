@@ -51,7 +51,8 @@
         <activity android:name=".ConfirmBooking" />
         <activity
             android:name=".SingleCarDetail"
-            android:label="@string/title_activity_single_car_detail" />
+            android:label="@string/title_activity_single_car_detail"
+            android:parentActivityName=".BrowseCars" />
         <activity android:name=".AdminShownCars" />
         <activity android:name=".AdminHiddenCars" />
         <activity android:name=".AdminBookingHistory" />
@@ -72,7 +73,7 @@
         <activity
             android:name=".Welcome"
             android:label="@string/title_activity_welcome"
-            android:noHistory = "true"
+            android:noHistory="true"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Main3Activity"
@@ -83,8 +84,22 @@
             android:parentActivityName=".BookingHistory" />
         <activity android:name=".ExtendBooking" />
         <activity android:name=".UpdateExtendBooking" />
-        <activity android:name=".PaymentBooking"
-            android:parentActivityName=".BookingDetails"></activity>
+        <activity
+            android:name=".PaymentBooking"
+            android:parentActivityName=".BookingDetails" />
+        <activity android:name=".MyAccount" />
+        <activity
+            android:name=".SingleUserDetails"
+            android:parentActivityName=".Welcome" />
+        <activity
+            android:name=".About"
+            android:label="@string/title_activity_about"
+            android:parentActivityName=".Welcome"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.ulgebra.luxscarr.Welcome" />
+        </activity>
     </application>
 
 </manifest>

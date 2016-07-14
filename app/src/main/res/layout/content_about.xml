@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.ulgebra.luxscarr.About"
+    tools:showIn="@layout/activity_about">
+
+    <LinearLayout  style="@style/maPaWc"  android:orientation="vertical" >
+        <LinearLayout style="@style/ab_Holdr" android:orientation="vertical">
+            <TextView style="@style/ab_Ttl"
+                android:text="Society Of \nElectrical &amp; Electronics
+Engineers"/>
+            <LinearLayout style="@style/ab_uline"></LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="20dp"
+                    android:text="something will come here"/>
+            </LinearLayout>
+        </LinearLayout>
+        <Button style="@style/forBoxShdd"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
+
+
+            <TextView style="@style/wc2_TtlNme"  android:text="ACTIVITIES"
+                android:background="@android:color/holo_orange_dark"
+
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:paddingLeft="20dp"
+                android:textSize="20dp"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="0dp"/>
+
+            <TextView style="@style/Hospi_List" android:text="ok" />
+            <Button style="@style/forBoxShdd" />
+            <TextView style="@style/Hospi_List" android:text="ok" />
+            <Button style="@style/forBoxShdd" />
+            <TextView style="@style/Hospi_List" android:text="okk" />
+            <Button style="@style/forBoxShdd" />
+
+
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ffffff"
+                android:textColor="@android:color/tertiary_text_dark"
+                android:text=" CEG , AU "
+                android:textSize="16dp"/>
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</android.support.v4.widget.NestedScrollView>

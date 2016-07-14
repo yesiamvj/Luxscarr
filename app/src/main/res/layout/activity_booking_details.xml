@@ -27,6 +27,8 @@
                             android:text="Rs.1000 / day" style="@style/browse_car_price" />
                         <ImageView
                             android:id="@+id/car_image_inps"
+                            android:src="@drawable/ic_launcher_w"
+                            android:background="#ffffff"
                             style="@style/browse_car_image" />
                     </LinearLayout>
                 </LinearLayout>
@@ -38,13 +40,13 @@
                     android:text="Rs.24,0000" style="@style/confirmBooking_AnsText" />
                 <TextView
 
-                    android:layout_marginTop="-5.0dip" android:text="Advance amount Paid" style="@style/confirmBooking_QueText" />
+                    android:layout_marginTop="-5.0dip" android:text="Advance amount" style="@style/confirmBooking_QueText" />
                 <TextView
                     android:id="@+id/adv_amount"
-                    android:text="Rs.6,0000" style="@style/confirmBooking_AnsText" />
+                    android:text="Rs.2,0000" style="@style/confirmBooking_AnsText" />
                 <TextView
 
-                    android:gravity="end" android:layout_marginRight="15.0dip" android:layout_marginBottom="5.0dip" android:text="* 25% of Total Amount as advance" style="@style/mpwc" />
+                    android:gravity="end" android:layout_marginRight="15.0dip" android:layout_marginBottom="5.0dip" android:text="* You have to pay minimum Rs.2000 as advance" style="@style/mpwc" />
                 <Button
                     android:id="@+id/cnfrm_booking"
                     android:text="Confirm Booking" style="@style/carDetilEndBtn" />

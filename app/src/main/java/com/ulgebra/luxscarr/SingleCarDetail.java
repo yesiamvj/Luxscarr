@@ -205,7 +205,18 @@ public class SingleCarDetail extends AppCompatActivity {
 
                         String car_image=jsonChildNode1.optString("car_image").toString();
                         // all_imgs[i]=jsonChildNode1.optString("car_image").toString();;
-                        mp.setCar_image(car_image);
+
+                        if(car_image=="no-image"){
+                            mp.setCar_image("no-image");
+                        }
+                        else {
+                            mp.setCar_image(car_image);
+                        }
+
+
+
+
+
 
                         Log.i("img_cnt",car_image+" @ "+i);
                         lists.add(mp);
@@ -298,7 +309,14 @@ public class SingleCarDetail extends AppCompatActivity {
             View view = LayoutInflater.from(this).inflate(R.layout.single_car_img_dtl,null);
             ImageView imgs=(ImageView)view.findViewById(R.id.single_car_image);
 
-            new ImageLoadTask("http://luxscar.com/luxscar_app/"+my_parent.getCar_image(), imgs).execute();
+            if(my_parent.getCar_image().equals("no-image")){
+
+            }
+            else {
+                Log.v("net_img_c",my_parent.getCar_image().length()+"");
+                new ImageLoadTask("http://luxscar.com/luxscar_app/"+my_parent.getCar_image(), imgs).execute();
+
+            }
 
             linearLayout.addView(view);
         }

@@ -327,11 +327,16 @@ Dialog.setMessage("please wait");
             tot_cost.setText("Rs. "+total_cost);
 
             adv_amt=(0.25)*total_cost;
-            adv_amont.setText("Rs "+adv_amt);
+            adv_amont.setText("Minimum Rs.2000");
             car_cost.setText("Rs. "+cost+" / per day");
 
 
-            new ImageLoadTask("http://luxscar.com/luxscar_app/"+car_image, car_image_inp).execute();
+            if(car_image.equals("null")){
+
+            }
+            else {
+                new ImageLoadTask("http://luxscar.com/luxscar_app/"+car_image, car_image_inp).execute();
+            }
 
 
 
@@ -634,7 +639,7 @@ Dialog.setMessage("please wait");
                 Intent intentCC=new Intent(getApplicationContext(),PaymentBooking.class);
 
                 startActivity(intentCC);
-                Toast.makeText(getApplicationContext(),otpt,Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),otpt.toString(),Toast.LENGTH_LONG).show();
 
             }
 

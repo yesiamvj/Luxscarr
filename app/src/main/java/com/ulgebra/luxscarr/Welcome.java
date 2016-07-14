@@ -92,21 +92,18 @@ public class Welcome extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
 
-            SharedPreferences myPrefs = getSharedPreferences("myPrefs", MODE_WORLD_READABLE);
-            SharedPreferences.Editor editor = myPrefs.edit();
-            editor.remove("MEM1");
 
-            editor.commit();
 
-            Intent intentq=new Intent(getApplicationContext(),Login_user.class);
-            intentq.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            finish();
+        if (id == R.id.action_myaccount) {
+            Intent intentq=new Intent(getApplicationContext(),SingleUserDetails.class);
             startActivity(intentq);
-
-
         }
+        if (id == R.id.action_about) {
+            Intent intentq=new Intent(getApplicationContext(),SingleUserDetails.class);
+            startActivity(intentq);
+        }
+
 
         return super.onOptionsItemSelected(item);
     }

@@ -1,21 +1,14 @@
 package com.ulgebra.luxscarr;
 
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
-import android.support.v4.app.DialogFragment;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,21 +17,16 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.io.UnsupportedEncodingException;
-import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
-import java.net.URLEncoder;
 import java.util.ArrayList;
 
-public class SingleBookingDetails extends AppCompatActivity {
+public class SingleUserDetails extends AppCompatActivity {
 
 
-    String booking_iddd,car_image,cars_name,car_number,ride_form,ride_to,ride_advance,booked_on,ride_total_cost,car_reg_no;
-
+    String user_name,user_mob,user_mail,user_id,user_licence_no,user_bookings,user_reg_date;
     int car_id,cost,total_cost;
     double adv_amt;
 
@@ -48,22 +36,40 @@ public class SingleBookingDetails extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Intent intentzc = getIntent();
 
 
-        String booking_idd= intentzc.getStringExtra("booking_idd").substring(1);
+        SharedPreferences myPrefs = getSharedPreferences("myPrefs", MODE_WORLD_READABLE);
+        String user_id = myPrefs.getString("MEM1","");
 
-        setContentView(R.layout.activity_single_booking_details);
 
-        Dialog= new ProgressDialog(SingleBookingDetails.this);
+
+        setContentView(R.layout.activity_single_user_details);
+
+        Button logoutBtn=(Button)findViewById(R.id.logOut_btn);
+        logoutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences myPrefs = getSharedPreferences("myPrefs", MODE_WORLD_READABLE);
+                SharedPreferences.Editor editor = myPrefs.edit();
+                editor.remove("MEM1");
+                editor.commit();
+
+                Intent intentq=new Intent(getApplicationContext(),Login_user.class);
+                intentq.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                finish();
+                startActivity(intentq);
+            }
+        });
+
+        Dialog= new ProgressDialog(SingleUserDetails.this);
         Dialog.setMessage("please wait");
         Dialog.show();
 
 
 
 
-        Log.v("booking_id_sent",booking_idd+"");
-        String otp_nums = "http://luxscar.com/luxscar_app/SingleBookingDetails.php?booking_id="+booking_idd+"";
+        Log.v("user_id_sent",user_id+"");
+        String otp_nums = "http://luxscar.com/luxscar_app/SingleUserDetails.php?user_id="+user_id+"";
 
 
         final String otp_url = otp_nums;
@@ -181,9 +187,8 @@ public class SingleBookingDetails extends AppCompatActivity {
                     /***** Returns the value mapped by name if it exists and is a JSONArray. ***/
                     /*******  Returns null otherwise.  *******/
 
-                    jsonMainNode1=jsonResponse.optJSONArray("Car_images");
 
-                  //  int car_img_len=jsonMainNode1.length();
+                    //  int car_img_len=jsonMainNode1.length();
 
 
 
@@ -211,22 +216,18 @@ public class SingleBookingDetails extends AppCompatActivity {
                         /******* Fetch node values **********/
 
 
-                         ride_form=jsonChildNode.optString("ride_from").toString();
-                         ride_to=jsonChildNode.optString("ride_to").toString();
-                         ride_advance=jsonChildNode.optString("paid_cost").toString();
-                         booked_on=jsonChildNode.optString("booked_on").toString();
-                        booking_iddd=jsonChildNode.optString("booking_id").toString();
-                        ride_total_cost=jsonChildNode.optString("ride_price").toString();
-                        cars_name       = jsonChildNode.optString("car_name").toString();;
-                        cost     = jsonChildNode.optInt("cost");
-                        car_reg_no=jsonChildNode.optString("car_no").toString();
-                        car_number = jsonChildNode.optString("car_no").toString();
-                        car_id=jsonChildNode.optInt("car_id");
-
-                        car_image=jsonChildNode.optString("car_image").toString();
+                        user_name=jsonChildNode.optString("username").toString();
+                        user_mail=jsonChildNode.optString("user_mail").toString();
+                        user_mob=jsonChildNode.optString("user_mob").toString();
+                        user_licence_no=jsonChildNode.optString("user_lic").toString();
+                        user_id=jsonChildNode.optString("user_id").toString();
+                        user_bookings=jsonChildNode.optString("user_bookings").toString();
+                        user_reg_date=jsonChildNode.optString("user_regdate").toString();
 
 
-                        Log.i("net_err","tot_cnt="+ride_form);
+
+
+
                     }
 
                     loadHosts(lists);
@@ -258,58 +259,24 @@ public class SingleBookingDetails extends AppCompatActivity {
 
 
 
-      //  Log.v("car_name",car_image);
+        //  Log.v("car_name",car_image);
 
 
         for(int i=0;i<1;i++){
-            TextView from_to_inp=(TextView)findViewById(R.id.ride_dure);
-            TextView car_name_inp=(TextView)findViewById(R.id.car_brand);
-            TextView car_cost=(TextView)findViewById(R.id.car_cost);
-            TextView car_regNo=(TextView)findViewById(R.id.ride_carNo);
-            TextView bookingHeaderDets=(TextView)findViewById(R.id.bookingHeaderDets);
-            ImageView car_image_inp=(ImageView)findViewById(R.id.car_image_inps);
-            Button cancel_bookBtn=(Button)findViewById(R.id.cancel_booking);
-          //  Button edit_bookingBtn=(Button)findViewById(R.id.edit_booking);
-            final TextView adv_amont=(TextView)findViewById(R.id.adv_amount);
-            final TextView tot_cost=(TextView)findViewById(R.id.tot_cost);
-
-
-
-            cancel_bookBtn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-
-                  Intent intentcn=new Intent(getApplicationContext(),CancelBooking.class);
-                    intentcn.putExtra("booking_idd",booking_iddd);
-                    startActivity(intentcn);
-
-
-                }
-            });
-//            edit_bookingBtn.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    Intent intentcn=new Intent(getApplicationContext(),ExtendBooking.class);
-//                    intentcn.putExtra("booking_idd",booking_iddd);
-//                    intentcn.putExtra("booking_from_date",ride_form);
-//                    intentcn.putExtra("booking_to_date",ride_to);
-//                    startActivity(intentcn);
-//                }
-//            });
-
-            bookingHeaderDets.setText("Booking ID : #"+booking_iddd+" On "+booked_on+"");
-            from_to_inp.setText("From "+ride_form+" to "+ride_to+"");
-            car_name_inp.setText(cars_name);
-            car_regNo.setText(car_reg_no);
-             tot_cost.setText("Rs. "+ride_total_cost);
-
-            adv_amont.setText("Rs "+ride_advance);
-            car_cost.setText("Rs. "+cost+" / per day");
-
-
-            new ImageLoadTask("http://luxscar.com/luxscar_app/"+car_image, car_image_inp).execute();
-
+            TextView userNameTxt=(TextView)findViewById(R.id.ride_username);
+            TextView usermobTxt=(TextView)findViewById(R.id.usermob);
+            TextView usermail=(TextView)findViewById(R.id.usermail);
+            TextView userlic=(TextView)findViewById(R.id.userlic);
+            TextView ride_totBook=(TextView)findViewById(R.id.ride_totBook);
+            TextView ride_regDate=(TextView)findViewById(R.id.ride_regDate);
+            TextView ride_userId=(TextView)findViewById(R.id.bookingHeaderDets);
+            userNameTxt.setText(user_name);
+            usermobTxt.setText(user_mob);
+            usermail.setText(user_mail);
+            userlic.setText(user_licence_no);
+            ride_totBook.setText(user_bookings);
+            ride_regDate.setText(user_reg_date);
+            ride_userId.setText("User ID "+user_id);
 
 
         }
@@ -317,40 +284,6 @@ public class SingleBookingDetails extends AppCompatActivity {
 
     }
 
-    public class ImageLoadTask extends AsyncTask<Void, Void, Bitmap> {
-
-        private String url;
-        private ImageView imageView;
-
-        public ImageLoadTask(String url, ImageView imageView) {
-            this.url = url;
-            this.imageView = imageView;
-        }
-
-        @Override
-        protected Bitmap doInBackground(Void... params) {
-            try {
-                URL urlConnection = new URL(url);
-                HttpURLConnection connection = (HttpURLConnection) urlConnection
-                        .openConnection();
-                connection.setDoInput(true);
-                connection.connect();
-                InputStream input = connection.getInputStream();
-                Bitmap myBitmap = BitmapFactory.decodeStream(input);
-                return myBitmap;
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Bitmap result) {
-            super.onPostExecute(result);
-            imageView.setImageBitmap(result);
-        }
-
-    }
 
 
 
@@ -361,7 +294,7 @@ public class SingleBookingDetails extends AppCompatActivity {
         // private final HttpClient Client = new DefaultHttpClient();
         private String Content;
         private String Error = null;
-        private ProgressDialog Dialog = new ProgressDialog(SingleBookingDetails.this);
+        private ProgressDialog Dialog = new ProgressDialog(SingleUserDetails.this);
         String data ="";
         String otpt="";
 
@@ -458,7 +391,7 @@ public class SingleBookingDetails extends AppCompatActivity {
 
 
                 finish();
-                Intent intent=new Intent(getApplicationContext(),Welcome.class);
+                Intent intent=new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(intent);
                 Toast.makeText(getApplicationContext(),otpt,Toast.LENGTH_LONG).show();
 
