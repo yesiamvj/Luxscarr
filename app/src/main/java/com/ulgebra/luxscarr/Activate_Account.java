@@ -2,6 +2,7 @@ package com.ulgebra.luxscarr;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -187,12 +188,20 @@ public class Activate_Account extends AppCompatActivity {
             // Close progress dialog
             Dialog.dismiss();
 
-            if(otpt.hashCode()==("Successfully Activated").hashCode()){
-                Intent in=new Intent(getApplicationContext(),Login_user.class);
-                in.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            if(otpt.contains("Login Successfull.")){
+                SharedPreferences myPrefs = getSharedPreferences("myPrefs", MODE_WORLD_READABLE);
+                SharedPreferences.Editor editor = myPrefs.edit();
+                editor.putString("MEM1", otpt.substring(18,otpt.length()));
+                editor.commit();
+
+
+                String user_idd = myPrefs.getString("MEM1","");
+                Toast.makeText(getApplicationContext(), "Login Successfull ", Toast.LENGTH_LONG).show();
+
+                Intent intent=new Intent(getApplicationContext(),Welcome.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 finish();
-                startActivity(in);
-                Toast.makeText(getApplicationContext(),"Successfully Activated",Toast.LENGTH_LONG).show();
+                startActivity(intent);
 
             }else if(otpt.hashCode()==("Successfully Sent").hashCode()) {
 

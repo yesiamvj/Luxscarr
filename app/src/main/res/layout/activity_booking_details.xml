@@ -3,50 +3,100 @@
     <ScrollView style="@style/mama">
         <LinearLayout android:orientation="vertical" android:paddingBottom="10.0dip" style="@style/mpwc">
             <LinearLayout android:orientation="vertical" android:layout_marginTop="0.0dip" style="@style/topTitleBar">
-                <TextView android:textSize="20.0dip" android:textColor="@color/colorPrimary" android:text="Booking Details" style="@style/topTitleText" />
+                <TextView android:textSize="20.0dip" android:textColor="@color/colorPrimary" android:text="@string/bokDet" style="@style/topTitleText" />
                 <Button style="@style/topTitleShadow" />
             </LinearLayout>
             <LinearLayout style="@style/mpwc">
-                <TextView android:paddingLeft="18.0dip" android:paddingTop="5.0dip" android:paddingBottom="10.0dip" android:text="Review your Order" style="@style/mpwc" />
+                <TextView android:paddingLeft="18.0dip" android:paddingTop="5.0dip" android:paddingBottom="10.0dip" android:text="@string/revOrdr" style="@style/mpwc" />
             </LinearLayout>
             <LinearLayout style="@style/mpwcvw">
                 <LinearLayout style="@style/mpwcvw">
-                    <TextView android:text="Ride Date" style="@style/confirmBooking_QueText" />
+                    <TextView android:text="@string/rideDate" style="@style/confirmBooking_QueText" />
                     <TextView
                         android:id="@+id/ride_dure"
-                        android:text="6.7.16 to 30.7.16" style="@style/confirmBooking_AnsText" />
-                    <TextView android:text="Vehicle" style="@style/confirmBooking_QueText" />
+                        android:text="@string/lo" style="@style/confirmBooking_AnsText" />
+                    <TextView android:text="@string/veh" style="@style/confirmBooking_QueText" />
                 </LinearLayout>
                 <LinearLayout style="@style/singleCar_container">
                     <LinearLayout style="@style/mpwcvw">
                         <TextView
                             android:id="@+id/car_brand"
-                            android:text="Audi VB Tuning" style="@style/browse_car_name" />
+                            android:textColor="@color/colorPrimaryDark"
+                            android:background="#f5f5f5"
+                            android:text="@string/lo" style="@style/browse_car_name" />
                         <TextView
                             android:id="@+id/car_cost"
-                            android:text="Rs.1000 / day" style="@style/browse_car_price" />
-                        <ImageView
-                            android:id="@+id/car_image_inps"
-                            android:src="@drawable/ic_launcher_w"
-                            android:background="#ffffff"
-                            style="@style/browse_car_image" />
+                            android:background="#f5f5f5"
+                            android:textColor="#000000"
+                            android:text="@string/lo" style="@style/browse_car_price" />
+                        <!--<ImageView-->
+                            <!--android:id="@+id/car_image_inps"-->
+                            <!--android:src="@drawable/ic_launcher_w"-->
+                            <!--android:background="#ffffff"-->
+                            <!--style="@style/browse_car_image" />-->
                     </LinearLayout>
                 </LinearLayout>
                 <TextView
-
-                    android:text="Total Cost" style="@style/confirmBooking_QueText" />
+                    android:layout_marginTop="15dp"
+                    android:text="@string/totCost" style="@style/confirmBooking_QueText" />
                 <TextView
                     android:id="@+id/tot_cost"
-                    android:text="Rs.24,0000" style="@style/confirmBooking_AnsText" />
+                    android:text="@string/lo" style="@style/confirmBooking_AnsText" />
                 <TextView
+                    android:visibility="gone"
 
-                    android:layout_marginTop="-5.0dip" android:text="Advance amount" style="@style/confirmBooking_QueText" />
+                    android:layout_marginTop="-5.0dip" android:text="@string/advAmt" style="@style/confirmBooking_QueText" />
                 <TextView
+                    android:visibility="gone"
                     android:id="@+id/adv_amount"
-                    android:text="Rs.2,0000" style="@style/confirmBooking_AnsText" />
+                    android:text="@string/lo" style="@style/confirmBooking_AnsText" />
+                <TextView
+                    android:gravity="end" android:layout_marginRight="15.0dip" android:layout_marginBottom="5.0dip" android:text="@string/minAdvText" style="@style/mpwc" />
+                <TextView
+                    android:layout_marginTop="5dip"
+                    android:text="@string/pickAt" style="@style/confirmBooking_QueText" />
+
+
+                <Spinner android:id="@+id/pickUpAt"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="25dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="15dp"
+                    style="@style/confirmBooking_AnsText"
+                    />
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <AutoCompleteTextView
+                        style="@style/mpwc"
+                        android:visibility="gone"
+                        android:id="@+id/otherPickUpLoc"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+
+                        android:textColor="#2e7d32"
+                        android:hint="Enter Pick Up Location"
+                        android:paddingLeft="10dp"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:singleLine="true" />
+
+                </android.support.design.widget.TextInputLayout>
+
                 <TextView
 
-                    android:gravity="end" android:layout_marginRight="15.0dip" android:layout_marginBottom="5.0dip" android:text="* You have to pay minimum Rs.2000 as advance" style="@style/mpwc" />
+                    android:layout_marginTop="-5.0dip" android:text="@string/pickT" style="@style/confirmBooking_QueText" />
+                <Button
+                    android:id="@+id/editTxt"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#00897b"
+                    android:color="#ffffff"
+                    android:hint="Select Pick Up Time"/>
                 <Button
                     android:id="@+id/cnfrm_booking"
                     android:text="Confirm Booking" style="@style/carDetilEndBtn" />

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.ulgebra.luxscar.MainActivity"
+    tools:context="com.ulgebra.luxscarr.MainActivity"
     tools:showIn="@layout/app_bar_main">
 
     <ScrollView style="@style/mama" >
@@ -120,6 +120,26 @@
                         android:singleLine="true" />
 
                 </android.support.design.widget.TextInputLayout>
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <AutoCompleteTextView
+                        style="@style/mpwc"
+                        android:id="@+id/ref_number"
+                        android:textColor="#2e7d32"
+                        android:hint="Reference Mobile No (if any) "
+                        android:paddingLeft="10dp"
+                        android:inputType="number"
+                        android:maxLines="1"
+                        android:singleLine="true" />
+
+                </android.support.design.widget.TextInputLayout>
+                <TextView style="@style/mpwc"
+                    android:paddingLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:text="*by referal number both of you get discount"
+                    />
                 <Button
                     android:id="@+id/signup_btn"
                     android:layout_width="match_parent"

@@ -13,9 +13,7 @@
         android:layout_height="250dp"
         android:fitsSystemWindows="true"
         android:background="#000000"
-        android:paddingTop="0dp"
-        android:paddingLeft="30dp"
-        android:paddingRight="30dp"
+
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <android.support.design.widget.CollapsingToolbarLayout

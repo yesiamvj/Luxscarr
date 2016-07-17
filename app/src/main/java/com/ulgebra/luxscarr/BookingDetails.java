@@ -1,7 +1,10 @@
 package com.ulgebra.luxscarr;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.app.TimePickerDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
@@ -10,13 +13,21 @@ import android.os.AsyncTask;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.InputType;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -33,14 +44,20 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class BookingDetails extends AppCompatActivity {
 
 
-    String car_image,cars_name,car_number;
+    String car_image,cars_name,car_number,pickUpLocationOther,pickUpLoate;
 
-    int car_id,cost,total_cost;
+    int car_id,cost,total_cost,fdiff_date;
     double adv_amt;
+    Spinner spinner;
+    Button editText;
+    TextView txt1;
+    boolean check_all=false;
+    private TimePicker timePicker1;
 
     public ArrayList<Car_lists> parents;
 
@@ -49,6 +66,62 @@ public class BookingDetails extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking_details);
+         txt1=(TextView) findViewById(R.id.otherPickUpLoc);
+        spinner = (Spinner) findViewById(R.id.pickUpAt);
+// Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.pickUps, R.layout.single_spin_item);
+// Specify the layout to use when the list of choices appears
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+// Apply the adapter to the spinner
+        spinner.setAdapter(adapter);
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                if(position==4){
+
+                    txt1.setVisibility(View.VISIBLE);
+
+                }
+                else {
+                    txt1.setVisibility(View.GONE);
+                }
+
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+
+
+        });
+
+        editText=(Button)findViewById(R.id.editTxt);
+        editText.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                Calendar mcurrentTime = Calendar.getInstance();
+                int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
+                int minute = mcurrentTime.get(Calendar.MINUTE);
+                TimePickerDialog mTimePicker;
+                mTimePicker = new TimePickerDialog(BookingDetails.this, new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
+                        editText.setText( selectedHour + ":" + selectedMinute);
+                    }
+                }, hour, minute, true);//Yes 24 hour time
+                mTimePicker.setTitle("Select Time");
+                mTimePicker.show();
+
+            }
+        });
 
         Dialog= new ProgressDialog(BookingDetails.this);
 Dialog.setMessage("please wait");
@@ -267,7 +340,7 @@ Dialog.setMessage("please wait");
 
             TextView car_name_inp=(TextView)findViewById(R.id.car_brand);
             TextView car_cost=(TextView)findViewById(R.id.car_cost);
-            ImageView car_image_inp=(ImageView)findViewById(R.id.car_image_inps);
+          //  ImageView car_image_inp=(ImageView)findViewById(R.id.car_image_inps);
             Button selt_car=(Button)findViewById(R.id.cnfrm_booking);
             final TextView adv_amont=(TextView)findViewById(R.id.adv_amount);
             final TextView tot_cost=(TextView)findViewById(R.id.tot_cost);
@@ -285,6 +358,11 @@ Dialog.setMessage("please wait");
                     int to_day= buns.getInt("to_day");
                     int tomonth=buns.getInt("to_mnth");
                     int to_year=buns.getInt("to_year");
+                    String pickTimee=editText.getText().toString();
+                   // int hours=timePicker1.getCurrentHour();
+                    //int min=timePicker1.getCurrentMinute();
+
+                    //Log.v("timm",hours+"dd"+min);
                     SharedPreferences myPrefs = getSharedPreferences("myPrefs", MODE_WORLD_READABLE);
                     String user_id = myPrefs.getString("MEM1","");
 
@@ -293,23 +371,60 @@ Dialog.setMessage("please wait");
                     String bookf_date=frm_day+"-"+frm_month+"-"+frm_year;
                     String bookt_date=to_day+"-"+tomonth+"-"+to_year;
 
+                    if(spinner.getSelectedItemId()==4){
+                        if(TextUtils.isEmpty(txt1.getText()) ){
+                            txt1.setError("Required");
+                            txt1.requestFocus();
+
+                        }
+                        else {
+                            check_all=true;
+                            pickUpLoate=txt1.getText().toString();
+                        }
+
+                    }
+                    else {
+                        check_all=true;
+                         pickUpLoate=spinner.getSelectedItem().toString();
+                    }
+
+
+
+
+
+                    String pickUpTime=pickTimee;
+
 
 
                     String my_data="";
                     try {
+                        pickUpLoate=URLEncoder.encode(pickUpLoate,"UTF-8");
+                        pickUpTime=URLEncoder.encode(pickUpTime,"UTF-8");
+                        Log.v("timm",pickUpTime+"loc "+pickUpLoate);
                         my_data+= URLEncoder.encode("user_idnnn", "UTF-8") + "="+user_id;
                         my_data+="&"+URLEncoder.encode("car_idss","UTF-8")+"="+car_id;
                         my_data+="&"+URLEncoder.encode("bookf_date","UTF-8")+"="+bookf_date;
                         my_data+="&"+URLEncoder.encode("bookt_date","UTF-8")+"="+bookt_date;
                         my_data+="&"+URLEncoder.encode("ride_price","UTF-8")+"="+total_cost;
                         my_data+="&"+URLEncoder.encode("ride_advance","UTF-8")+"="+adv_amt;
+                        my_data+="&"+URLEncoder.encode("pickUpLocation","UTF-8")+"="+pickUpLoate;
+                        my_data+="&"+URLEncoder.encode("pickUpTime","UTF-8")+"="+pickUpTime;
+                        my_data+="&"+URLEncoder.encode("ride_days","UTF-8")+"="+fdiff_date;
                         my_data+="&"+URLEncoder.encode("JSK","UTF-8")+"="+"skjdkskdskjhkjn";
                     } catch (UnsupportedEncodingException e) {
                         e.printStackTrace();
                     }
 
                      booking_url+=my_data;
-                    new Booking().execute(booking_url);
+
+                    if(check_all){
+                        Log.v("sent_urll",booking_url);
+                        new Booking().execute(booking_url);
+                    }
+                    else {
+
+                    }
+
                 }
             });
 
@@ -323,6 +438,7 @@ Dialog.setMessage("please wait");
             int tomonth=buns.getInt("to_mnth");
             int to_year=buns.getInt("to_year");
             int diff_day=calc_diff(frm_day,frm_month,frm_year,to_day,tomonth,to_year);
+             fdiff_date=diff_day+1;
              total_cost=(diff_day+1)*cost;
             tot_cost.setText("Rs. "+total_cost);
 
@@ -335,7 +451,7 @@ Dialog.setMessage("please wait");
 
             }
             else {
-                new ImageLoadTask("http://luxscar.com/luxscar_app/"+car_image, car_image_inp).execute();
+              //  new ImageLoadTask("http://luxscar.com/luxscar_app/"+car_image, car_image_inp).execute();
             }
 
 
@@ -635,7 +751,7 @@ Dialog.setMessage("please wait");
             }else{
 
 
-                finish();
+
                 Intent intentCC=new Intent(getApplicationContext(),PaymentBooking.class);
 
                 startActivity(intentCC);

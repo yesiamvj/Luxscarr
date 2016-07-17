@@ -278,6 +278,7 @@ public class BrowseCars extends AppCompatActivity {
                 ImageView car_image=(ImageView)vi.findViewById(R.id.car_image);
                 LinearLayout ln=(LinearLayout)vi.findViewById(R.id.single_car);
                 Button selt_car=(Button)vi.findViewById(R.id.selc_car);
+                Button view_car=(Button)vi.findViewById(R.id.viewDet_car);
 
                 selt_car.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -305,6 +306,17 @@ public class BrowseCars extends AppCompatActivity {
                     }
                 });
 
+                view_car.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent=new Intent(getApplicationContext(),SingleCarDetail.class);
+                        intent.putExtra("car_id",my_parent.getCar_id());
+
+                        startActivity(intent);
+
+
+                    }
+                });
                 ln.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

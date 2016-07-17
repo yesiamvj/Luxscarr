@@ -8,11 +8,12 @@
     tools:context="com.ulgebra.luxscarr.About"
     tools:showIn="@layout/activity_about">
 
-    <LinearLayout  style="@style/maPaWc"  android:orientation="vertical" >
-        <LinearLayout style="@style/ab_Holdr" android:orientation="vertical">
+    <LinearLayout  style="@style/maPaWc"  android:orientation="vertical"
+        >
+        <LinearLayout style="@style/ab_Holdr"
+            android:orientation="vertical">
             <TextView style="@style/ab_Ttl"
-                android:text="Society Of \nElectrical &amp; Electronics
-Engineers"/>
+                android:text="Welcome to Luxscar"/>
             <LinearLayout style="@style/ab_uline"></LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -21,22 +22,78 @@ Engineers"/>
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingLeft="20dp"
-                    android:text="something will come here"/>
+                    android:lineSpacingExtra="3dp"
+                    android:text="@string/aboutluxs"/>
             </LinearLayout>
         </LinearLayout>
         <Button style="@style/forBoxShdd"
+
             android:layout_marginRight="10dp"
             android:layout_marginLeft="10dp"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="-25dp"
+            android:padding="10dp">
+            <RelativeLayout style="@style/contMntRl" android:background="#FF871E99" >
+                <ImageButton style="@style/dummyIngBtn" android:id="@+id/imageButton" />
+                <TextView android:text="CONTACT" style="@style/wc2_TtlNme"   />
+            </RelativeLayout>
+            <LinearLayout style="@style/LL_wiOr" android:background="@android:color/transparent">
+                <Button style="@style/contNme"
+
+                    android:text="Line 1" android:textColor="#FF871E99"
+
+                    />
+                <Button style="@style/contNum" android:onClick="makeAcall"
+
+                    android:text="+91 7373737391"
+                    android:tag="tel:7373737391"    />
+
+                <Button style="@style/contNme"
+
+                    android:text="Line 2" android:textColor="#FF871E99"
+
+                    />
+                <Button style="@style/contNum"  android:onClick="makeAcall"
+                    android:text="+91 9514838383"
+                    android:tag="tel:9514838383"
+
+                    />
+                <Button style="@style/contMail"
+                    android:onClick="goToMaill"
+                    android:text="info@luxscar.com"
+
+                    />
+
+                <Button style="@style/contNme"
+                    android:layout_marginTop="10dp"
+                    android:text="Address" android:textColor="#FF871E99"
+                    />
+                <Button style="@style/contNum"
+                    android:onClick="goToMapp"
+                    android:textAllCaps="false"
+                    android:lineSpacingExtra="5dp"
+                    android:paddingBottom="15dp"
+                    android:text="75/46,\n Collectorate Colony ,\n Chennai - 600 029" android:textColor="@android:color/black"
+
+
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp">
 
 
-            <TextView style="@style/wc2_TtlNme"  android:text="ACTIVITIES"
+            <TextView style="@style/wc2_TtlNme"  android:text="Our Services"
                 android:background="@android:color/holo_orange_dark"
 
                 android:paddingTop="10dp"
@@ -46,12 +103,51 @@ Engineers"/>
                 android:layout_width="match_parent"
                 android:layout_marginLeft="0dp"/>
 
-            <TextView style="@style/Hospi_List" android:text="ok" />
+            <TextView style="@style/Hospi_List" android:text="Choose The vehicle you want" />
             <Button style="@style/forBoxShdd" />
-            <TextView style="@style/Hospi_List" android:text="ok" />
+            <TextView style="@style/Hospi_List" android:text="When it comes to variety, we offer the most to our customers. Our fleet has cars ranging from small size to luxury end so that you are spoiled for choice." />
             <Button style="@style/forBoxShdd" />
-            <TextView style="@style/Hospi_List" android:text="okk" />
+
+            <TextView style="@style/wc2_TtlNme"  android:text="Documents Required"
+                android:background="#039be5"
+
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:paddingLeft="20dp"
+                android:textSize="20dp"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="0dp"/>
+
+            <TextView style="@style/Hospi_List" android:id="@+id/styleText" android:text="v" />
             <Button style="@style/forBoxShdd" />
+            <TextView style="@style/Hospi_List" android:paddingBottom="10dp" android:paddingTop="15dp" android:lineSpacingExtra="0dp" android:text="Address Proof:"
+                android:textStyle="bold"/>
+            <TextView style="@style/Hospi_List" android:paddingBottom="15dp" android:lineSpacingExtra="5dp" android:text="\t Driving Licence ,\n \t Passport,\n \t Ration Card" />
+            <Button style="@style/forBoxShdd" />
+            <TextView style="@style/Hospi_List" android:paddingBottom="10dp" android:paddingTop="15dp" android:lineSpacingExtra="0dp" android:text="ID Proof:"
+                android:textStyle="bold"/>
+            <TextView style="@style/Hospi_List" android:paddingBottom="15dp" android:lineSpacingExtra="5dp"  android:text="\t Corporate ID Card, \n\t Passport,\n\t Driving Licence" />
+            <Button style="@style/forBoxShdd" />
+
+            <TextView
+                android:layout_marginTop="35dp"
+                android:layout_marginBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="LuxsCar v1.0"
+                android:textAlignment="center"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                />
+            <TextView
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="25dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Best use with Android Lollipop"
+                android:textAlignment="center"
+
+                android:paddingBottom="30dp"/>
 
 
 
@@ -60,7 +156,8 @@ Engineers"/>
                 android:layout_height="wrap_content"
                 android:background="#ffffff"
                 android:textColor="@android:color/tertiary_text_dark"
-                android:text=" CEG , AU "
+                android:text=" an ulgebra product "
+                android:textAllCaps="false"
                 android:textSize="16dp"/>
 
 

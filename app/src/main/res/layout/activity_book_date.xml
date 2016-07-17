@@ -79,7 +79,7 @@
                 android:textColor="#ffffff"
                 android:layout_marginTop="15dp"
                 android:textSize="18dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="50dp"
                 />
         </LinearLayout>
 

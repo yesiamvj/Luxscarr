@@ -41,6 +41,9 @@ public class PaymentBooking extends AppCompatActivity {
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
             if (url.equals("http://luxcar.com/luxscar_app/finishall.php")) {
                 Intent intent = new Intent(getApplicationContext(), Welcome.class);
+                intent.putExtra("needTab",1);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                finish();
                 startActivity(intent);
                 return true; // Handle By application itself
             }else{

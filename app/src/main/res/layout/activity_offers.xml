@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_offers"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.ulgebra.luxscarr.Offers">
+
+    <ScrollView style="@style/mama">
+    <LinearLayout android:orientation="vertical" android:paddingBottom="10.0dip" style="@style/mpwc">
+    <LinearLayout android:orientation="vertical" android:layout_marginTop="0.0dip" style="@style/topTitleBar">
+        <TextView android:textSize="20.0dip" android:textColor="@color/colorPrimary" android:text="Offers &amp; Discounts" style="@style/topTitleText" />
+        <Button style="@style/topTitleShadow" />
+    </LinearLayout>
+        <LinearLayout
+            style="@style/mpwc"
+            android:layout_margin="10dp"
+            android:background="#ffffff"
+            android:padding="10dp"
+            android:orientation="vertical"
+            >
+
+            <TextView style="@style/mpwc"
+                android:text="Today's Offer"
+                android:paddingLeft="10dp"
+                android:textColor="@color/colorAccent"
+                android:textSize="20dp"
+                android:paddingTop="10dp"
+                />
+            <TextView style="@style/mpwc"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="175dp"
+                android:text="Your today's Offer is Loading..."
+                android:textColor="#000000"
+                android:paddingLeft="20dp"
+                android:lineSpacingExtra="5dp"
+                android:textSize="18dp"
+                />
+
+        </LinearLayout>
+    </LinearLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>

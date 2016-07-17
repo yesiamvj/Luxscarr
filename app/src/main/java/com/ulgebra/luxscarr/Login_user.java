@@ -209,7 +209,7 @@ public class Login_user extends AppCompatActivity {
 
 
                 String user_idd = myPrefs.getString("MEM1","");
-                Toast.makeText(getApplicationContext(), "Login Successful "+user_idd, Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Login Successful ", Toast.LENGTH_LONG).show();
 
                 Intent intent=new Intent(getApplicationContext(),Welcome.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

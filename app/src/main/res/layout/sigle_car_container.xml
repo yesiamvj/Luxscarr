@@ -4,7 +4,7 @@
         android:id="@+id/single_car"
         android:orientation="vertical"
         android:background="#ffffffff"
-        android:onClick="goToSingleCarDetail" style="@style/mpwc">
+         style="@style/mpwc">
         <TextView
             android:id="@+id/car_name"
             style="@style/browse_car_name"
@@ -18,6 +18,12 @@
             style="@style/browse_car_image" />
     </LinearLayout>
     <Button
+        android:id="@+id/viewDet_car"
+        android:layout_marginBottom="0dp"
+        android:text="View Details"  style="@style/browse_car_selectBtn" />
+    <Button
         android:id="@+id/selc_car"
-        android:text="Select Car" android:onClick="goToConfirmBooking" style="@style/browse_car_selectBtn" />
+        android:background="#0277bd"
+        android:text="Select Car"  style="@style/browse_car_selectBtn" />
+
 </LinearLayout>

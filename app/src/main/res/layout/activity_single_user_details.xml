@@ -55,7 +55,19 @@
                     <TextView android:text="Total Bookings" style="@style/confirmBooking_QueText" />
                     <TextView
                         android:id="@+id/ride_totBook"
+
                         android:text="0" style="@style/confirmBooking_AnsText" />
+
+                    <TextView android:text="Discount Balance" style="@style/confirmBooking_QueText" />
+                    <TextView
+                        android:id="@+id/offerBalance"
+                        android:text="0" style="@style/confirmBooking_AnsText" />
+                    <TextView
+                        style="@style/mpwc"
+                        android:paddingLeft="25dp"
+                        android:paddingRight="20dp"
+                        android:text="*Discount amount earned by referring the app will be used in Booking Payment"/>
+
                     <TextView android:text="Registered On" style="@style/confirmBooking_QueText" />
                     <TextView
                         android:id="@+id/ride_regDate"
@@ -64,6 +76,7 @@
 
                     <Button
                         android:id="@+id/logOut_btn"
+                        android:background="#b71c1c"
                         android:text="Log Out" style="@style/carDetilEndBtn" />
 
 

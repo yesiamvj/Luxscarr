@@ -70,10 +70,10 @@ public class Welcome extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 
-        Intent a = new Intent(Intent.ACTION_MAIN);
-        a.addCategory(Intent.CATEGORY_HOME);
-        a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(a);
+//        Intent a = new Intent(Intent.ACTION_MAIN);
+//        a.addCategory(Intent.CATEGORY_HOME);
+//        a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//        startActivity(a);
 
     }
 
@@ -100,9 +100,24 @@ public class Welcome extends AppCompatActivity {
             startActivity(intentq);
         }
         if (id == R.id.action_about) {
-            Intent intentq=new Intent(getApplicationContext(),SingleUserDetails.class);
+            Intent intentq=new Intent(getApplicationContext(),About.class);
             startActivity(intentq);
         }
+        if (id == R.id.action_offers) {
+            Intent intentq=new Intent(getApplicationContext(),AllOffers.class);
+            startActivity(intentq);
+        }
+
+        if (id == R.id.action_share) {
+            SharedPreferences myPrefs = this.getSharedPreferences("myPrefs", MODE_WORLD_READABLE);
+            String user_idd = myPrefs.getString("MEM1","");
+            Intent i = new Intent(Intent.ACTION_SEND);
+            i.setType("text/plain");
+            i.putExtra(Intent.EXTRA_SUBJECT, "Sharing LuxsCar app");
+            i.putExtra(Intent.EXTRA_TEXT, "Hi , Sign Up & and get discount on First ride on LuxsCar app .Please go to http://luxscar.com/app/signUp.php?inviter="+user_idd+"&src=app");
+            startActivity(Intent.createChooser(i, "Share URL"));
+        }
+
 
 
         return super.onOptionsItemSelected(item);

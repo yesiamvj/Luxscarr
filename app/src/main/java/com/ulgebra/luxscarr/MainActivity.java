@@ -40,9 +40,9 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    AutoCompleteTextView username,email,mob_no,password,lic_no;
+    AutoCompleteTextView username,email,mob_no,password,lic_no,ref_num;
     Button regis_btn;
-    String u_name,email_id,mobil_no,pass_word,lcnc_no;
+    String u_name,email_id,mobil_no,pass_word,lcnc_no,ref_number;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,11 +56,11 @@ public class MainActivity extends AppCompatActivity
         SharedPreferences myPrefs = this.getSharedPreferences("myPrefs", MODE_WORLD_READABLE);
         String user_idd = myPrefs.getString("MEM1","");
         //String user_id = sharedPref.getString(getString(R.string.user_id),null);
-        Toast.makeText(getApplicationContext()," user id "+user_idd,Toast.LENGTH_LONG).show();
+       // Toast.makeText(getApplicationContext()," Welcome to LuxsCar ",Toast.LENGTH_SHORT).show();
 
         if(user_idd.length()>1){
 
-            Toast.makeText(getApplicationContext()," user id "+user_idd,Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext()," Welcome Again to LuxsCar ",Toast.LENGTH_SHORT).show();
            Intent intent=new Intent(this,Welcome.class);
             intent.putExtra("needTab",0);
             finish();
@@ -72,6 +72,7 @@ public class MainActivity extends AppCompatActivity
         mob_no=(AutoCompleteTextView)findViewById(R.id.reg_mobile);
         password=(AutoCompleteTextView)findViewById(R.id.reg_password);
         lic_no=(AutoCompleteTextView)findViewById(R.id.reg_licence_no);
+        ref_num=(AutoCompleteTextView)findViewById(R.id.ref_number);
         regis_btn=(Button)findViewById(R.id.signup_btn);
 
         // final String url_data="http://luxscar.com/luxscar_app/user_login.html";
@@ -113,6 +114,7 @@ public class MainActivity extends AppCompatActivity
                         mobil_no=mob_no.getText().toString();
                         pass_word=password.getText().toString();
                         lcnc_no=lic_no.getText().toString();
+                        ref_number=ref_num.getText().toString();
 
                         String my_data="http://luxscar.com/luxscar_app/register_user.php?";
                         // String my_data="";
@@ -122,6 +124,7 @@ public class MainActivity extends AppCompatActivity
                             my_data+="&"+URLEncoder.encode("mobile_no","UTF-8")+"="+mobil_no;
                             my_data+="&"+URLEncoder.encode("password","UTF-8")+"="+pass_word;
                             my_data+="&"+URLEncoder.encode("lic_no","UTF-8")+"="+lcnc_no;
+                            my_data+="&"+URLEncoder.encode("ref_num","UTF-8")+"="+ref_number;
                         } catch (UnsupportedEncodingException e) {
                             e.printStackTrace();
                         }
@@ -165,7 +168,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+       // getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
@@ -179,8 +182,7 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            Intent intent=new Intent(this,BookDate.class);
-            startActivity(intent);
+
 
         }
 
@@ -323,7 +325,7 @@ try{
             Dialog.dismiss();
 
 
-            if(otpt.hashCode()==("Successfully Registered").hashCode()){
+            if(otpt.contains("Successfully Registered")){
 
 
                 Bundle bun=new Bundle();
