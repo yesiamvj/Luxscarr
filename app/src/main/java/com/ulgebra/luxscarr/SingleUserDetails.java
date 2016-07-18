@@ -76,6 +76,12 @@ public class SingleUserDetails extends AppCompatActivity {
         new LongOperation().execute(otp_url);
 
     }
+    @Override
+    public void onBackPressed() {
+        Intent intent=new Intent(getApplicationContext(),Welcome.class);
+        finish();
+        startActivity(intent);
+    }
     private class LongOperation  extends AsyncTask<String, Void, Void> {
 
         // Required initialization

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
+import android.os.Handler;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -30,6 +31,7 @@ public class Login_user extends AppCompatActivity {
 
     AutoCompleteTextView user_inp,pass_inp;
     Button sign_inp,frgt_pass_btn_inp,sign_up_btn_inp;
+    boolean doubleBackToExitPressedOnce;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -100,10 +102,16 @@ public class Login_user extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onBackPressed() {
+        Intent intent=new Intent(getApplicationContext(),MainActivity.class);
+        startActivity(intent);
+    }
 
     public class LongOperation  extends AsyncTask<String, Void, Void> {
 
         // Required initialization
+
 
         // private final HttpClient Client = new DefaultHttpClient();
         private String Content;

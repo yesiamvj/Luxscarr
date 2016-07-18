@@ -28,6 +28,12 @@ public class About extends AppCompatActivity {
 
 
     }
+    @Override
+    public void onBackPressed() {
+        Intent intent=new Intent(getApplicationContext(),Welcome.class);
+        finish();
+        startActivity(intent);
+    }
     public void makeAcall(View view) {
         String phnno = (String) view.getTag();
         Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse(phnno));

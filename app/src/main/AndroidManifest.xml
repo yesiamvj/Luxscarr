@@ -95,7 +95,6 @@
             android:name=".PaymentBooking"
             android:noHistory="true"
             android:parentActivityName=".BookingDetails" />
-        <activity android:name=".MyAccount" />
         <activity
             android:name=".SingleUserDetails"
             android:parentActivityName=".Welcome" />
@@ -127,7 +126,8 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".ShareApp"></activity>
+        <activity android:name=".ShareApp"
+            android:parentActivityName=".Welcome"></activity>
     </application>
 
 </manifest>

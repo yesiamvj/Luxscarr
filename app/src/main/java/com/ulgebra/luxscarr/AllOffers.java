@@ -87,6 +87,12 @@ public class AllOffers extends AppCompatActivity {
 
 
     }
+    @Override
+    public void onBackPressed() {
+        Intent intent=new Intent(getApplicationContext(),Welcome.class);
+        finish();
+        startActivity(intent);
+    }
 
     public class LongOperation  extends AsyncTask<String, Void, Void> {
 

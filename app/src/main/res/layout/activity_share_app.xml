@@ -1,12 +1,130 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_share_app"
+    android:id="@+id/activity_add_new_car"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.ulgebra.luxscarr.ShareApp">
+    <ScrollView style="@style/mama">
+        <LinearLayout style="@style/mpwc"
+            android:orientation="vertical">
+            <LinearLayout style="@style/topTitleBar"
+                android:layout_marginTop="0dp">
+
+                <TextView
+                    style="@style/topTitleText"
+                    android:text="Sharing Offer"
+                    />
+                <Button style="@style/topTitleShadow" />
+
+            </LinearLayout>
+            <LinearLayout style="@style/mpwc"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                >
+
+                <TextView
+                    style="@style/mpwc"
+                    android:text="Offer Details"
+                    android:paddingTop="16dp"
+                    android:paddingLeft="18dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp"
+                    android:textSize="18dp"
+                    android:textColor="@android:color/darker_gray"
+                    android:background="#ffffff"/>
+            </LinearLayout>
+            <LinearLayout
+                style="@style/mpwc"
+                android:orientation="vertical"
+                android:paddingTop="15dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:background="#ffffff"
+                android:layout_marginLeft="7dp"
+                android:layout_marginRight="7dp"
+                android:paddingBottom="15dp"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="17dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="Share this app by clicking below button and get discount on Booking Ride."/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="17dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="Alternatively they can put your Mobile Number as referrral number while registering through LuxsCar App."/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="17dp"
+                    android:text="Discount amount added to your account will be : "/>
+
+                <TextView
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                    android:id="@+id/oldCusto"
+                    android:text="@string/lo"
+                    android:textSize="19dp"
+                    android:padding="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="end"
+                    android:textColor="@color/colorAccent"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="17dp"
+                    android:text="Discount amount added to your friend will be : "/>
 
 
 
-</android.support.constraint.ConstraintLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/newCusto"
+                    android:text="@string/lo"
+                    android:padding="5dp"
+                    android:focusableInTouchMode="true"
+                    android:textSize="19dp"
+                    android:gravity="end"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_marginBottom="10dp"
+                    />
+
+
+
+
+
+
+
+
+
+            </LinearLayout>
+            <Button
+                android:id="@+id/share_bbtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/share_app"
+                android:layout_marginBottom="30dp"
+                android:background="#f57c00"
+                android:textColor="#ffffff"
+                android:textSize="17dp"
+                android:layout_marginTop="20dp"
+                android:onClick="shareAppNow"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+
+                />
+
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>

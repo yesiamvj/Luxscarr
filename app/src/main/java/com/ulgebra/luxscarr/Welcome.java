@@ -2,6 +2,7 @@ package com.ulgebra.luxscarr;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Handler;
 import android.provider.Settings;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -26,7 +27,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class Welcome extends AppCompatActivity {
-
+    boolean doubleBackToExitPressedOnce = false;
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
      * fragments for each of the sections. We use a
@@ -69,11 +70,21 @@ public class Welcome extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed();
+            return;
+        }
 
-//        Intent a = new Intent(Intent.ACTION_MAIN);
-//        a.addCategory(Intent.CATEGORY_HOME);
-//        a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//        startActivity(a);
+        this.doubleBackToExitPressedOnce = true;
+        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                doubleBackToExitPressedOnce=false;
+            }
+        }, 2000);
 
     }
 
@@ -109,13 +120,8 @@ public class Welcome extends AppCompatActivity {
         }
 
         if (id == R.id.action_share) {
-            SharedPreferences myPrefs = this.getSharedPreferences("myPrefs", MODE_WORLD_READABLE);
-            String user_idd = myPrefs.getString("MEM1","");
-            Intent i = new Intent(Intent.ACTION_SEND);
-            i.setType("text/plain");
-            i.putExtra(Intent.EXTRA_SUBJECT, "Sharing LuxsCar app");
-            i.putExtra(Intent.EXTRA_TEXT, "Hi , Sign Up & and get discount on First ride on LuxsCar app .Please go to http://luxscar.com/app/signUp.php?inviter="+user_idd+"&src=app");
-            startActivity(Intent.createChooser(i, "Share URL"));
+            Intent intentq=new Intent(getApplicationContext(),ShareApp.class);
+            startActivity(intentq);
         }
 
 
