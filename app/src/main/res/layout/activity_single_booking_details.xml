@@ -46,10 +46,24 @@
                 </LinearLayout>
                 <TextView
 
+                    android:text="*300 km/day"
+                    android:textColor="@color/colorAccent"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="end"
+                    />
+
+                <TextView
+
                     android:text="@string/totCost" style="@style/confirmBooking_QueText" />
                 <TextView
                     android:id="@+id/tot_cost"
                     android:text="@string/lo" style="@style/confirmBooking_AnsText" />
+
+
                 <TextView
 
                     android:layout_marginTop="-5.0dip" android:text="@string/advAmt" style="@style/confirmBooking_QueText" />

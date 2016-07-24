@@ -1,12 +1,12 @@
 <resources>
-    <string name="app_name">Luxscarr</string>
+    <string name="app_name">LuxsCar</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="user_id">Empt</string>
     <string name="saved_high_score_default">Empti</string>
     <string name="action_settings">Log Out</string>
-    <string name="title_activity_single_car_detail">SingleCarDetail</string>
+    <string name="title_activity_single_car_detail">Car Detail</string>
     <string-array name="cancel_reasons">
         <item>-- Select a Reason --</item>
         <item>Accidentally Booked</item>
@@ -16,6 +16,7 @@
     </string-array>
     <string-array name="pickUps">
         <item>-- Select a Place --</item>
+        <item>Our Office</item>
         <item>Airport</item>
         <item>Railway Station</item>
         <item>CMBT Bus Stand</item>
@@ -52,7 +53,9 @@
     <string name="minAdvText">* You have to pay minimum Rs.2000 as advance</string>
     <string name="title_activity_about">About</string>
     <string name="aboutluxs">
-        Luxscar Travels is an customer friendly organization led by team of professionals in this field with vast experience to their credit. Every staff member is appreciated by the customers for their courteous service and friendly behaviour.We plan to redefine the concept of leisure travel and bring to our clients exclusive destinations off the beaten tourist track.We aim to attract travelers across the spectrum-from the top - end, exclusive, and corporate to the budget traveler, all of whom value time and leisure. While you can leave your entire travel planning to us, our team can also arrange holidays according to any specifications you may have.Top-of-the-line vehicles (Ford feata, toyota innova,Honda Amaze, Hyundai grand i10, Auto transmission vechile) and luxury limousines (Mercedes Benz) are available for you right from airport - hotel transfers (to-and-from), to in-city and out-of-city travel, We also invite your\'s white board car for long term attachment
+        Luxscar Travels is an customer friendly organization led by team of professionals in this field with vast experience to their credit. Every staff member is appreciated by the customers for their courteous service and friendly behaviour.We plan to redefine the concept of leisure travel and bring to our clients exclusive destinations off the beaten tourist track.We aim to attract travelers across the spectrum-from the top - end, exclusive, and corporate to the budget traveler, all of whom value time and leisure. While you can leave your entire travel planning to us, our team can also arrange holidays according to any specifications you may have.Top-of-the-line vehicles and luxury limousines  are available for you right from airport - hotel transfers (to-and-from), to in-city and out-of-city travel, We also invite your\'s white board car for long term attachment
     </string>
     <string name="share_app">Share APP</string>
+    <string name="title_activity_developers">Developers</string>
+
 </resources>

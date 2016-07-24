@@ -25,18 +25,25 @@
                         android:textColor="#ffffff"
                         android:background="@color/colorAccent"
                         android:textStyle="bold"
-                        android:text="6.7.16 to 30.7.16" style="@style/confirmBooking_AnsText" />
+                        android:text="@string/lo" style="@style/confirmBooking_AnsText" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:layout_marginRight="30dp"
+                        android:layout_marginBottom="5dp"
+                        android:text="*click to copy"/>
                     <TextView android:text="Minimum Purchase to Avail Offer" style="@style/confirmBooking_QueText" />
                     <TextView
                         android:id="@+id/usermob"
-                        android:text="Normal"
+                        android:text="@string/lo"
                         style="@style/confirmBooking_AnsText"
                         />
 
                     <TextView android:text="Maximum Discount" style="@style/confirmBooking_QueText" />
                     <TextView
                         android:id="@+id/usermail"
-                        android:text="Name" style="@style/confirmBooking_AnsText" />
+                        android:text="@string/lo" style="@style/confirmBooking_AnsText" />
 
                     <TextView android:text="Discount Type" style="@style/confirmBooking_QueText" />
                     <TextView
@@ -45,18 +52,18 @@
                         android:textColor="@color/colorPrimary"
                         android:background="#ffffff"
                         android:textSize="18dp"
-                        android:text="mobile number" style="@style/confirmBooking_AnsText" />
+                        android:text="@string/lo" style="@style/confirmBooking_AnsText" />
 
                     <TextView android:text="Expiry Date" style="@style/confirmBooking_QueText" />
                     <TextView
                         android:id="@+id/ride_totBook"
-                        android:text="0" style="@style/confirmBooking_AnsText" />
+                        android:text="@string/lo" style="@style/confirmBooking_AnsText" />
                     <TextView android:text="Coupon Added On" style="@style/confirmBooking_QueText" />
 
                     <TextView
                         android:id="@+id/ride_regDate"
                         android:layout_marginBottom="30dp"
-                        android:text="0" style="@style/confirmBooking_AnsText" />
+                        android:text="@string/lo" style="@style/confirmBooking_AnsText" />
 
 
 

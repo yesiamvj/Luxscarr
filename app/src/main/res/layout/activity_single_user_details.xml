@@ -19,8 +19,8 @@
                 <LinearLayout style="@style/mpwcvw">
                     <ImageView
                         android:layout_width="match_parent"
-                        android:layout_height="100dp"
-                        android:src="@mipmap/ic_launcher"
+                        android:layout_height="125dp"
+                        android:src="@drawable/luxscarico"
                         android:layout_marginTop="20dp"
                         android:layout_marginBottom="20dp"/>
                     <TextView android:text="Name" style="@style/confirmBooking_QueText" />
@@ -28,7 +28,7 @@
                         android:id="@+id/ride_username"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Vijayakumar"
+                        android:text="@string/lo"
                         android:paddingLeft="22dp"
                         android:textSize="23dp"
                         android:textColor="#f57c00"
@@ -38,30 +38,30 @@
                     <TextView android:text="Mobile" style="@style/confirmBooking_QueText" />
                     <TextView
                         android:id="@+id/usermob"
-                        android:text="Normal"
+                        android:text="@string/lo"
                         style="@style/confirmBooking_AnsText"
                         />
 
                     <TextView android:text="Email" style="@style/confirmBooking_QueText" />
                     <TextView
                         android:id="@+id/usermail"
-                        android:text="Name" style="@style/confirmBooking_AnsText" />
+                        android:text="@string/lo" style="@style/confirmBooking_AnsText" />
 
                     <TextView android:text="Licence No" style="@style/confirmBooking_QueText" />
                     <TextView
                         android:id="@+id/userlic"
-                        android:text="mobile number" style="@style/confirmBooking_AnsText" />
+                        android:text="@string/lo" style="@style/confirmBooking_AnsText" />
 
                     <TextView android:text="Total Bookings" style="@style/confirmBooking_QueText" />
                     <TextView
                         android:id="@+id/ride_totBook"
 
-                        android:text="0" style="@style/confirmBooking_AnsText" />
+                        android:text="@string/lo" style="@style/confirmBooking_AnsText" />
 
                     <TextView android:text="Discount Balance" style="@style/confirmBooking_QueText" />
                     <TextView
                         android:id="@+id/offerBalance"
-                        android:text="0" style="@style/confirmBooking_AnsText" />
+                        android:text="@string/lo" style="@style/confirmBooking_AnsText" />
                     <TextView
                         style="@style/mpwc"
                         android:paddingLeft="25dp"

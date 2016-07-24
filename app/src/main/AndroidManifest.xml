@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.ulgebra.luxscarr">
+    package="com.ulgebra.luxscar">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <application
         android:allowBackup="true"
@@ -39,40 +44,30 @@
         <activity
             android:name=".OtpRegistration"
             android:noHistory="true"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".MainActivity"
+            android:resumeWhilePausing="true" />
         <activity android:name=".BookDate" />
         <activity android:name=".Activate_Account" />
-        <activity android:name=".File_Upload" />
         <activity android:name=".AddNewCar" />
         <activity android:name=".Cameara" />
         <activity
             android:name=".BookingDetails"
             android:noHistory="true"
-            android:parentActivityName=".BrowseCars" />
+            android:resumeWhilePausing="true"
+            android:parentActivityName=".chekAct" />
         <activity android:name=".BookingHistory" />
         <activity
             android:name=".BrowseCars"
-            android:parentActivityName=".Welcome" />
+            android:parentActivityName=".Welcome"
+            android:resumeWhilePausing="true" />
         <activity
             android:name=".CancelBooking"
             android:parentActivityName=".SingleBookingDetails" />
         <activity android:name=".ConfirmBooking" />
         <activity
             android:name=".SingleCarDetail"
-            android:label="@string/title_activity_single_car_detail" />
-        <activity android:name=".AdminShownCars" />
-        <activity android:name=".AdminHiddenCars" />
-        <activity android:name=".AdminBookingHistory" />
-        <activity android:name=".AdminMainScreen" />
-        <activity
-            android:name=".Cars"
-            android:label="@string/title_activity_cars"
-            android:parentActivityName=".AdminMainScreen"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.ulgebra.luxscarr.AdminMainScreen" />
-        </activity>
+            android:label="@string/title_activity_single_car_detail"
+            android:parentActivityName=".chekAct" />
         <activity android:name=".SearchBooking" />
         <activity
             android:name=".Check_listview"
@@ -83,12 +78,8 @@
             android:noHistory="true"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Main3Activity"
-            android:label="@string/title_activity_main3"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".SingleBookingDetails"
-            android:parentActivityName=".BookingHistory" />
+            android:parentActivityName=".Welcome" />
         <activity android:name=".ExtendBooking" />
         <activity android:name=".UpdateExtendBooking" />
         <activity
@@ -105,7 +96,7 @@
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.ulgebra.luxscarr.Welcome" />
+                android:value="com.ulgebra.luxscar.Welcome" />
         </activity>
         <activity
             android:name=".AllOffers"
@@ -114,20 +105,23 @@
             android:name=".SingleOfferDetails"
             android:parentActivityName=".AllOffers" />
 
-        <uses-permission android:name="android.permission.RECEIVE_SMS"></uses-permission>
-        <uses-permission android:name="android.permission.READ_SMS" />
-        <uses-permission android:name="android.permission.SEND_SMS">
-            <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-        </uses-permission>
-
         <receiver android:name=".OtpRegistration$SmsListener">
             <intent-filter>
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>
         </receiver>
 
-        <activity android:name=".ShareApp"
-            android:parentActivityName=".Welcome"></activity>
+        <activity
+            android:name=".ShareApp"
+            android:parentActivityName=".Welcome" />
+        <activity
+            android:name=".Developers"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".Version"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".NoConnection" />
+        <activity android:name=".chekAct"></activity>
     </application>
 
 </manifest>

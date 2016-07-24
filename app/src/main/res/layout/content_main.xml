@@ -6,17 +6,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.ulgebra.luxscarr.MainActivity"
+    tools:context="com.ulgebra.luxscar.MainActivity"
     tools:showIn="@layout/app_bar_main">
 
     <ScrollView style="@style/mama" >
         <LinearLayout style="@style/mpwc"
             android:orientation="vertical">
-            <LinearLayout style="@style/topTitleBar">
+            <LinearLayout style="@style/topTitleBar"
+                android:layout_marginTop="0dp"
+                android:paddingTop="55dp">
 
                 <TextView
                     style="@style/topTitleText"
                     android:text="Registration"
+
                     />
                 <Button style="@style/topTitleShadow" />
 

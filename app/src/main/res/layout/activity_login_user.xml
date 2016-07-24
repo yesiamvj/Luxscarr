@@ -5,7 +5,7 @@
     android:id="@+id/activity_login_user"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.ulgebra.luxscarr.Login_user">
+    tools:context="com.ulgebra.luxscar.Login_user">
     <ScrollView style="@style/mama" >
         <LinearLayout style="@style/mpwc"
             android:orientation="vertical">

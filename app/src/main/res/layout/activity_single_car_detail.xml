@@ -25,7 +25,8 @@
                             style="@style/confirmBooking_QueText" />
                         <TextView
                             android:id="@+id/car_number"
-                            android:text="Loading..." style="@style/confirmBooking_AnsText" />
+                            android:lineSpacingExtra="10dp"
+                            android:text="Loading... " style="@style/confirmBooking_AnsText" />
                         <TextView
 
                             android:text="@string/costper"
@@ -33,6 +34,17 @@
                         <TextView
                             android:id="@+id/car_cost"
                             android:text="Loading..." style="@style/confirmBooking_AnsText" />
+                        <TextView
+
+                            android:text="*300 km/day"
+                            android:textColor="@color/colorAccent"
+                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginRight="20dp"
+                            android:layout_marginBottom="0dp"
+                            android:gravity="end"
+                            />
                         <TextView android:text="@string/carPho" style="@style/confirmBooking_QueText" />
 
                         <LinearLayout

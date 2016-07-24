@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.ulgebra.luxscarr.About"
+    tools:context="com.ulgebra.luxscar.About"
     tools:showIn="@layout/activity_about">
 
     <LinearLayout  style="@style/maPaWc"  android:orientation="vertical"
@@ -134,7 +134,8 @@
                 android:layout_marginBottom="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="LuxsCar v1.0"
+                android:text="LuxsCar v1.4"
+                android:onClick="viewDevs"
                 android:textAlignment="center"
                 android:textSize="20dp"
                 android:textStyle="bold"
@@ -146,7 +147,7 @@
                 android:layout_height="wrap_content"
                 android:text="Best use with Android Lollipop"
                 android:textAlignment="center"
-
+                android:onClick="viewDevs"
                 android:paddingBottom="30dp"/>
 
 
@@ -158,6 +159,7 @@
                 android:textColor="@android:color/tertiary_text_dark"
                 android:text=" an ulgebra product "
                 android:textAllCaps="false"
+                android:onClick="viewDevs"
                 android:textSize="16dp"/>
 
 

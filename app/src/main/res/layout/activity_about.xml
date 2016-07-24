@@ -5,12 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.ulgebra.luxscarr.About">
+    tools:context="com.ulgebra.luxscar.About">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="350dp"
         android:fitsSystemWindows="true"
         android:background="#000000"
 
@@ -23,7 +23,7 @@
             android:fitsSystemWindows="true"
             app:contentScrim="?attr/colorPrimary"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
-            android:background="@drawable/ic_launcher_w"
+            android:background="@drawable/luxscarico"
 
             >
 

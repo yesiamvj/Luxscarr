@@ -8,7 +8,7 @@
         <TextView
             android:id="@+id/bk_customer_name"
             style="@style/bookingHistory_carDate"
-            android:text="RaviKumar"
+            android:text="@string/lo"
             android:paddingBottom="0dp"
             android:textColor="#ffa000"
             android:paddingTop="10dp"

@@ -23,6 +23,7 @@
                             android:id="@+id/car_brand"
                             android:textColor="@color/colorPrimaryDark"
                             android:background="#f5f5f5"
+                            android:paddingBottom="10dp"
                             android:text="@string/lo" style="@style/browse_car_name" />
                         <TextView
                             android:id="@+id/car_cost"
@@ -36,6 +37,17 @@
                             <!--style="@style/browse_car_image" />-->
                     </LinearLayout>
                 </LinearLayout>
+                <TextView
+
+                    android:text="*300 km/day"
+                    android:textColor="@color/colorAccent"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="0dp"
+                    android:gravity="end"
+                    />
                 <TextView
                     android:layout_marginTop="15dp"
                     android:text="@string/totCost" style="@style/confirmBooking_QueText" />
@@ -83,7 +95,18 @@
                         android:singleLine="true" />
 
                 </android.support.design.widget.TextInputLayout>
-
+                <TextView
+                    android:id="@+id/extraPickCost"
+                    android:visibility="gone"
+                    android:text="@string/lo"
+                    android:textColor="@color/colorAccent"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="0dp"
+                    android:gravity="end"
+                    />
                 <TextView
 
                     android:layout_marginTop="-5.0dip" android:text="@string/pickT" style="@style/confirmBooking_QueText" />
@@ -97,8 +120,34 @@
                     android:background="#00897b"
                     android:color="#ffffff"
                     android:hint="Select Pick Up Time"/>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="15dp">
+
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginLeft="37dp"
+                        android:layout_marginStart="37dp"
+                        android:id="@+id/checkBoxFT" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/checkBoxFT"
+                        android:textColor="@color/colorPrimary"
+                        android:onClick="viewTerms"
+                        android:text="I agree to the Terms and Conditions"/>
+
+                </RelativeLayout>
                 <Button
                     android:id="@+id/cnfrm_booking"
+                    android:layout_marginBottom="30dp"
                     android:text="Confirm Booking" style="@style/carDetilEndBtn" />
             </LinearLayout>
         </LinearLayout>

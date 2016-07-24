@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.ulgebra.luxscarr.ShareApp">
+    tools:context="com.ulgebra.luxscar.ShareApp">
     <ScrollView style="@style/mama">
         <LinearLayout style="@style/mpwc"
             android:orientation="vertical">

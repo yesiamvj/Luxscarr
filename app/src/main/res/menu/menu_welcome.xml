@@ -1,7 +1,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.ulgebra.luxscarr.Welcome">
+    tools:context="com.ulgebra.luxscar.Welcome">
     <item
         android:id="@+id/action_myaccount"
         android:orderInCategory="100"
@@ -22,5 +22,11 @@
         android:id="@+id/action_about"
         android:orderInCategory="100"
         android:title="About"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_terms"
+        android:orderInCategory="100"
+        android:title="Terms - T&amp;C"
         app:showAsAction="never" />
 </menu>
