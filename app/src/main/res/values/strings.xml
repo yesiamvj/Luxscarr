@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">LuxsCar</string>
+    <string name="app_name">GetsCar</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -53,9 +53,17 @@
     <string name="minAdvText">* You have to pay minimum Rs.2000 as advance</string>
     <string name="title_activity_about">About</string>
     <string name="aboutluxs">
-        Luxscar Travels is an customer friendly organization led by team of professionals in this field with vast experience to their credit. Every staff member is appreciated by the customers for their courteous service and friendly behaviour.We plan to redefine the concept of leisure travel and bring to our clients exclusive destinations off the beaten tourist track.We aim to attract travelers across the spectrum-from the top - end, exclusive, and corporate to the budget traveler, all of whom value time and leisure. While you can leave your entire travel planning to us, our team can also arrange holidays according to any specifications you may have.Top-of-the-line vehicles and luxury limousines  are available for you right from airport - hotel transfers (to-and-from), to in-city and out-of-city travel, We also invite your\'s white board car for long term attachment
+        GetsCar Travels is an customer friendly organization led by team of professionals in this field with vast experience to their credit. Every staff member is appreciated by the customers for their courteous service and friendly behaviour.We plan to redefine the concept of leisure travel and bring to our clients exclusive destinations off the beaten tourist track.We aim to attract travelers across the spectrum-from the top - end, exclusive, and corporate to the budget traveler, all of whom value time and leisure. While you can leave your entire travel planning to us, our team can also arrange holidays according to any specifications you may have.Top-of-the-line vehicles and luxury limousines  are available for you right from airport - hotel transfers (to-and-from), to in-city and out-of-city travel, We also invite your\'s white board car for long term attachment
     </string>
     <string name="share_app">Share APP</string>
     <string name="title_activity_developers">Developers</string>
-
+    <string name="weltoap">Welcome to GetsCar</string>
+    <string name="regaltr">Alternatively they can put your Mobile Number as referrral number while registering through GetsCar App.</string>
+    <string name="discAdToAmt">Discount amount added to your account will be : </string>
+    <string name="disToFri">Discount amount added to your friend will be : </string>
+    <string name="gladTohave">Glad to have you on GetsCar</string>
+    <string name="appVers">GetsCar v2.0</string>
+    <string name="vers">Version</string>
+    <string name="anulgebra"> an ulgebra product </string>
+    <string name="developed_by">Developed by</string>
 </resources>

@@ -5,6 +5,6 @@
     android:id="@+id/activity_chek"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.ulgebra.luxscar.chekAct">
+    tools:context="com.ulgebra.getscar.chekAct">
 
 </android.support.constraint.ConstraintLayout>

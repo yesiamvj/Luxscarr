@@ -2,28 +2,47 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
     <LinearLayout
         android:id="@+id/single_car"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:background="#ffffffff"
+        android:weightSum="3"
          style="@style/mpwc">
-        <TextView
-            android:id="@+id/car_name"
-            style="@style/browse_car_name"
-            />
-        <TextView
-            android:id="@+id/car_cost"
-            style="@style/browse_car_price"
-            />
         <ImageView
             android:id="@+id/car_image"
-            style="@style/browse_car_image" />
+            style="@style/browse_car_image"
+            android:paddingLeft="5dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:orientation="vertical"
+            android:paddingTop="7dp"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/car_name"
+                style="@style/browse_car_name"
+                android:background="#ffffff"
+                android:textColor="@color/colorAccent"
+                />
+            <TextView
+                android:id="@+id/car_cost"
+                android:background="#ffffff"
+                style="@style/browse_car_price"
+                android:textColor="@color/colorPrimaryDark"
+                />
+        </LinearLayout>
+
+
     </LinearLayout>
-    <Button
-        android:id="@+id/viewDet_car"
-        android:layout_marginBottom="0dp"
-        android:text="View Details"  style="@style/browse_car_selectBtn" />
     <Button
         android:id="@+id/selc_car"
         android:background="#0277bd"
+        android:layout_weight="1"
+
         android:text="Select Car"  style="@style/browse_car_selectBtn" />
+
+
 
 </LinearLayout>

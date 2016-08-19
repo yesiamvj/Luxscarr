@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.ulgebra.luxscar.MainActivity"
+    tools:context="com.ulgebra.getscar.MainActivity"
     tools:showIn="@layout/app_bar_main">
 
     <ScrollView style="@style/mama" >
@@ -32,7 +32,7 @@
 
                 <TextView
                     style="@style/mpwc"
-                    android:text="Welcome to LuxsCar"
+                    android:text="@string/weltoap"
                     android:paddingTop="16dp"
                     android:paddingLeft="18dp"
                     android:layout_marginLeft="2dp"

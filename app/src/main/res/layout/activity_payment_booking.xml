@@ -5,7 +5,7 @@
     android:id="@+id/activity_payment_booking"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.ulgebra.luxscar.PaymentBooking">
+    tools:context="com.ulgebra.getscar.PaymentBooking">
 <ScrollView
     android:layout_width="match_parent"
     android:layout_height="match_parent">

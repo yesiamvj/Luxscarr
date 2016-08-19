@@ -5,7 +5,7 @@
     android:id="@+id/activity_search_booking"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.ulgebra.luxscar.SearchBooking">
+    tools:context="com.ulgebra.getscar.SearchBooking">
         <ScrollView style="@style/mama">
             <LinearLayout android:orientation="vertical" android:paddingBottom="10.0dip" style="@style/mpwc">
                 <LinearLayout android:orientation="vertical" android:layout_marginTop="0.0dip" style="@style/topTitleBar">
@@ -13,7 +13,7 @@
                     <Button style="@style/topTitleShadow" />
                 </LinearLayout>
                 <LinearLayout style="@style/mpwc">
-                    <TextView android:paddingLeft="18.0dip" android:paddingTop="5.0dip" android:paddingBottom="8dip" android:text="Welcome to LuxsCar" style="@style/mpwc" />
+                    <TextView android:paddingLeft="18.0dip" android:paddingTop="5.0dip" android:paddingBottom="8dip" android:text="@string/weltoap" style="@style/mpwc" />
                 </LinearLayout>
                 <LinearLayout style="@style/mpwcvw" android:padding="10dp" android:layout_margin="10dp">
                    <LinearLayout style="@style/mpwc" android:orientation="vertical">

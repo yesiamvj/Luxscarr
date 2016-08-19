@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#ffffff"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.ulgebra.luxscar.Developers"
+    tools:context="com.ulgebra.getscar.Developers"
    >
 
 <ScrollView

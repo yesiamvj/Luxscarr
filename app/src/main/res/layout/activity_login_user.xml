@@ -5,7 +5,7 @@
     android:id="@+id/activity_login_user"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.ulgebra.luxscar.Login_user">
+    tools:context="com.ulgebra.getscar.Login_user">
     <ScrollView style="@style/mama" >
         <LinearLayout style="@style/mpwc"
             android:orientation="vertical">
@@ -27,7 +27,7 @@
 
                 <TextView
                     style="@style/mpwc"
-                    android:text="Welcome to LuxsCar"
+                    android:text="@string/weltoap"
                     android:paddingTop="16dp"
                     android:paddingLeft="18dp"
                     android:layout_marginLeft="2dp"

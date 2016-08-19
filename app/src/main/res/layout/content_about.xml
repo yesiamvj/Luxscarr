@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.ulgebra.luxscar.About"
+    tools:context="com.ulgebra.getscar.About"
     tools:showIn="@layout/activity_about">
 
     <LinearLayout  style="@style/maPaWc"  android:orientation="vertical"
@@ -13,7 +13,7 @@
         <LinearLayout style="@style/ab_Holdr"
             android:orientation="vertical">
             <TextView style="@style/ab_Ttl"
-                android:text="Welcome to Luxscar"/>
+                android:text="Welcome to GetsCar"/>
             <LinearLayout style="@style/ab_uline"></LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -134,7 +134,7 @@
                 android:layout_marginBottom="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="LuxsCar v1.4"
+                android:text="@string/appVers"
                 android:onClick="viewDevs"
                 android:textAlignment="center"
                 android:textSize="20dp"

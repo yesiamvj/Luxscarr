@@ -5,7 +5,7 @@
     android:id="@+id/activity_book_date"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.ulgebra.luxscar.BookDate"
+    tools:context="com.ulgebra.getscar.BookDate"
     android:orientation="vertical">
 <ScrollView
     android:layout_width="match_parent"
@@ -56,6 +56,18 @@
                android:clipToPadding="true"
 
                android:datePickerMode="spinner"></DatePicker>
+            <LinearLayout style="@style/maPaWc"
+                android:layout_marginLeft="45dp"
+                android:layout_marginRight="45dp"
+                >
+                <Button style="@style/maPaWc"
+                    android:id="@+id/BtnSelctFromTime"
+                    android:background="#f5f5f5"
+                    android:layout_marginBottom="25dp"
+
+                    android:text="Select Time"
+                    />
+            </LinearLayout>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -70,6 +82,17 @@
                 android:layout_height="150dp"
                 android:calendarViewShown="false"
                 android:datePickerMode="spinner"></DatePicker>
+            <LinearLayout style="@style/maPaWc"
+                android:layout_marginLeft="45dp"
+                android:layout_marginRight="45dp"
+                >
+                <Button style="@style/maPaWc"
+                    android:id="@+id/BtnSelctToTime"
+                    android:background="#f5f5f5"
+                    android:layout_marginBottom="15dp"
+                    android:text="Select Time"
+                    />
+            </LinearLayout>
 
             <Button
                 android:id="@+id/prcd_btn"

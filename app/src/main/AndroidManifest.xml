@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.ulgebra.luxscar">
+    package="com.ulgebra.getscar">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -52,9 +52,8 @@
         <activity android:name=".Cameara" />
         <activity
             android:name=".BookingDetails"
-            android:noHistory="true"
-            android:resumeWhilePausing="true"
-            android:parentActivityName=".chekAct" />
+            android:parentActivityName=".chekAct"
+            android:resumeWhilePausing="true" />
         <activity android:name=".BookingHistory" />
         <activity
             android:name=".BrowseCars"
@@ -84,8 +83,7 @@
         <activity android:name=".UpdateExtendBooking" />
         <activity
             android:name=".PaymentBooking"
-            android:noHistory="true"
-            android:parentActivityName=".BookingDetails" />
+            />
         <activity
             android:name=".SingleUserDetails"
             android:parentActivityName=".Welcome" />
@@ -96,7 +94,7 @@
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.ulgebra.luxscar.Welcome" />
+                android:value="com.ulgebra.getscar.Welcome" />
         </activity>
         <activity
             android:name=".AllOffers"
@@ -121,7 +119,9 @@
             android:name=".Version"
             android:parentActivityName=".MainActivity" />
         <activity android:name=".NoConnection" />
-        <activity android:name=".chekAct"></activity>
+        <activity android:name=".chekAct" />
+        <activity android:name=".MyReferrals"
+            android:parentActivityName=".SingleUserDetails"></activity>
     </application>
 
 </manifest>

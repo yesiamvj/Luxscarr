@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.ulgebra.luxscar.Cars">
+    tools:context="com.ulgebra.getscar.Cars">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"

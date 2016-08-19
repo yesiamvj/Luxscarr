@@ -5,7 +5,7 @@
     android:id="@+id/activity_book_date"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.ulgebra.luxscar.ExtendBooking"
+    tools:context="com.ulgebra.getscar.ExtendBooking"
     android:orientation="vertical">
     <ScrollView
         android:layout_width="match_parent"

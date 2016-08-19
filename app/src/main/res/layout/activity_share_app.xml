@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.ulgebra.luxscar.ShareApp">
+    tools:context="com.ulgebra.getscar.ShareApp">
     <ScrollView style="@style/mama">
         <LinearLayout style="@style/mpwc"
             android:orientation="vertical">
@@ -59,13 +59,13 @@
                     android:layout_height="wrap_content"
                     android:textSize="17dp"
                     android:layout_marginBottom="10dp"
-                    android:text="Alternatively they can put your Mobile Number as referrral number while registering through LuxsCar App."/>
+                    android:text="@string/regaltr"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="17dp"
-                    android:text="Discount amount added to your account will be : "/>
+                    android:text="@string/discAdToAmt"/>
 
                 <TextView
                      android:layout_width="wrap_content"
@@ -82,7 +82,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="17dp"
-                    android:text="Discount amount added to your friend will be : "/>
+                    android:text="@string/disToFri"/>
 
 
 
