@@ -1,9 +1,12 @@
 package com.ulgebra.getscar;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
 import android.content.ClipData;
 import android.content.ClipboardManager;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
@@ -114,36 +117,36 @@ public class BookingDetails extends AppCompatActivity {
 
         });
 
-        editText=(Button)findViewById(R.id.editTxt);
-        editText.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                // TODO Auto-generated method stub
-                Calendar mcurrentTime = Calendar.getInstance();
-                int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
-                int minute = mcurrentTime.get(Calendar.MINUTE);
-                TimePickerDialog mTimePicker;
-                mTimePicker = new TimePickerDialog(BookingDetails.this, new TimePickerDialog.OnTimeSetListener() {
-                    @Override
-                    public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
-                        String extns;
-                        if(selectedHour>12){
-                            selectedHour=selectedHour-12;
-                             extns="PM";
-                        }
-                        else{
-                            selectedHour=selectedHour;
-                             extns="AM";
-                        }
-                        editText.setText( selectedHour + ":" + selectedMinute +" "+ extns);
-                    }
-                }, hour, minute, true);//Yes 24 hour time
-                mTimePicker.setTitle("Select Time");
-                mTimePicker.show();
-
-            }
-        });
+       // editText=(Button)findViewById(R.id.editTxt);
+//        editText.setOnClickListener(new View.OnClickListener() {
+//
+//            @Override
+//            public void onClick(View v) {
+//                // TODO Auto-generated method stub
+//                Calendar mcurrentTime = Calendar.getInstance();
+//                int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
+//                int minute = mcurrentTime.get(Calendar.MINUTE);
+//                TimePickerDialog mTimePicker;
+//                mTimePicker = new TimePickerDialog(BookingDetails.this, new TimePickerDialog.OnTimeSetListener() {
+//                    @Override
+//                    public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
+//                        String extns;
+//                        if(selectedHour>12){
+//                            selectedHour=selectedHour-12;
+//                             extns="PM";
+//                        }
+//                        else{
+//                            selectedHour=selectedHour;
+//                             extns="AM";
+//                        }
+//                        editText.setText( selectedHour + ":" + selectedMinute +" "+ extns);
+//                    }
+//                }, hour, minute, true);//Yes 24 hour time
+//                mTimePicker.setTitle("Select Time");
+//                mTimePicker.show();
+//
+//            }
+//        });
 
         Dialog= new ProgressDialog(BookingDetails.this);
 Dialog.setMessage("please wait");
@@ -162,7 +165,13 @@ Dialog.setMessage("please wait");
         String to_time= buns.getString("to_time");
         int from_to_diff=buns.getInt("from_to_diff");
 
-        String book_date=frm_day+"-"+frm_month+"-"+frm_year+" to "+to_day+"-"+tomonth+"-"+to_year;
+        if(to_time==null){
+            to_timeF="11:59 PM";
+        }
+        else {
+            to_timeF=to_time;
+        }
+        String book_date="From "+frm_day+"-"+frm_month+"-"+frm_year+" @ "+from_time+"\n\n"+" To "+to_day+"-"+tomonth+"-"+to_year+" , "+to_timeF;
         from_to_inp.setText(book_date);
         int car_id_input=buns.getInt("car_id");
         Log.v("car_ids=",car_id_input+"kk");
@@ -417,7 +426,7 @@ Dialog.setMessage("please wait");
                     String from_time= buns.getString("from_time");
                     String to_time= buns.getString("to_time");
                     int from_to_diff=buns.getInt("from_to_diff");
-                    String pickTimee=editText.getText().toString();
+                    String pickTimee=from_time;
                    // int hours=timePicker1.getCurrentHour();
                     //int min=timePicker1.getCurrentMinute();
 
@@ -456,8 +465,11 @@ Dialog.setMessage("please wait");
                     String bookf_date=frm_day+"-"+frm_month+"-"+frm_year;
                     String bookt_date=to_day+"-"+tomonth+"-"+to_year;
 
+                    pickUpLoate="";
+
                     if(spinner.getSelectedItemId()==5){
                         if(TextUtils.isEmpty(txt1.getText()) ){
+                            check_all=false;
                             txt1.setError("Required");
                             txt1.requestFocus();
 
@@ -469,9 +481,24 @@ Dialog.setMessage("please wait");
 
                     }
                     else {
+                        if(spinner.getSelectedItemId()==0){
+                            check_all=false;
+                            new AlertDialog.Builder(BookingDetails.this)
+                                    .setTitle(" Alert !")
+                                    .setMessage("Please Select Pick up location ")
+                                    .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            // continue with delete
+                                        }
+                                    })
+                                    .setIcon(android.R.drawable.ic_dialog_alert)
+                                    .show();
+                        }
+                        else{
+                            check_all=true;
+                            pickUpLoate=spinner.getSelectedItem().toString();
+                        }
 
-                        check_all=true;
-                         pickUpLoate=spinner.getSelectedItem().toString();
                     }
 
                     if(check_all==true){
@@ -500,7 +527,7 @@ Dialog.setMessage("please wait");
                         from_timeF=from_time;
                     }
                     if(to_time==null){
-                        to_timeF="11.59 PM";
+                        to_timeF="11:59 PM";
                     }
                     else {
                         to_timeF=to_time;
@@ -902,7 +929,7 @@ Dialog.setMessage("please wait");
                 Log.v("nett_error_booking",otpt.toString());
 
                 Intent intentCC=new Intent(getApplicationContext(),PaymentBooking.class);
-
+                finish();
                 startActivity(intentCC);
                 Toast.makeText(getApplicationContext(),otpt.toString(),Toast.LENGTH_LONG).show();
 
@@ -912,6 +939,7 @@ Dialog.setMessage("please wait");
 
                 // uiUpdate.setText("Output : "+Error);
                 //Log.i("my_err",Content);
+
             } else {
 
                 // Show Response Json On Screen (activity)
@@ -921,10 +949,6 @@ Dialog.setMessage("please wait");
 
                 String OutputData = "";
                 JSONObject jsonResponse;
-
-
-
-
 
             }
         }

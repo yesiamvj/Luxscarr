@@ -29,6 +29,8 @@ public class FragmentBookingDate extends Fragment {
     private int CalendarHour, CalendarMinute;
     DatePicker frm_dat_pic,to_date_pic;
     int fromHour,toHour,fromMin,toMin;
+    Boolean pickTSet=false;
+    Boolean toTimeSet=false;
     TimePickerDialog timepickerdialog,timepickerdialog2;
     Calendar calendar;
     Button prcd_btn,fromTimeBtn,toTimeBtn;
@@ -52,14 +54,14 @@ public class FragmentBookingDate extends Fragment {
 
 
 
-
+        calendar = Calendar.getInstance();
+        CalendarHour = calendar.get(Calendar.HOUR_OF_DAY);
+        CalendarMinute = calendar.get(Calendar.MINUTE);
 
         fromTimeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                calendar = Calendar.getInstance();
-                CalendarHour = calendar.get(Calendar.HOUR_OF_DAY);
-                CalendarMinute = calendar.get(Calendar.MINUTE);
+
                 timepickerdialog = new TimePickerDialog(rootView.getContext(),
                  new TimePickerDialog.OnTimeSetListener() {
 
@@ -68,6 +70,7 @@ public class FragmentBookingDate extends Fragment {
                                                   int minute) {
                                 fromHour=hourOfDay;
                                 fromMin=minute;
+                                pickTSet=true;
 
                                 if (hourOfDay == 0) {
 
@@ -93,6 +96,8 @@ public class FragmentBookingDate extends Fragment {
                                 }
                                 if(minute<10){
                                     minstr="0"+minute;
+                                }else {
+                                    minstr=minute+"";
                                 }
 
                                 fromTime=hourOfDay + ":" + minstr +" "+ fromFormat;
@@ -100,6 +105,7 @@ public class FragmentBookingDate extends Fragment {
                                fromTimeBtn.setText(hourOfDay + ":" + minstr +" "+ fromFormat);
                             }
                         }, CalendarHour, CalendarMinute, false);
+
                 timepickerdialog.show();
 
             }
@@ -108,9 +114,7 @@ public class FragmentBookingDate extends Fragment {
         toTimeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                calendar = Calendar.getInstance();
-                CalendarHour = calendar.get(Calendar.HOUR_OF_DAY);
-                CalendarMinute = calendar.get(Calendar.MINUTE);
+
                 timepickerdialog2 = new TimePickerDialog(rootView.getContext(),
                         new TimePickerDialog.OnTimeSetListener() {
 
@@ -119,6 +123,7 @@ public class FragmentBookingDate extends Fragment {
                                                   int minute) {
                                 toHour=hourOfDay;
                                 toMin=minute;
+                                toTimeSet=true;
                                 if (hourOfDay == 0) {
 
                                     hourOfDay += 12;
@@ -143,6 +148,9 @@ public class FragmentBookingDate extends Fragment {
                                 }
                                 if(minute<10){
                                     minstr="0"+minute;
+                                }
+                                else {
+                                    minstr=minute+"";
                                 }
                                 toTime=hourOfDay + ":" + minstr +" "+ toFormat;
 
@@ -289,6 +297,46 @@ public class FragmentBookingDate extends Fragment {
 
 
 
+                }
+
+                if(!pickTSet && toTimeSet){
+                    chkk=0;
+                    new AlertDialog.Builder(rootView.getContext())
+                            .setTitle(" Alert !")
+                            .setMessage("Please Select Pick Up Time")
+                            .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    // continue with delete
+                                }
+                            })
+                            .setIcon(android.R.drawable.ic_dialog_alert)
+                            .show();
+                }
+                if(!toTimeSet && pickTSet){
+                    chkk=0;
+                    new AlertDialog.Builder(rootView.getContext())
+                            .setTitle(" Alert !")
+                            .setMessage("Please Select Ride end time ")
+                            .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    // continue with delete
+                                }
+                            })
+                            .setIcon(android.R.drawable.ic_dialog_alert)
+                            .show();
+                }
+                if(!toTimeSet && !pickTSet){
+                    chkk=0;
+                    new AlertDialog.Builder(rootView.getContext())
+                            .setTitle(" Alert !")
+                            .setMessage("Please Select Pick up time and End time ")
+                            .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    // continue with delete
+                                }
+                            })
+                            .setIcon(android.R.drawable.ic_dialog_alert)
+                            .show();
                 }
 
                 if(grt==1){

@@ -312,7 +312,7 @@ public class SingleBookingDetails extends AppCompatActivity {
 //            });
 
             bookingHeaderDets.setText("Booking ID : #"+booking_iddd+" On "+booked_on+"");
-            from_to_inp.setText("From "+ride_form+" to "+ride_to+"");
+            from_to_inp.setText("From "+ride_form+" To "+ride_to+"");
             car_name_inp.setText(cars_name);
             car_regNo.setText(car_reg_no);
              tot_cost.setText("Rs. "+ride_total_cost);

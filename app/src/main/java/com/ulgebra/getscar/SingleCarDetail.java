@@ -85,12 +85,18 @@ public class SingleCarDetail extends AppCompatActivity {
         int to_day= buns.getInt("to_day");
         int tomonth=buns.getInt("to_mnth");
         int to_year=buns.getInt("to_year");
+        String from_time= buns.getString("from_time");
+        String to_time= buns.getString("to_time");
+        int from_to_diff=buns.getInt("from_to_diff");
         intent.putExtra("frm_day",frm_day);
         intent.putExtra("frm_mnth",frm_month);
         intent.putExtra("frm_year",frm_year);
         intent.putExtra("to_day",to_day);
         intent.putExtra("to_mnth",tomonth);
         intent.putExtra("to_year",to_year);
+        intent.putExtra("from_time",from_time);
+        intent.putExtra("to_time",to_time);
+        intent.putExtra("from_to_diff",from_to_diff);
         finish();
         startActivity(intent);
     }

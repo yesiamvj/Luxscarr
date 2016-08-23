@@ -134,7 +134,7 @@ public class Welcome extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         if (doubleBackToExitPressedOnce) {
-            super.onBackPressed();
+            System.exit(0);
             return;
         }
 

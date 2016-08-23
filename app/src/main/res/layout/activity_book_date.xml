@@ -65,7 +65,7 @@
                     android:background="#f5f5f5"
                     android:layout_marginBottom="25dp"
 
-                    android:text="Select Time"
+                    android:text="Select PickUp Time"
                     />
             </LinearLayout>
             <TextView

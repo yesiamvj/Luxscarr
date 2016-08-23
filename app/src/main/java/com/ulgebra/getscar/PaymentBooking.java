@@ -59,6 +59,8 @@ public class PaymentBooking extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), Welcome.class);
                 intent.putExtra("needTab",1);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 finish();
                 startActivity(intent);
                 return true; // Handle By application itself
