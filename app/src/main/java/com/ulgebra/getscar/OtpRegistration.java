@@ -201,7 +201,7 @@ resen_otp_inp.setOnClickListener(new View.OnClickListener() {
                 editor.putString("MEM1", otpt.substring(18,otpt.length()));
                 editor.commit();
 
-
+                //FirebaseMessaging.getInstance().subscribeToTopic("AdminNews");
                 String user_idd = myPrefs.getString("MEM1","");
                 Toast.makeText(getApplicationContext(), "Welcome to GetsCar...", Toast.LENGTH_LONG).show();
 

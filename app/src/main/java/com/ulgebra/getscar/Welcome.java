@@ -1,10 +1,13 @@
 package com.ulgebra.getscar;
 
+import android.app.AlertDialog;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.BitmapFactory;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
@@ -61,6 +64,7 @@ public class Welcome extends AppCompatActivity {
         Intent intent=getIntent();
         SharedPreferences myPrefs = this.getSharedPreferences("myPrefs", MODE_WORLD_READABLE);
         String oldOfferId = myPrefs.getString("lastOfferCode","");
+       String oldMsgId = myPrefs.getString("lastMsgCode","");
         int needTab=intent.getIntExtra("needTab",0);
         if(!isOnline())
         {
@@ -98,7 +102,7 @@ public class Welcome extends AppCompatActivity {
 
             try {
 
-                String serverURL2 = "http://luxscar.com/luxscar_app/todayOffer.php?oldID="+oldOfferId;
+                String serverURL2 = "http://luxscar.com/luxscar_app/todayOffer.php?oldID="+oldOfferId+"&msgId="+oldMsgId+"&c=p";
 
                 new LongOperation2().execute(serverURL2);
             }
@@ -179,6 +183,11 @@ public class Welcome extends AppCompatActivity {
         }
         if (id == R.id.action_offers) {
             Intent intentq=new Intent(getApplicationContext(),AllOffers.class);
+            startActivity(intentq);
+        }
+
+        if (id == R.id.action_adMsgs) {
+            Intent intentq=new Intent(getApplicationContext(),allMessages.class);
             startActivity(intentq);
         }
 
@@ -384,39 +393,78 @@ public class Welcome extends AppCompatActivity {
 
             }else{
 
-                if(otpt.contains("x")){
+                if(otpt.contains("x_x_x")){
                    // Toast.makeText(getApplicationContext(),"No new Offers",Toast.LENGTH_LONG).show();
 
                 }
                 else{
                     //Toast.makeText(getApplicationContext(),otpt,Toast.LENGTH_LONG).show();
+                    Log.v("otpt of offer id ",otpt);
+                    String[] otptArr=otpt.split("_",4);
 
-                    SharedPreferences myPrefs = getSharedPreferences("myPrefs", MODE_WORLD_READABLE);
-                    SharedPreferences.Editor editor = myPrefs.edit();
-                    editor.putString("lastOfferCode",otpt+"");
-                    editor.commit();
+                    String offerId=otptArr[0];
+                    String msgId=otptArr[1];
+                    String msgTtl=otptArr[2];
+                    String msgTxt=otptArr[3];
 
-                    NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(getApplicationContext());
-                    mBuilder.setSmallIcon(R.drawable.ic_menu_send);
-                    mBuilder.setContentTitle("GetsCar - New Offer");
-                    mBuilder.setContentText("Click to view your offers");
-                    mBuilder.setTicker("You have a new Offer on GetsCar");
-                    mBuilder.setAutoCancel(true);
+                    if(offerId.contains("x")){
 
-                    Intent resultIntent = new Intent(getApplicationContext(), AllOffers.class);
+                    }
+                    else{
+                        SharedPreferences myPrefs = getSharedPreferences("myPrefs", MODE_WORLD_READABLE);
+                        SharedPreferences.Editor editor = myPrefs.edit();
+                        editor.putString("lastOfferCode",offerId+"");
+                        editor.commit();
 
-                    TaskStackBuilder stackBuilder = TaskStackBuilder.create(getApplicationContext());
-                    stackBuilder.addParentStack(AllOffers.class);
-                    stackBuilder.addNextIntent(resultIntent);
-                    PendingIntent resultPendingIntent =
-                            stackBuilder.getPendingIntent(
-                                    0,
-                                    PendingIntent.FLAG_UPDATE_CURRENT
-                            );
-                    mBuilder.setContentIntent(resultPendingIntent);
-                    NotificationManager mNotificationManager =
-                            (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                    mNotificationManager.notify(1, mBuilder.build());
+                        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(getApplicationContext());
+                        mBuilder.setSmallIcon(R.drawable.ic_stat_name);
+                        mBuilder.setLargeIcon(BitmapFactory.decodeResource( getResources(), R.drawable.luxscarico));
+                        mBuilder.setContentTitle("GetsCar - New Offer");
+                        mBuilder.setContentText("Click to view your offers");
+                        mBuilder.setTicker("You have a new Offer on GetsCar");
+                        mBuilder.setAutoCancel(true);
+
+                        Intent resultIntent = new Intent(getApplicationContext(), AllOffers.class);
+
+                        TaskStackBuilder stackBuilder = TaskStackBuilder.create(getApplicationContext());
+                        stackBuilder.addParentStack(AllOffers.class);
+                        stackBuilder.addNextIntent(resultIntent);
+                        PendingIntent resultPendingIntent =
+                                stackBuilder.getPendingIntent(
+                                        0,
+                                        PendingIntent.FLAG_UPDATE_CURRENT
+                                );
+                        mBuilder.setContentIntent(resultPendingIntent);
+                        NotificationManager mNotificationManager =
+                                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                        mNotificationManager.notify(1, mBuilder.build());
+                    }
+                    if(msgId.contains("x")){
+
+                    }
+                    else{
+                        SharedPreferences myPrefs = getSharedPreferences("myPrefs", MODE_WORLD_READABLE);
+                        SharedPreferences.Editor editor = myPrefs.edit();
+                        editor.putString("lastMsgCode",msgId+"");
+                        editor.commit();
+
+
+                        AlertDialog.Builder builder = new AlertDialog.Builder(Welcome.this);
+                        builder.setMessage(msgTxt)
+                                .setCancelable(false)
+                                .setTitle(msgTtl)
+                                .setIcon(R.mipmap.ic_launcher)
+                                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+                                       // Welcome.this.finish();
+                                    }
+                                });
+                        AlertDialog alert = builder.create();
+
+                        alert.show();
+                    }
+
+
 
                 }
 

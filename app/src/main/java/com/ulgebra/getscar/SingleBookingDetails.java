@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -32,7 +33,7 @@ import java.util.ArrayList;
 public class SingleBookingDetails extends AppCompatActivity {
 
 
-    String balToPayy,pickUpTime,pickUpLocation,booking_iddd,ride_discount,car_image,cars_name,car_number,ride_form,ride_to,ride_advance,booked_on,ride_total_cost,car_reg_no;
+    String balToPayy,pickUpTime,pickUpLocation,ride_pos,booking_iddd,ride_discount,car_image,cars_name,car_number,ride_form,ride_to,ride_advance,booked_on,ride_total_cost,car_reg_no;
 
     int car_id,cost,total_cost;
     double adv_amt;
@@ -211,6 +212,7 @@ public class SingleBookingDetails extends AppCompatActivity {
                          ride_advance=jsonChildNode.optString("paid_cost").toString();
                          booked_on=jsonChildNode.optString("booked_on").toString();
                         booking_iddd=jsonChildNode.optString("booking_id").toString();
+                        ride_pos=jsonChildNode.optString("ride_pos").toString();
                         ride_total_cost=jsonChildNode.optString("ride_price").toString();
                         ride_discount=jsonChildNode.optString("ride_discount").toString();
                         pickUpTime=jsonChildNode.optString("pickUpTime").toString();
@@ -279,27 +281,83 @@ public class SingleBookingDetails extends AppCompatActivity {
             TextView pickUpLocTxt=(TextView)findViewById(R.id.pickUpLocTxt);
             TextView pickUpAtTxt=(TextView)findViewById(R.id.pickUpAtTxt);
             TextView balToPayTxt=(TextView)findViewById(R.id.balToPay);
+            TextView ride_sts=(TextView)findViewById(R.id.ride_sts);
             TextView bookingHeaderDets=(TextView)findViewById(R.id.bookingHeaderDets);
             //ImageView car_image_inp=(ImageView)findViewById(R.id.car_image_inps);
             Button cancel_bookBtn=(Button)findViewById(R.id.cancel_booking);
+            Button rideOverviewBtn=(Button)findViewById(R.id.overviewBtn);
           //  Button edit_bookingBtn=(Button)findViewById(R.id.edit_booking);
             final TextView adv_amont=(TextView)findViewById(R.id.adv_amount);
             final TextView tot_cost=(TextView)findViewById(R.id.tot_cost);
 
-
-
-            cancel_bookBtn.setOnClickListener(new View.OnClickListener() {
+            rideOverviewBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
-
-                  Intent intentcn=new Intent(getApplicationContext(),CancelBooking.class);
-                    intentcn.putExtra("booking_idd",booking_iddd);
-                    startActivity(intentcn);
+                    Intent intentcn=new Intent(getApplicationContext(),Ride_Overview.class);
+                    intentcn.putExtra("booking_id",booking_iddd);
+                    startActivityForResult(intentcn,1);
 
 
                 }
             });
+
+
+
+
+            if(ride_pos.contains("0")) {
+                cancel_bookBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+
+                        Intent intentcn = new Intent(getApplicationContext(), CancelBooking.class);
+                        intentcn.putExtra("booking_idd", booking_iddd);
+                        startActivity(intentcn);
+
+
+                    }
+                });
+            }
+            else {
+                cancel_bookBtn.setVisibility(View.GONE);
+            }
+
+            if(ride_pos.contains("1")) {
+                ride_sts.setText("Currently On Ride");
+                ride_sts.setTextSize(25f);
+                ride_sts.setTextColor(Color.rgb(0,100,0));
+
+            }
+            if(ride_pos.contains("2")) {
+                ride_sts.setText("Ride Completed & Returned , Payment Not Settled");
+//                startBookBtn.setText("Settlement");
+//                startBookBtn.setBackgroundColor(Color.GREEN);
+//                startBookBtn.setTextColor(Color.BLACK);
+//                startBookBtn.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//
+//                        Intent intentcn=new Intent(getApplicationContext(),Settlement.class);
+//                        intentcn.putExtra("booking_idd",booking_iddd);
+//                        startActivityForResult(intentcn,1);
+//
+//
+//                    }
+//
+//                });
+            }
+            if(ride_pos.contains("5")){
+                ride_sts.setText("Ride Completed");
+
+
+
+            }
+            if(ride_pos.contains("0")){
+
+                ride_sts.setText("Ride Not Yet Started");
+
+            }
 //            edit_bookingBtn.setOnClickListener(new View.OnClickListener() {
 //                @Override
 //                public void onClick(View v) {

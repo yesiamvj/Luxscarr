@@ -280,11 +280,11 @@ public class FragmentBookingDate extends Fragment {
 
 
 
-                    if(diff_day<3){
+                    if(diff_day<2){
                         chkk=0;
                         new AlertDialog.Builder(rootView.getContext())
                                 .setTitle("Sorry !")
-                                .setMessage("Minimum booking period is 3 days")
+                                .setMessage("Minimum booking period is 2 days")
                                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int which) {
                                         // continue with delete

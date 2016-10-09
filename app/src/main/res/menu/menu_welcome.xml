@@ -13,6 +13,12 @@
         android:title="Offers"
         app:showAsAction="never" />
     <item
+        android:id="@+id/action_adMsgs"
+        android:orderInCategory="100"
+        android:title="Messages"
+        app:showAsAction="never" />
+
+    <item
         android:id="@+id/action_share"
         android:orderInCategory="100"
         android:title="Share"

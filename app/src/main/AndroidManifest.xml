@@ -61,7 +61,7 @@
             android:resumeWhilePausing="true" />
         <activity
             android:name=".CancelBooking"
-            android:parentActivityName=".SingleBookingDetails" />
+            android:parentActivityName=".checkAct2" />
         <activity android:name=".ConfirmBooking" />
         <activity
             android:name=".SingleCarDetail"
@@ -122,6 +122,12 @@
         <activity android:name=".chekAct" />
         <activity android:name=".MyReferrals"
             android:parentActivityName=".SingleUserDetails"></activity>
+        <activity android:name=".Ride_Overview"
+            android:parentActivityName=".checkAct2"></activity>
+        <activity android:name=".allMessages"
+            android:parentActivityName=".Welcome"></activity>
+
+
     </application>
 
 </manifest>

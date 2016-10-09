@@ -145,6 +145,22 @@
                         android:text="I agree to the Terms and Conditions"/>
 
                 </RelativeLayout>
+                <TextView
+                    android:id="@+id/noteToUser"
+
+                    android:text="Minimum amount to book a ride and hold that car -> Rs 2000 \n You have to pay the full balance amount and caution deposit while starting the ride"
+                    android:textColor="#009688"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="0dp"
+                    android:gravity="end"
+                    android:paddingTop="20px"
+                    android:paddingBottom="20px"
+                    android:paddingLeft="30px"
+                    android:paddingRight="30px"
+                    />
                 <Button
                     android:id="@+id/cnfrm_booking"
                     android:layout_marginBottom="30dp"
